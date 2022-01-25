@@ -1,5 +1,5 @@
 import { faAddressCard, faBuilding, faUser } from "@fortawesome/free-regular-svg-icons"
-import { faAddressBook, faAward, faBarcode, faCoffee, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyBill, faMoneyCheck, faPiggyBank, faSimCard, faUserEdit, faVrCardboard } from "@fortawesome/free-solid-svg-icons"
+import { faAddressBook, faAward, faBarcode, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyCheck, faSimCard, faUserEdit, faVrCardboard } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CadenceCode } from "./SmartContractExamples"
 import { TXexamples } from "./TransactionExamples"

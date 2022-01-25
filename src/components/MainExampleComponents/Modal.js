@@ -1,7 +1,6 @@
-import { far } from '@fortawesome/free-regular-svg-icons';
 import React from 'react';
-import { a11yDark, a11yLight, arta, atomOneDark, codepen, CopyBlock, github, googlecode, irBlack, monoBlue, monokai, obsidian, paraisoDark, paraisoLight, purebasic, railscast, rainbow, shadesOfPurple, solarizedDark, solarizedLight, sunburst, tomorrow, tomorrowNight, zenburn } from 'react-code-blocks';
-import { BeakerIcon, InformationCircleIcon } from '@heroicons/react/outline'
+import { atomOneDark, CopyBlock, github } from 'react-code-blocks';
+import { InformationCircleIcon } from '@heroicons/react/outline'
 
 
 function Modal({data, setToggle}) {

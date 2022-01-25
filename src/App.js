@@ -1,12 +1,9 @@
 import './App.css';
 import Nav from './components/Nav';
 import PreviewBox from './components/MainExampleComponents/PreviewBox';
-import Searchbox from './components/MainExampleComponents/Searchbox';
 import { flowExamples } from './examples/FlowExamples';
 import {
-  Switch,
   Route,
-  Link,
   Routes
 } from "react-router-dom";
 import MarketplaceBP from './components/BestPractices/MarketplaceBP';
