@@ -10,7 +10,6 @@ import MarketplaceBP from './components/BestPractices/MarketplaceBP';
 
 
 function App() {
-  console.log(flowExamples)
 
   return (
     <div className="App">
