@@ -1,7 +1,7 @@
 
 
 export const CadenceCode = [
-{Code: `pub resource NFTMinter:{
+{Code: `pub resource NFTMinter {
 
     // mintNFT mints a new NFT with a new ID
     // and deposit it in the recipients collection using their collection reference
@@ -699,7 +699,7 @@ self.account.link<&SetAndSeries.Admin>(
 // functions
 //
 pub resource Admin {
-    
+
 .....
 
     pub fun createNewAdmin(): @Admin {
