@@ -1,5 +1,5 @@
 import { faAddressCard, faBuilding, faUser } from "@fortawesome/free-regular-svg-icons"
-import { faAddressBook, faAward, faBarcode, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyCheck, faSimCard, faUserEdit, faVrCardboard } from "@fortawesome/free-solid-svg-icons"
+import { faAddressBook, faCoffee, faAward, faBarcode, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyCheck, faSimCard, faUserEdit, faVrCardboard, faBasketballBall } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CadenceCode } from "./SmartContractExamples"
 import { TXexamples } from "./TransactionExamples"
@@ -353,22 +353,120 @@ export const flowExamples = [
         Icon:<FontAwesomeIcon icon={faUserEdit} color='white' size='lg'/>, 
         BgColor:"#f4a460"
     },
-    // {
-    //     ExampleName: "Admin Resource", 
-    //     ExampleDescription: "", 
-    //     ExampleCode: "", 
-    //     TransactionCode:"", 
-    //     Category:"", 
-    //     CadenceExplainer: `
+    {
+        ExampleName: "Create a TopShot Play", 
+        ExampleDescription: "Using the TopShot contract, this is how you would create a Play to start adding them to your sets and mint moments out of them.", 
+        ExampleCode: CadenceCode[15].Code, 
+        TransactionCode:TXexamples[15].Tx, 
+        Category:"TopShot", 
+        CadenceExplainer: `In the TopShot contract when you are creating a Play that will be included in sets as a moment you first have to start your contract off by creating a dictionary that stores all of the plays you create. Also you would create a variable called nextPlayID to make sure you aren't overlapping on ID's.
 
-    //     `,
-    //     TransactionExplainer: `
+        Then you would create a structure that would be stored in the playDatas dictionary. Here, all that is needed for the Play struct is to input a parameter for metadata which is an object containing strings.
 
-    //     `,
-    //     PlaygroundLink:"https://play.onflow.org/5f7fb413-2dda-44dd-ab9d-429e1dece6d7?type=tx&id=4840ed82-4fe0-4560-a222-07b8fa8f72ac",
-    //     Icon:<FontAwesomeIcon icon={faCoffee} color='white' size='lg'/>, 
-    //     BgColor:"#220a00"
-    // },
+        Once these are established, you would have an admin resource that would hold the ability to create a new play. For more information on Admin resources check out the Admin resource example.
+
+        Here you would call the createPlay function that takes in a metadata argument. You would then create the new play by passing in the metadata. You would also take the newPlay's ID so that you can use it to assign the struct to the dictionary.
+
+        Then you would increment the ID so that it can't be used again, emit a PlayCreated event, and store the newPlay in the dictionary.
+
+        `,
+        TransactionExplainer: `To create a play, you first need to get a reference to the admin resource from the AuthAccount. 
+        
+        Once you receive that reference you can then create a play that gets stored in the playDatas dictionary.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=2b1db24f-95fa-44fa-8a7c-149e47c5c226&storage=none",
+        Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
+        BgColor:"#f7b1b6"
+    },
+    {
+        ExampleName: "Create a TopShot Set", 
+        ExampleDescription: "Using the TopShot contract, this is how you would create a set so that you could add plays to them and mint moments from those plays.", 
+        ExampleCode: CadenceCode[16].Code, 
+        TransactionCode:TXexamples[16].Tx, 
+        Category:"TopShot", 
+        CadenceExplainer: `Simlarly to creating a Play, when you're creating a set you want to have dictionaries. The first dictionary would be one for SetData structures and the second dictionary would be for Set Resources. You'd also include a nextSetID that makes sure you don't overlap on sets.
+
+        Your SetData struct would contain information pertaining to the naming of the Set. That's the only parameter you would need to pass in the create a new struct. The SetData would take in nextSetID variable and the currentSeries variable to finishing creating the struct.
+
+        You would also need to define a resource called Set. When this resource is being initialized it will need to have an ID defined, an array that can store plays you have created, a boolean variable that checks what plays have been retired from being created in the current set, a lock variable that determines if you can add more plays to the set, and a dictionary that maps how many moments have been minted per play.
+
+        When you initialize a set, you also take in a name parameter that gets passed into the SetData struct so that it can be added to the contracts storage in the SetData dictionary. Once that is created you have a set resource that you can put minting functions and whole bunch of other things in to deal with creating NFT's and adding Plays.
+
+        To create a set, you would have a function in your admin resource that would allow you to do so. You would call the createSet function and pass in a name for the set. You'd create a Set by calling the create function on a resource and pass in the parameters. You'd then increment your setID so that it's not used again. Then you'd get the ID of the newly created Set resource, emit an event that you created a set and then add the new Set resource to be mapped in the Sets dictionary.
+
+        `,
+        TransactionExplainer: `To create a set, you first need to get a reference to the admin resource from the AuthAccount. 
+        
+        Once you receive that reference you can then create a set that gets stored in the sets and setsData dictionary.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=9e42f1aa-3f25-4ffc-87f0-b9d109e1d851&storage=none",
+        Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
+        BgColor:"#a3d9c9"
+    },
+    {
+        ExampleName: "Add a Play to TopShot Set", 
+        ExampleDescription: "Once you have a set created and some plays, you can use this to add a play to a TopShot Set that can later be minted.", 
+        ExampleCode: CadenceCode[17].Code, 
+        TransactionCode:TXexamples[17].Tx, 
+        Category:"TopShot", 
+        CadenceExplainer: `Once you have a set created and you've created some plays, you can then add a play to your set by calling the addPlay function in your set.
+
+        You would need to pass in the playId's to have them available in the set. Before the function goes through it will check to see if the playID actually exists. If not you'll need to use another one, or create on.
+
+        It will also check if the Set has been locked, meaning no more plays can be added, or if the play has already been added to the set.
+
+        Once that check is complete, it will add the play to the array of play ID's in the set. The function will also include the play ID in a retired dictionary and set the boolean as false. The number minted per play ID will also be included in a dictionary and initialized as 0.
+
+        Finally you would emit an event that the play has been added to the set.
+
+        `,
+        TransactionExplainer: `To add a play to a set you will need to borrow a reference to the admin resource from the Auth Account. 
+
+        Once you do, you will need to borrow the set that you would like access to by calling the borrowSet function. This gets whatever setID is created that you want to have access to.
+
+        When that happens you would just use the addPlay function to add whichever plays you have already created to this set.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=c6627028-4fbc-416a-b8d7-0c433e6a85f6&storage=none",
+        Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
+        BgColor:"#757575"
+    },
+    {
+        ExampleName: "Minting a Moment in TopShot Set", 
+        ExampleDescription: "You've added plays in your set, now it's time to mint them. This code will mint moments or plays in your TopShot sets.", 
+        ExampleCode: CadenceCode[18].Code, 
+        TransactionCode:TXexamples[18].Tx, 
+        Category:"TopShot", 
+        CadenceExplainer: `You would find the function the mint a moment in your Set resource. To mint a momemnt you would call on this function and input the playID you would like to mint.
+
+        Remember when we added our play to the set we intialized the moments as 0 so when you mint a moment it will add 1 to that minted moment per play. Before we mint however, we check to see if the play exists in the set or if the play is retired.
+
+        If not, we then get the number of momemnts minted for this play and store that number variable in numInPlay. We would then mint a new Moment as an NFT resource type. We would send in all the parameters specified for the NFT and once we mint that new Moment we then increase the number of moments minted for this play by one.
+
+        We then return the moment with is of an NFT resource type, to later be stored in a collection in a receivers account.
+
+        We could also batch mint these moments. This would save a lot of time if you wanted to mint 60,000 moments. When doing this, you would have to create a collection resource that would deposit all of the minted NFT's into it.
+
+        Once that happens you would return the collection resource and then deposit that into the receivers collection.
+
+        `,
+        TransactionExplainer: `To mint a moment you will need to borrow a reference to the admin resource from the Auth Account. 
+
+        Once you do, you will need to borrow the set that you would like access to by calling the borrowSet function. This gets whatever setID is created that you want to have access to.
+
+        You will also need to have the capability to receive the NFT or NFT's for the receiving account referenced.
+
+        In this case we use the batchMintMoment to return a collection of minted NFT's that we can store it into the receivers collection.
+
+        Then we specify what playID we would like to mint and how many moments will be minted. After that we deposit the collection that is returned into the receivers account.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=d24e3b31-7576-4e7e-b27e-2ed422406187&storage=none",
+        Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
+        BgColor:"#50bfe6"
+    },
     // {
     //     ExampleName: "Admin Resource", 
     //     ExampleDescription: "", 

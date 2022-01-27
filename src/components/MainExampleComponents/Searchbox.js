@@ -19,7 +19,7 @@ function Searchbox({setResults, flowExamples, categories}) {
                 <select className='p-2 border-2 border-gray-100 rounded-lg text-gray-400 w-64 ml-10' defaultValue="default" onChange={(e) => filterData(e.target.value, flowExamples, setResults)}>
                     <option value="">All</option>
                     {categories?.map((category) =>
-                        <option className='text-slate-800' value={category}>{category}</option>
+                        <option className='text-slate-800' value={category} key={category}>{category}</option>
                     )}
                 </select>
             </div>

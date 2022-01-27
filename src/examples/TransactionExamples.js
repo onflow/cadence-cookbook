@@ -424,15 +424,106 @@ let adminCheck: &SetAndSeries.Admin
 
 `},
 {Tx: `
+import TopShot from 0x01
+
+
+transaction {
+
+    let admin: &TopShot.Admin
+
+	prepare(acct: AuthAccount) {
+    
+    self.admin = acct.borrow<&TopShot.Admin>(from: /storage/TopShotAdmin)
+    ?? panic("Cant borrow admin resource")
+
+    }
+
+   
+	execute {
+    self.admin.createPlay(metadata: {"Rookie": "2004", "Player Name": "Dwight Howard"})
+    self.admin.createPlay(metadata: {"Rookie": "2003", "Player Name": "Dwayne Wade"})
+    log("play created")
+	}
+}
+`},
+{Tx: `
+import TopShot from 0x01
+
+
+transaction {
+    
+    let admin: &TopShot.Admin
+
+	prepare(acct: AuthAccount) {
+    
+        self.admin = acct.borrow<&TopShot.Admin>(from: /storage/TopShotAdmin)
+        ?? panic("Cant borrow admin resource")
+
+    }
+
+    execute{
+        self.admin.createSet(name: "Rookies")
+        log("set created")
+    }
+}
 
 `},
 {Tx: `
+import TopShot from 0x01
+
+
+transaction {
+    
+    let admin: &TopShot.Admin
+
+    let borrowedSet: &TopShot.Set
+
+	prepare(acct: AuthAccount) {
+    
+        self.admin = acct.borrow<&TopShot.Admin>(from: /storage/TopShotAdmin)
+        ?? panic("Cant borrow admin resource")
+
+        self.borrowedSet = self.admin.borrowSet(setID: 1)
+
+    }
+
+    execute{
+        self.borrowedSet.addPlay(playID: 1)
+        self.borrowedSet.addPlay(playID: 2)
+        self.borrowedSet.addPlay(playID: 3)
+        log("play added")
+    }
+}
 
 `},
 {Tx: `
+import TopShot from 0x01
 
-`},
-{Tx: `
+
+transaction {
+    
+    let admin: &TopShot.Admin
+
+    let borrowedSet: &TopShot.Set
+
+	prepare(acct: AuthAccount) {
+    
+        self.admin = acct.borrow<&TopShot.Admin>(from: /storage/TopShotAdmin)
+        ?? panic("Cant borrow admin resource")
+
+        self.borrowedSet = self.admin.borrowSet(setID: 1)
+
+        let recieverRef = acct.getCapability<&{TopShot.MomentCollectionPublic}>(/public/MomentCollection).borrow() ?? panic("Can't borrow collection ref")
+
+        let collection <- self.borrowedSet.batchMintMoment(playID: 3, quantity: 3)
+
+        recieverRef.batchDeposit(tokens: <- collection)
+    }
+
+    execute{
+        log("plays minted")
+    }
+}
 
 `},
 {Tx: `

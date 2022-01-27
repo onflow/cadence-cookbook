@@ -11,7 +11,7 @@ function Nav() {
                     <Link to="/">Examples</Link>
                 </div>
                 <div className=" pl-6 hover:font-medium hover:text-green-400">
-                <Link to="/marketplace-bestpractices">Marketplace Best Practices</Link>
+                {/* <Link to="/marketplace-bestpractices">Marketplace Best Practices</Link> */}
                 </div>
             </div>
         </div>
