@@ -1,5 +1,5 @@
 import { faAddressCard, faBuilding, faUser } from "@fortawesome/free-regular-svg-icons"
-import { faAddressBook, faCoffee, faAward, faBarcode, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyCheck, faSimCard, faUserEdit, faVrCardboard, faBasketballBall } from "@fortawesome/free-solid-svg-icons"
+import { faAddressBook, faCoffee, faAward, faBarcode, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyCheck, faSimCard, faUserEdit, faVrCardboard, faBasketballBall, faStore, faShoppingBag, faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CadenceCode } from "./SmartContractExamples"
 import { TXexamples } from "./TransactionExamples"
@@ -8,7 +8,7 @@ import { TXexamples } from "./TransactionExamples"
 
 export const flowExamples = [
     {
-        ExampleName: "NFT Minter", 
+        ExampleName: "Mint NFT's", 
         ExampleDescription: "This is for minting NFT's. It includes the minting resource that you can use in your smart contract, as well as the transaction to mint from the deployed account. It can be included in your smart contract along with the NFT Standard", 
         ExampleCode: CadenceCode[0].Code, 
         TransactionCode: TXexamples[0].Tx, 
@@ -27,9 +27,10 @@ export const flowExamples = [
         At the end you are executing the transaction and minting the NFT.
         
         `,
-        PlaygroundLink:"https://play.onflow.org/e5aa9cbb-e7c3-4b69-8b1b-259893584e00?type=tx&id=bed0ca24-965d-480f-ba97-314073e9d120",
+        PlaygroundLink:"https://play.onflow.org/41befd2d-31f3-47f0-ae30-aad776961e31?type=tx&id=7e5fff15-3186-4562-9871-9e9aa99cce66&storage=none",
         Icon:<FontAwesomeIcon icon={faVrCardboard} color='white' size='lg'/>, 
-        BgColor:"#6a5acd"
+        BgColor:"#6a5acd",
+        Index: 0
     },
     {
         ExampleName: "Collection's for holding NFT's", 
@@ -49,9 +50,10 @@ export const flowExamples = [
         We then create a public capability to this resource by linking the interface that contains functions the public can use on this resource for this account.
         
         `,
-        PlaygroundLink:"https://play.onflow.org/5f7fb413-2dda-44dd-ab9d-429e1dece6d7?type=tx&id=4840ed82-4fe0-4560-a222-07b8fa8f72ac",
+        PlaygroundLink:"https://play.onflow.org/41befd2d-31f3-47f0-ae30-aad776961e31?type=tx&id=88850298-bed1-4bb9-b77e-4df200f76278&storage=none",
         Icon:<FontAwesomeIcon icon={faAddressBook} color='white' size='lg'/>, 
-        BgColor:"#6c8d7d"
+        BgColor:"#6c8d7d",
+        Index: 1
     },
     {
         ExampleName: "Creating Collection For Account", 
@@ -69,9 +71,10 @@ export const flowExamples = [
         We then create a public capability to this resource by linking the interface that contains functions the public can use on this resource for this account.
         
         `,
-        PlaygroundLink:"https://play.onflow.org/e5aa9cbb-e7c3-4b69-8b1b-259893584e00?type=tx&id=dd997d02-ffcc-4b37-91ea-a4e571a46624",
+        PlaygroundLink:"https://play.onflow.org/41befd2d-31f3-47f0-ae30-aad776961e31?type=tx&id=88850298-bed1-4bb9-b77e-4df200f76278&storage=none",
         Icon:<FontAwesomeIcon icon={faAddressCard} color='white' size='lg'/>, 
-        BgColor:"#f4a460"
+        BgColor:"#f4a460",
+        Index: 2
     },
     {
         ExampleName: "NFT with Metadata", 
@@ -81,7 +84,7 @@ export const flowExamples = [
         Category:"Metadata", 
         CadenceExplainer: `This is a NFT resource that abides by the NFT standard and the Metadata standard. It imports both interfaces into the resource.
 
-        From there, metadata such as id, name, thumbnail, and description are defined and initialized. The functions to resolveView and getViews are also included to make viewing the metadata easy. 
+        From there, metadata such as id, name, thumbnail, description, power, will, and determination are defined and initialized. The functions to resolveView and getViews are also included to make viewing the metadata easy. 
         
         `,
         TransactionExplainer: `Because the above smart contract has metadata in the NFT that is initialized, when minting the NFT you will need to send in those parameters in your transaction.
@@ -91,7 +94,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/41befd2d-31f3-47f0-ae30-aad776961e31?type=account&id=2a2a417e-5860-419a-b42e-61f540d28a39",
         Icon:<FontAwesomeIcon icon={faSimCard} color='white' size='lg'/>, 
-        BgColor:"#f7b1b6"
+        BgColor:"#f7b1b6",
+        Index: 3
     },
     {
         ExampleName: "Metadata Views", 
@@ -118,7 +122,8 @@ export const flowExamples = [
         PlaygroundLink:"https://play.onflow.org/41befd2d-31f3-47f0-ae30-aad776961e31?type=script&id=60b68d62-f15e-402e-9048-ef3f27e224af",
         Icon:<FontAwesomeIcon icon={faGlasses} color='white' size='lg'/>, 
         BgColor:"#a3d9c9",
-        Script: true
+        Script: true,
+        Index: 4
     },
     {
         ExampleName: "Multiple Metadata Views", 
@@ -139,7 +144,8 @@ export const flowExamples = [
         PlaygroundLink:"https://play.onflow.org/41befd2d-31f3-47f0-ae30-aad776961e31?type=script&id=baf002e4-7124-4ffb-894e-5c04e95629de",
         Icon:<FontAwesomeIcon icon={faDatabase} color='white' size='lg'/>, 
         BgColor:"#757575",
-        Script: true
+        Script: true,
+        Index: 5
     },
     {
         ExampleName: "Token Vault", 
@@ -163,7 +169,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/ef2fe054-148b-4c75-94f1-95bd33b6ce00?type=tx&id=1629c020-d908-475e-87db-c81d1c496964",
         Icon:<FontAwesomeIcon icon={faAward} color='white' size='lg'/>, 
-        BgColor:"#50bfe6"
+        BgColor:"#50bfe6",
+        Index: 6
     },
     {
         ExampleName: "Withdrawing Tokens", 
@@ -187,7 +194,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/ef2fe054-148b-4c75-94f1-95bd33b6ce00?type=tx&id=e849d0d1-4196-432c-b9be-eab08c5595a9",
         Icon:<FontAwesomeIcon icon={faMoneyCheck} color='white' size='lg'/>, 
-        BgColor:"#238534"
+        BgColor:"#238534",
+        Index: 7
     },
     {
         ExampleName: "Creating a Vault", 
@@ -207,7 +215,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/ef2fe054-148b-4c75-94f1-95bd33b6ce00?type=tx&id=1629c020-d908-475e-87db-c81d1c496964",
         Icon:<FontAwesomeIcon icon={faBuilding} color='white' size='lg'/>, 
-        BgColor:"#f2cda0"
+        BgColor:"#f2cda0",
+        Index: 8
     },
     {
         ExampleName: "Vault Minter", 
@@ -231,7 +240,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/ef2fe054-148b-4c75-94f1-95bd33b6ce00?type=tx&id=899a81c3-a141-4021-a2b6-0e78ee8a105a",
         Icon:<FontAwesomeIcon icon={faBarcode} color='white' size='lg'/>, 
-        BgColor:"#882d17"
+        BgColor:"#882d17",
+        Index: 9
     },
     {
         ExampleName: "Implementing Series for NFT's", 
@@ -261,7 +271,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/a7d190b6-e0f1-4acc-b34c-f37b39fbab33?type=tx&id=c252ea40-397c-43b0-acfb-c504a7268175&storage=none",
         Icon:<FontAwesomeIcon icon={faDice} color='white' size='lg'/>, 
-        BgColor:"#2e8b57"
+        BgColor:"#2e8b57",
+        Index: 10
     },
     {
         ExampleName: "Creating a Set in Series", 
@@ -289,7 +300,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/a7d190b6-e0f1-4acc-b34c-f37b39fbab33?type=tx&id=534c6a6a-e87a-4f10-b134-835deeff96ff&storage=none",
         Icon:<FontAwesomeIcon icon={faDiceSix} color='white' size='lg'/>, 
-        BgColor:"#220a00"
+        BgColor:"#220a00",
+        Index: 11
     },
     {
         ExampleName: "Minting NFT's in a Set", 
@@ -315,7 +327,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/a7d190b6-e0f1-4acc-b34c-f37b39fbab33?type=tx&id=d6734d42-6a63-40cc-a8f9-529421e9952d&storage=none",
         Icon:<FontAwesomeIcon icon={faDiceD6} color='white' size='lg'/>, 
-        BgColor:"#6a5acd"
+        BgColor:"#6a5acd",
+        Index: 12
     },
     {
         ExampleName: "Admin Resource", 
@@ -335,7 +348,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/a7d190b6-e0f1-4acc-b34c-f37b39fbab33?type=tx&id=c252ea40-397c-43b0-acfb-c504a7268175&storage=none",
         Icon:<FontAwesomeIcon icon={faUser} color='white' size='lg'/>, 
-        BgColor:"#6c8d7d"
+        BgColor:"#6c8d7d",
+        Index: 13
     },
     {
         ExampleName: "Add Admin Resource to Account", 
@@ -351,7 +365,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/a7d190b6-e0f1-4acc-b34c-f37b39fbab33?type=tx&id=1e1128cf-b88e-4f10-9877-247b71a62ee4&storage=none",
         Icon:<FontAwesomeIcon icon={faUserEdit} color='white' size='lg'/>, 
-        BgColor:"#f4a460"
+        BgColor:"#f4a460",
+        Index: 14
     },
     {
         ExampleName: "Create a TopShot Play", 
@@ -377,7 +392,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=2b1db24f-95fa-44fa-8a7c-149e47c5c226&storage=none",
         Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
-        BgColor:"#f7b1b6"
+        BgColor:"#f7b1b6",
+        Index: 15
     },
     {
         ExampleName: "Create a TopShot Set", 
@@ -403,7 +419,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=9e42f1aa-3f25-4ffc-87f0-b9d109e1d851&storage=none",
         Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
-        BgColor:"#a3d9c9"
+        BgColor:"#a3d9c9",
+        Index: 16
     },
     {
         ExampleName: "Add a Play to TopShot Set", 
@@ -431,7 +448,8 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=c6627028-4fbc-416a-b8d7-0c433e6a85f6&storage=none",
         Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
-        BgColor:"#757575"
+        BgColor:"#757575",
+        Index: 17
     },
     {
         ExampleName: "Minting a Moment in TopShot Set", 
@@ -465,7 +483,103 @@ export const flowExamples = [
         `,
         PlaygroundLink:"https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=d24e3b31-7576-4e7e-b27e-2ed422406187&storage=none",
         Icon:<FontAwesomeIcon icon={faBasketballBall} color='white' size='lg'/>, 
-        BgColor:"#50bfe6"
+        BgColor:"#50bfe6",
+        Index: 18
+    },
+    {
+        ExampleName: "Create A Marketplace", 
+        ExampleDescription: "Create a secondary marketplace for your NFT's using the NFT Storefront Contract.", 
+        ExampleCode: CadenceCode[19].Code, 
+        TransactionCode:TXexamples[19].Tx, 
+        Category:"Marketplace", 
+        CadenceExplainer: `The NFT Storefront contract is used to be able to list NFT's that a user owns for sale on your marketplace. Users can also purchase other NFT's, borrow listings, and do tons of other things related to the Storefront contract.
+
+        Before doing any of this, you need to create a Storefront resource from the NFTStorefront contract and save it to your account. Once that resource is saved you then have access to the Storefront resource which will give you the ability to create listings, remove listings, getListings, borrowListings, cleanupListings, and destroy your own Storefront.
+
+        The createStorefront function allows anyone to create a storefront and save it to their account.
+
+        `,
+        TransactionExplainer: `Here you are simply calling the createStorefront function to save a storefront to your account.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/1d11f838-fc0e-4e7f-86e3-6d1a5a1098e3?type=tx&id=f32eaf35-c6e1-4195-b144-27eef3abda76&storage=none",
+        Icon:<FontAwesomeIcon icon={faStore} color='white' size='lg'/>, 
+        BgColor:"#238534",
+        Index: 19
+    },
+    {
+        ExampleName: "Create an NFT Listing", 
+        ExampleDescription: "List an NFT to be sold using the NFTStorefront contract.", 
+        ExampleCode: CadenceCode[20].Code, 
+        TransactionCode:TXexamples[20].Tx, 
+        Category:"Marketplace", 
+        CadenceExplainer: `When creating an NFT listing it will need a few parameters passed in, in order to make the listing go through.
+
+        First you will need to pass in a capability to the NFT that allows us to withdraw the NFT when it is being sold to the purchaser. Remember to link the capability in your private storage path as you do not want anyone to be able to withdraw any NFT from your account!
+
+        You'll also need to pass in the type of NFT that is being sold, as well as the NFT ID that is being sold. Afterwards you pass in the payment vault type for whichever crypto currency users will be purchasing the listing in. 
+
+        You'll also include a struct called SaleCut. These Sales Cuts will determine the total price of your item. Let's say you want to have a marketplace fee implemented in your transaction. You would include a sales cut struct that would be passed in, as well as a sales cut that will go to the seller of the item. You can check out the example for multiple sales cuts to see how this would be implemented.
+
+        Lastly you would pass in the storefrontID which is the ID of your storefront containing the listing. Once all of this information is passed in, you have created a listing in your Storefront.
+
+        Afterwards you would link the public capability to the ListingPublic interface so that anyone can call the purchase function and buy your NFT.
+
+        `,
+        TransactionExplainer: `Here we are defining initially the types that we are expected to return for each of the listed variables.
+
+        Firstly we borrow the storefront from the account that contains a storefront in it. Afterwards we need to get the capability to withdraw NFT's from the account so that the storefront can withdraw the correct NFT of the correct Type.
+
+        After that, we'll also get the Vault receiver capability so that it can be included in the sales cut struct. That way when it's time to pay out the earnings from the NFT, this vault will receive its cut.
+
+        Once that's all done, we take self.storefront and call the createListing function and pass in all the parameters need. Then we execute the transaction.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/1d11f838-fc0e-4e7f-86e3-6d1a5a1098e3?type=tx&id=22eb2922-b8e0-4817-a345-39929285dff1&storage=none",
+        Icon:<FontAwesomeIcon icon={faShoppingBag} color='white' size='lg'/>, 
+        BgColor:"#f2cda0",
+        Index: 20
+    },
+    {
+        ExampleName: "Purchase NFT on Marketplace", 
+        ExampleDescription: "Buy an NFT from a marketplace.", 
+        ExampleCode: CadenceCode[21].Code, 
+        TransactionCode:TXexamples[21].Tx, 
+        Category:"Marketplace", 
+        CadenceExplainer: `When purchasing an NFT, all that is needed from the purchaser is their payment that comes in the form of their vault resource.
+
+        Once that happens, the smart contract checks to make sure the listing hasn't already been purchased, the fungible token is the right type for this transaction, and that the payment is the correct amount.
+
+        If this is the case then the purchase can be approved. We change the details of the listing to purchased. We will then withdraw the NFT from the account that listed it.
+
+        We check to see if the NFT is of the right type and the right ID to make sure that the NFT being purchased is in fact the correct one.
+
+        After that, we take all of the sales cuts and start depositing the amounts into the accounts vault receivers we have capabilities for.
+
+        Then we move the remaining payment vault into the residual receiver local variable. The price of the remaining payment vault should be 0 so we are just moving our resource into there.
+
+        Lastly we emit that the transaction has completed and we return the NFT which can then be deposited into the purchasers collection.
+
+        `,
+        TransactionExplainer: `Here we are defining initially the types that we are expected to return for each of the listed variables.
+
+        First we need to get the storefront of the account that the listing is under. You will have linked a public capability to this store front so that others can access it and purchase your listing.
+
+        Once we borrow that storefront, we then want to borrow the listing that we are interested in buying. We assign that to the listing variable.
+
+        We'll then fetch the price of that listing so that in the next step when we take our Vault resource and withdraw tokens from it, we pass in the price of the NFT because that is how much we would like to withdraw.
+
+        We'll also get our Receiver capability so that we can deposit the NFT into our collection.
+
+        When we're ready to execute, we call the purchase function on our listing and pass in the payment vault we'll be paying for this with. This will return and NFT resource for us that we temporarily store in our item variable.
+
+        We'll then deposit that NFT into our collection, and then we'll cleanup the storefront by deleting our listing, and with that you have created a purchase on an NFT marketplace.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/1d11f838-fc0e-4e7f-86e3-6d1a5a1098e3?type=tx&id=7c4fa7ca-5770-4dd4-97d3-ed575f208d22&storage=none",
+        Icon:<FontAwesomeIcon icon={faShoppingBasket} color='white' size='lg'/>, 
+        BgColor:"#882d17",
+        Index: 21
     },
     // {
     //     ExampleName: "Admin Resource", 
@@ -481,54 +595,7 @@ export const flowExamples = [
     //     `,
     //     PlaygroundLink:"https://play.onflow.org/5f7fb413-2dda-44dd-ab9d-429e1dece6d7?type=tx&id=4840ed82-4fe0-4560-a222-07b8fa8f72ac",
     //     Icon:<FontAwesomeIcon icon={faCoffee} color='white' size='lg'/>, 
-    //     BgColor:"#220a00"
-    // },
-    // {
-    //     ExampleName: "Admin Resource", 
-    //     ExampleDescription: "", 
-    //     ExampleCode: "", 
-    //     TransactionCode:"", 
-    //     Category:"", 
-    //     CadenceExplainer: `
-
-    //     `,
-    //     TransactionExplainer: `
-
-    //     `,
-    //     PlaygroundLink:"https://play.onflow.org/5f7fb413-2dda-44dd-ab9d-429e1dece6d7?type=tx&id=4840ed82-4fe0-4560-a222-07b8fa8f72ac",
-    //     Icon:<FontAwesomeIcon icon={faCoffee} color='white' size='lg'/>, 
-    //     BgColor:"#220a00"
-    // },
-    // {
-    //     ExampleName: "Admin Resource", 
-    //     ExampleDescription: "", 
-    //     ExampleCode: "", 
-    //     TransactionCode:"", 
-    //     Category:"", 
-    //     CadenceExplainer: `
-
-    //     `,
-    //     TransactionExplainer: `
-
-    //     `,
-    //     PlaygroundLink:"https://play.onflow.org/5f7fb413-2dda-44dd-ab9d-429e1dece6d7?type=tx&id=4840ed82-4fe0-4560-a222-07b8fa8f72ac",
-    //     Icon:<FontAwesomeIcon icon={faCoffee} color='white' size='lg'/>, 
-    //     BgColor:"#220a00"
-    // },
-    // {
-    //     ExampleName: "Admin Resource", 
-    //     ExampleDescription: "", 
-    //     ExampleCode: "", 
-    //     TransactionCode:"", 
-    //     Category:"", 
-    //     CadenceExplainer: `
-
-    //     `,
-    //     TransactionExplainer: `
-
-    //     `,
-    //     PlaygroundLink:"https://play.onflow.org/5f7fb413-2dda-44dd-ab9d-429e1dece6d7?type=tx&id=4840ed82-4fe0-4560-a222-07b8fa8f72ac",
-    //     Icon:<FontAwesomeIcon icon={faCoffee} color='white' size='lg'/>, 
-    //     BgColor:"#220a00"
+    //     BgColor:"#220a00",
+    //     Index: 22
     // },
 ]

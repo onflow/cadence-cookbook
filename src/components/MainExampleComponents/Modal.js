@@ -20,7 +20,7 @@ return (
                     <div className="ml-0 mb-5 flex ">
                         <div className=' w-14 rounded-md' style={{background: `${data.BgColor}`}}>
                             {/* icon for image will go here */}
-                            <div className='p-3 ml-0.5 mt-[4px]'>
+                            <div className='p-3 ml-[5px] mt-[5px]'>
                             {data.Icon}
                             </div>
                         </div>
@@ -30,12 +30,17 @@ return (
                                 {data.Category}
                             </div>
                         </div>
-                        <div className='ml-auto'>
-                            <button className='bg-green-500 text-white font-xs py-1 px-3 rounded-[5px] mt-1 right hover:bg-green-600'
-                            onClick={() => window.open(`${data.PlaygroundLink}`, "_blank")}
-                            >
-                                Open In Playground
-                            </button>
+                        <div className="ml-auto">
+                            <div className='ml-auto text-right'>
+                                <button className='bg-green-500 text-white font-xs py-1 px-3 rounded-[5px] mt-1 right hover:bg-green-600'
+                                onClick={() => window.open(`${data.PlaygroundLink}`, "_blank")}
+                                >
+                                    Open In Playground*
+                                </button>
+                            </div>
+                            <div className="text-[12px] text-gray-500 mt-1">
+                                <text>*Please deploy contracts on all necessary accounts before starting transactions and scripts</text>
+                            </div>
                         </div>
                     </div>
                     <div>

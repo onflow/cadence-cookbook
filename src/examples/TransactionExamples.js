@@ -1,93 +1,120 @@
 
 export const TXexamples = [
-    {Tx: `...import your contracts before transaction
+    {Tx: `import NonFungibleToken from 0x03
+    import NewExampleNFT from 0x02
+    
+    // This script uses the NFTMinter resource to mint a new NFT
+    // It must be run with the account that has the minter resource
+    // stored in /storage/NFTMinter
+    
+    transaction{
+    
+        // local variable for storing the minter reference
+        let minter: &NewExampleNFT.NFTMinter
+    
+        prepare(signer: AuthAccount) {
+            // borrow a reference to the NFTMinter resource in storage
+            self.minter = signer.borrow<&NewExampleNFT.NFTMinter>(from: NewExampleNFT.MinterStoragePath)
+                ?? panic("Could not borrow a reference to the NFT minter")
+        }
+    
+        execute {
+            // Borrow the recipient's public NFT collection reference
+            let receiver = getAccount(0x02)
+                .getCapability(NewExampleNFT.CollectionPublicPath)
+                .borrow<&{NonFungibleToken.CollectionPublic}>()
+                ?? panic("Could not get receiver reference to the NFT Collection")
+    
+            // Mint the NFT and deposit it to the recipient's collection
+            self.minter.mintNFT(
+                recipient: receiver,
+                name: "Second NFT",
+                description: "The Best NFT",
+                thumbnail: "NFT: Thumbnail",
+                power: "The best",
+                will: "The strongest",
+                determination: "unbeatable"
+            )
+    
+            log("Minted an NFT")
+        }
+    }`},
+{Tx: `import NonFungibleToken from 0x03
+import NewExampleNFT from 0x02
+import MetadataViews from 0x01
+
+// This transaction is what an account would run
+// to set itself up to receive NFTs
 
 transaction {
 
-    // The reference to the collection that will be receiving the NFT
-    let receipientRef: &{NonFungibleToken.CollectionPublic}
-    // The reference to the Minter resource stored in account storage
-    let minterRef: &ExampleNFT.NFTMinter
+    prepare(signer: AuthAccount) {
+        // Return early if the account already has a collection
+        if signer.borrow<&NewExampleNFT.Collection>(from: NewExampleNFT.CollectionStoragePath) != nil {
+            return
+        }
 
-    prepare(acct: AuthAccount) {
-        // Get the owner's collection capability and borrow a reference
-    
-        self.receipientRef = acct.getCapability<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>(ExampleNFT.CollectionPublicPath)
-        .borrow()
-        ?? panic("Could not get receiver reference to the NFT Collection")
+        // Create a new empty collection
+        let collection <- NewExampleNFT.createEmptyCollection()
 
-        // Borrow a capability for the NFTMinter in storage
-        self.minterRef = acct.borrow<&ExampleNFT.NFTMinter>(from: ExampleNFT.MinterStoragePath)
-            ?? panic("could not borrow minter reference")
+        // save it to the account
+        signer.save(<-collection, to: NewExampleNFT.CollectionStoragePath)
+
+        // create a public capability for the collection
+        signer.link<&{NonFungibleToken.CollectionPublic, MetadataViews.ResolverCollection}>(
+            NewExampleNFT.CollectionPublicPath,
+            target: NewExampleNFT.CollectionStoragePath
+        )
     }
 
     execute {
-        // Use the minter reference to mint an NFT, which deposits
-        // the NFT into the collection that is sent as a parameter.
-
-        let receiver = self.receipientRef
-
-        self.minterRef.mintNFT(
-            recipient: receiver,
-            name: "Best NFT",
-            description: "This is one great NFT",
-            thumbnail: "ipfs://{somehashhere}",
-            )
-
-    }
-}`},
-{Tx: `...import your contracts before transaction
-
-transaction {
-    prepare(acct: AuthAccount) {
-
-        // Create a new empty collection
-        let collection <- ExampleNFT.createEmptyCollection()
-
-        // store the empty NFT Collection in account storage
-        acct.save<@ExampleNFT.Collection>(<-collection, to: /storage/NFTCollection)
-
-        log("Collection created for account 1")
-
-        // create a public capability for the Collection
-        acct.link<&{ExampleNFT.NFTReceiver}>(/public/NFTReceiver, target: /storage/NFTCollection)
-
-        log("Capability created")
+      log("Setup account")
     }
 }
 `},
 {Tx: `
-...import your contracts before transaction
+import NonFungibleToken from 0x03
+import NewExampleNFT from 0x02
+import MetadataViews from 0x01
+
+// This transaction is what an account would run
+// to set itself up to receive NFTs
 
 transaction {
-    prepare(acct: AuthAccount) {
+
+    prepare(signer: AuthAccount) {
+        // Return early if the account already has a collection
+        if signer.borrow<&NewExampleNFT.Collection>(from: NewExampleNFT.CollectionStoragePath) != nil {
+            return
+        }
 
         // Create a new empty collection
-        let collection <- ExampleNFT.createEmptyCollection()
+        let collection <- NewExampleNFT.createEmptyCollection()
 
-        // store the empty NFT Collection in account storage
-        acct.save<@ExampleNFT.Collection>(<-collection, to: /storage/NFTCollection)
+        // save it to the account
+        signer.save(<-collection, to: NewExampleNFT.CollectionStoragePath)
 
-        log("Collection created for account 1")
+        // create a public capability for the collection
+        signer.link<&{NonFungibleToken.CollectionPublic, MetadataViews.ResolverCollection}>(
+            NewExampleNFT.CollectionPublicPath,
+            target: NewExampleNFT.CollectionStoragePath
+        )
+    }
 
-        // create a public capability for the Collection
-        acct.link<&{ExampleNFT.NFTReceiver}>(/public/NFTReceiver, target: /storage/NFTCollection)
-
-        log("Capability created")
+    execute {
+      log("Setup account")
     }
 }
 `},
 {Tx: `
-// This script uses the NFTMinter resource to mint a new NFT
+import NonFungibleToken from 0x03
+import NewExampleNFT from 0x02
+
+// This transaction uses the NFTMinter resource to mint a new NFT
 // It must be run with the account that has the minter resource
 // stored in /storage/NFTMinter
 
-transaction(
-    recipient: Address,
-    name: String,
-    description: String,
-    thumbnail: String,
-) {
+transaction{
 
     // local variable for storing the minter reference
     let minter: &NewExampleNFT.NFTMinter
@@ -100,7 +127,7 @@ transaction(
 
     execute {
         // Borrow the recipient's public NFT collection reference
-        let receiver = getAccount(recipient)
+        let receiver = getAccount(0x02)
             .getCapability(NewExampleNFT.CollectionPublicPath)
             .borrow<&{NonFungibleToken.CollectionPublic}>()
             ?? panic("Could not get receiver reference to the NFT Collection")
@@ -108,9 +135,12 @@ transaction(
         // Mint the NFT and deposit it to the recipient's collection
         self.minter.mintNFT(
             recipient: receiver,
-            name: name,
-            description: description,
-            thumbnail: thumbnail,
+            name: "Second NFT",
+            description: "The Best NFT",
+            thumbnail: "NFT: Thumbnail",
+            power: "The best",
+            will: "The strongest",
+            determination: "unbeatable"
         )
 
         log("Minted an NFT")
@@ -527,12 +557,119 @@ transaction {
 
 `},
 {Tx: `
+import NFTStorefront from 0x03
+
+// This transaction sets up account 0x01 for the marketplace tutorial
+// by publishing a Vault reference and creating an empty NFT Collection.
+transaction {
+  prepare(acct: AuthAccount) {
+    
+    acct.save<@NFTStorefront.Storefront>(<- NFTStorefront.createStorefront() , to: NFTStorefront.StorefrontStoragePath)
+
+    log("storefront created")
+  }
+}
 
 `},
 {Tx: `
+import NFTStorefront from 0x03
+import NonFungibleToken from 0x02
+import ExampleNFT from 0x04
+import FungibleToken from 0x01
+
+// This transaction sets up account 0x01 for the marketplace tutorial
+// by publishing a Vault reference and creating an empty NFT Collection.
+transaction {
+
+    let storefront: &NFTStorefront.Storefront 
+
+    let exampleNFTProvider: Capability<&ExampleNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>
+
+    let tokenReceiver: Capability<&FungibleToken.Vault{FungibleToken.Receiver}>
+    
+    prepare(acct: AuthAccount) {
+    
+        self.storefront = acct.borrow<&NFTStorefront.Storefront>(from: NFTStorefront.StorefrontStoragePath) ?? panic("can't borrow storefront")
+
+        if acct.getCapability<&ExampleNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(ExampleNFT.CollectionPrivatePath).check() == false {
+            acct.link<&ExampleNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(ExampleNFT.CollectionPrivatePath, target: ExampleNFT.CollectionStoragePath)
+        }
+
+        self.exampleNFTProvider = acct.getCapability<&ExampleNFT.Collection{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(ExampleNFT.CollectionPrivatePath)!
+        assert(self.exampleNFTProvider.borrow() != nil, message: "Missing or mis-typed ExampleNFT.Collection provider")
+
+
+        self.tokenReceiver = acct.getCapability<&FungibleToken.Vault{FungibleToken.Receiver}>(/public/MainReceiver)!
+        assert(self.tokenReceiver.borrow() != nil, message: "Missing or mis-typed FlowToken receiver")
+
+        let saleCut = NFTStorefront.SaleCut(
+            receiver: self.tokenReceiver,
+            amount: 10.0
+        )
+
+        self.storefront.createListing(
+            nftProviderCapability: self.exampleNFTProvider, 
+            nftType: Type<@NonFungibleToken.NFT>(), 
+            nftID: 0, 
+            salePaymentVaultType: Type<@FungibleToken.Vault>(), 
+            saleCuts: [saleCut]
+            )
+
+        log("storefront listing created")
+    }
+}
 
 `},
 {Tx: `
+import FungibleToken from 0x01
+import NonFungibleToken from 0x02
+import ExampleNFT from 0x04
+import NFTStorefront from 0x03
+
+transaction {
+    let paymentVault: @FungibleToken.Vault
+    let exampleNFTCollection: &ExampleNFT.Collection{NonFungibleToken.Receiver}
+    let storefront: &NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}
+    let listing: &NFTStorefront.Listing{NFTStorefront.ListingPublic}
+
+    prepare(acct: AuthAccount) {
+        self.storefront = getAccount(0x04)
+            .getCapability<&NFTStorefront.Storefront{NFTStorefront.StorefrontPublic}>(
+                NFTStorefront.StorefrontPublicPath
+            )!
+            .borrow()
+            ?? panic("Could not borrow Storefront from provided address")
+
+        self.listing = self.storefront.borrowListing(listingResourceID: 10)
+                  ?? panic("No Offer with that ID in Storefront")
+        let price = self.listing.getDetails().salePrice
+
+        let mainFlowVault = acct.borrow<&FungibleToken.Vault>(from: /storage/MainVault)
+            ?? panic("Cannot borrow FlowToken vault from acct storage")
+        self.paymentVault <- mainFlowVault.withdraw(amount: price)
+
+        self.exampleNFTCollection = acct.borrow<&ExampleNFT.Collection{NonFungibleToken.Receiver}>(
+            from: ExampleNFT.CollectionStoragePath) ?? panic("Cannot borrow NFT collection receiver from account")
+    }
+
+    execute {
+     let item <- self.listing.purchase(
+     payment: <-self.paymentVault
+     )
+
+       self.exampleNFTCollection.deposit(token: <-item)
+
+        /* //-
+        error: Execution failed:
+        computation limited exceeded: 100
+        */
+        // Be kind and recycle
+        self.storefront.cleanup(listingResourceID: 10)
+        log("transaction done")
+    }
+
+    //- Post to check item is in collection?
+}
 
 `},
 {Tx: `
