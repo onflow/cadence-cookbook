@@ -1,5 +1,5 @@
 import { faAddressCard, faBuilding, faUser } from "@fortawesome/free-regular-svg-icons"
-import { faAddressBook, faCoffee, faAward, faBarcode, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyCheck, faSimCard, faUserEdit, faVrCardboard, faBasketballBall, faStore, faShoppingBag, faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
+import { faAddressBook, faCoffee, faAward, faBarcode, faDatabase, faDice, faDiceD6, faDiceSix, faGlasses, faMoneyCheck, faSimCard, faUserEdit, faVrCardboard, faBasketballBall, faStore, faShoppingBag, faShoppingBasket, faCat } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { CadenceCode } from "./SmartContractExamples"
 import { TXexamples } from "./TransactionExamples"
@@ -581,6 +581,84 @@ export const flowExamples = [
         BgColor:"#882d17",
         Index: 21
     },
+    {
+        ExampleName: "Mint Kitty Item NFT", 
+        ExampleDescription: "Mint an NFT using the Kitty Items Contract.", 
+        ExampleCode: CadenceCode[22].Code, 
+        TransactionCode:TXexamples[22].Tx, 
+        Category:"Kitty Items", 
+        CadenceExplainer: `Minting a Kitty Item NFT follows a similar path as the NFT Minting example. Things to note however are the different ways to initialize the NFT for Kitty Items.
+
+        With the Kitty Items NFT it operates on what kind of item it is, literally named 'Kind' and what type of rarity it is. The Kind and Rarity are stored in enums in the contract that you can checkout when you open the playground version of this contract.
+
+        It will then store the Kind and Rarity as well as the ID to create the NFT that will be minted and deposited into a receivers account.
+
+        When you look at the NFTMinter resource you can see how it takes in the recepient, kind, and rarity so that the NFT can be properly minted.
+
+        `,
+        TransactionExplainer: `As we would in the NFT minting example. Here we take the minter and recepient variables and assign them types that we expect to be returned from our functions. 
+
+        We then borrow the minter from the AuthAccount and we also get the capability to deposit NFT's for the recepient variable. 
+        
+        Once that is all in place we then call the mintNFT function from the minter and assign a recepient, kind and rarirty for the NFT and we are done with our transaction.
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/0f1da1c0-02f5-4339-9ed2-62b48e560320?type=tx&id=683db456-b5b3-4189-8138-52be3a74e5ad&storage=none",
+        Icon:<FontAwesomeIcon icon={faCat} color='white' size='lg'/>, 
+        BgColor:"#2e8b57",
+        Index: 22
+    },
+    {
+        ExampleName: "Get Kitty Items NFT Metadata", 
+        ExampleDescription: "Get the Metadata of a minted Kitty Items NFT.", 
+        ExampleCode: CadenceCode[23].Code, 
+        TransactionCode:TXexamples[23].Tx, 
+        Category:"Kitty Items", 
+        CadenceExplainer: `As we can see in the NFT for the KittyItems NFT there are two functions related to the MetadataViews Contract.
+
+        One is getViews that returns you all the views that this NFT possesses. A view is a type of structure that lays out different metadata and makes it easily viewable when retrieving an NFT.
+
+        There is also a resolveView function, that take the view which you choose to use for looking at an NFT's metadata, and lays out its structure for you in an easily digestable view.
+
+        Our KittyItems contract leverages the Metadata standard to make views for this NFT accessible to anyone.
+
+        `,
+        TransactionExplainer: `Before starting our script, we create a struct for us that will contain all the metadata we are pulling from our KittyItems NFT and lay it out for us in a nice view.
+
+        When starting our script, we borrow a capability to the account we are looking to get the metadata of an NFT from. Once we borrow their public capability, we then borrow a kitty item from that collection by calling the borrowKittyItem function and inputing the paramater for the ID we would like.
+
+        Once we have access to that NFT, we then have access to the metadata views functions in the NFT. We then call the resolveView function for the MetadataViews.Display type and we then are able to get back the necessary items in the view to fill out our KittyItem struct that we defined in our script earlier.
+
+        Once we have that information we assign the view to the display variable. We have our owner be defined by the address of the NFT holder. We assign the ipfsThumbnail variable from the result we get back from our display.
+
+        We then input all the necessary parameters for our KittyItem struct and return the structure. To note, we do take our ipfsThumbnail and call a function on it so that we create an easy path to our ipfs link for easy viewing of the image stored on there.
+
+        Once that happens we are done with the script and metadata should be returned
+
+        `,
+        PlaygroundLink:"https://play.onflow.org/0f1da1c0-02f5-4339-9ed2-62b48e560320?type=script&id=4331792d-c134-4d09-9e50-f12ab24527bc&storage=none",
+        Icon:<FontAwesomeIcon icon={faCat} color='white' size='lg'/>, 
+        BgColor:"#220a00",
+        Script: true,
+        Index: 23
+    },
+    // {
+    //     ExampleName: "Admin Resource", 
+    //     ExampleDescription: "", 
+    //     ExampleCode: "", 
+    //     TransactionCode:"", 
+    //     Category:"", 
+    //     CadenceExplainer: `
+
+    //     `,
+    //     TransactionExplainer: `
+
+    //     `,
+    //     PlaygroundLink:"https://play.onflow.org/5f7fb413-2dda-44dd-ab9d-429e1dece6d7?type=tx&id=4840ed82-4fe0-4560-a222-07b8fa8f72ac",
+    //     Icon:<FontAwesomeIcon icon={faCoffee} color='white' size='lg'/>, 
+    //     BgColor:"#220a00",
+    //     Index: 22
+    // },
     // {
     //     ExampleName: "Admin Resource", 
     //     ExampleDescription: "", 

@@ -12,7 +12,7 @@ function PreviewBox() {
     const [ categories, setCategories ] = useState()
 
     const handleToggle = (index) => {
-        console.log(index)
+        // console.log(index)
         setToggle(true)
         setData(flowExamples[index])
     }
