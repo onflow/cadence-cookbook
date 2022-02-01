@@ -457,7 +457,7 @@ export const flowExamples = [
         ExampleCode: CadenceCode[18].Code, 
         TransactionCode:TXexamples[18].Tx, 
         Category:"TopShot", 
-        CadenceExplainer: `You would find the function the mint a moment in your Set resource. To mint a momemnt you would call on this function and input the playID you would like to mint.
+        CadenceExplainer: `You would find the function the mint a moment in your Set resource. To mint a moment you would call on this function and input the playID you would like to mint.
 
         Remember when we added our play to the set we intialized the moments as 0 so when you mint a moment it will add 1 to that minted moment per play. Before we mint however, we check to see if the play exists in the set or if the play is retired.
 
