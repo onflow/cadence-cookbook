@@ -4,6 +4,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    maxWidth: {
+      'wrapper': '834px'
+    },
   },
   plugins: [],
 }

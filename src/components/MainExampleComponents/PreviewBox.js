@@ -27,9 +27,9 @@ function PreviewBox() {
     return (
         <div>
         <Searchbox setResults={setResults}  flowExamples={flowExamples} categories={categories} />
-            <div className='justify-items-center mt-16 grid gap-8 grid-cols-2 px-[250px] pb-12'>
+            <div className='justify-items-center mt-14 grid gap-8 grid-cols-1 md:grid-cols-2 max-w-wrapper mx-auto pb-12 px-10'>
             {results.map((flowExample, index) => 
-                <div className="flex cursor-pointer hover:shadow-md hover:rounded-lg py-5 px-5" value={index} onClick={() => handleToggle(flowExample.Index)} key={index}>
+                <div className="flex cursor-pointer hover:shadow-md py-5 px-5 border-2 border-gray-100 rounded-xl" value={index} onClick={() => handleToggle(flowExample.Index)} key={index}>
                 <div className=' w-14 rounded-md' style={{background: `${flowExample.BgColor}`}}>
                     {/* icon for image will go here */}
                     <div className='pt-3'>
