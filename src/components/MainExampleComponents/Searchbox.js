@@ -7,7 +7,7 @@ function Searchbox({setResults, flowExamples, categories}) {
         <div className='mt-14'>
             <div>
                 <h1 style={{fontSize: 42}}>Flow Smart Contract Examples</h1>
-                <h2 className='text-md mt-2 mb-10'> Explore various Cadence smarts contracts & transaction scripts for different use cases. <br/> Starting blocks for your Web3 application!</h2>
+                <h2 className='text-md mt-2 mb-10'> Explore various Cadence smarts contracts & transaction scripts for different use cases. <br/> Build with confidence for your Web3 application</h2>
             </div>
             <div className='flex flex-col md:flex-row justify-center px-5'>
             <input 

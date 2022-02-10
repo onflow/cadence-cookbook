@@ -14,9 +14,9 @@ return (
 
             <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:max-w-6xl sm:max-h-fit">
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:align-middle w-5/6 sm:max-h-fit">
                 {/* this is the top part of the modal */}
-                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 overflow-auto max-w-6xl divide-y-[1px] divide-gray-200" style={{maxHeight:700}}>
+                <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 overflow-auto max-w-6xl divide-y-[1px] divide-gray-200" style={{maxHeight: '93vh'}}>
                     <div className="ml-0 mb-5 flex ">
                         <div className=' w-14 rounded-md' style={{background: `${data.BgColor}`}}>
                             {/* icon for image will go here */}
@@ -46,20 +46,18 @@ return (
                     <div>
 
                     </div>
-                    <div className="pt-6 grid grid-cols-2">
-                        <div className='w-[680px]'>
+                    <div className="pt-6 grid grid-cols-1">
+                        <div className='w-full lg:max-w-[680px]'>
                             <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">Description</h3>
                             <div className="mt-2">
                                 <p className="text-sm text-gray-500">{data.ExampleDescription}</p>
                             </div>
                         </div>
-                        <div>
 
-                        </div>
                         <div className='col-span-2'>
-                            <div className='flex'>
+                            <div className='flex flex-col xl:flex-row'>
                                 {/* 1st div flexed */}
-                                <div className='min-w-[780px] max-w-[780px]' >
+                                <div className='xl:min-w-[780px] xl:max-w-[780px]' >
                                     <div className="mt-8">
                                         <p className="text-md text-black-500 mb-4 font-medium">Cadence Code</p>
                                     </div>
@@ -75,8 +73,8 @@ return (
                                 </div>
                                 <div>
                                 {/* second div flexed */}
-                                <div className="mt-0 text-center sm:mt-0 sm:ml-10 sm:text-left flex-none ">
-                                    <div className='p-3 whitespace-pre-line mt-[70px] bg-indigo-50 rounded-md'>
+                                <div className="mt-0 text-center sm:mt-0 xl:ml-10 sm:text-left flex-none ">
+                                    <div className='p-3 whitespace-pre-line mt-10 xl:mt-[70px] bg-indigo-50 rounded-md'>
                                             <h3 className="text-lg leading-6 font-medium text-indigo-900 flex" id="modal-title"><InformationCircleIcon className="h-5 w-5 mt-[1px] mr-1"/> Cadence Code Explanation</h3>
                                             <div className="mt-6">
                                             <p className="text-[14px] text-slate-800">{data.CadenceExplainer}</p>
@@ -87,8 +85,8 @@ return (
                             </div>
                         </div>
                         <div className='col-span-2 mt-4'>
-                            <div className='flex'>
-                                <div className="mt-4 text-center sm:mt-0 sm:text-left min-w-[780px] max-w-[780px]">
+                            <div className='flex flex flex-col xl:flex-row'>
+                                <div className="mt-4 text-center sm:mt-0 sm:text-left xl:min-w-[780px] xl:max-w-[780px]">
                                     {/* Cadence code div */}
                                     <div className="mt-6">
                                         <p className="text-md text-black-500 mb-4 font-medium">{data?.Script === true ? "Script Code" : "Transaction Code"}</p>
@@ -104,7 +102,7 @@ return (
                                     </div>
                                 </div>
                                 <div className='mt-[62px]'>
-                                    <div className=" text-center sm:mt-0 sm:ml-10 sm:text-left">
+                                    <div className="mt-0 text-center sm:mt-0 xl:ml-10 sm:text-left">
                                         <div className='p-3 whitespace-pre-line bg-green-50 rounded-[5px]'>
                                             <h3 className="text-lg leading-6 font-medium text-green-900 flex" id="modal-title"><InformationCircleIcon className="h-5 w-5 mt-[1px] mr-1"/>{data?.Script === true ? "Script Explained" : "Transaction Explained"}</h3>
                                             <div className="mt-6">
