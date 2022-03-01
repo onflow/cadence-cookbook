@@ -2,7 +2,8 @@ import React from 'react';
 import { filterData } from '../../functions/CategoryFilter';
 import { searchData } from '../../functions/Search';
 
-function Searchbox({setResults, flowExamples, categories}) {
+const Searchbox = ({setResults, flowExamples, categories}) => {
+    
     return (
         <div className='mt-14'>
             <div>
@@ -18,7 +19,7 @@ function Searchbox({setResults, flowExamples, categories}) {
             <div>
                 <select className='p-2 border-2 border-gray-100 rounded-xl text-gray-400 md:w-64 md:ml-10 md:m-0 m-auto w-3/4 mt-5' defaultValue="default" onChange={(e) => filterData(e.target.value, flowExamples, setResults)}>
                     <option value="">All</option>
-                    {categories?.map((category) =>
+                    {categories[0]?.map((category) =>
                         <option className='text-slate-800' value={category} key={category}>{category}</option>
                     )}
                 </select>
