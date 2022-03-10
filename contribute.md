@@ -4,7 +4,7 @@
 
 Contributing to Open Cadence is easy! And we’d love for you to share your work with the community so that we can keep on benefiting from each others work and keep creating amazing projects on Flow!
 
-In order to contribute, we’ve tried to make it as easy as possible to add an example to the website. We provide you the format for submitting a pull-request to [this GitHub repo](https://github.com/tyllenb/open-cadence) so that your example can be added. We’ll go over the format for submitting your example in the following section!
+In order to contribute, we’ve tried to make it as easy as possible to add an example to the website. We provide you the format for submitting a pull-request to [this GitHub repo](https://github.com/onflow/open-cadence) so that your example can be added. We’ll go over the format for submitting your example in the following section!
 
 ## Adding an Example to Open Cadence Format
 In order to submit an example to the Open Cadence GitHub, you will need to submit a pull request in line with the following format in order to get it merged to the site. The format is as follows.
