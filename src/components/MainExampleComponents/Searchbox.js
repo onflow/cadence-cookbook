@@ -11,6 +11,7 @@ const Searchbox = ({ setResults, flowExamples, categories }) => {
   const [selectedSearch, setSelectedSearch] = useState("");
 
   useEffect(() => {
+    // filter results if params are set
     if (searchParams.get("search")) {
       setSelectedSearch(searchParams.get("search"));
       searchData(searchParams.get("search"), flowExamples, setResults);
