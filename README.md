@@ -1,4 +1,4 @@
-# Flow Smart Contract Examples
+# Cadence Cookbook
 
 Explore various Cadence smarts contracts & transaction scripts for different use cases.
 
