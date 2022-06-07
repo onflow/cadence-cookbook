@@ -2,9 +2,9 @@
 
 ## How to contribute?
 
-Contributing to the Cadence Cookbook is easy! And we’d love for you to share your work with the community so that we can keep on benefiting from each others work and keep creating amazing projects on Flow!
+Contributing to the Cadence Cookbook is easy! And we would love for you to share your work with the community so that we can keep on benefiting from each others work and keep creating amazing projects on Flow!
 
-In order to contribute, we’ve tried to make it as easy as possible to add an recipie to the website. We provide you the format for submitting a pull-request to [this GitHub repo](https://github.com/onflow/cadence-cookbook) so that your recipe can be added. We’ll go over the format for submitting your recipe in the following section!
+In order to contribute, we have tried to make it as easy as possible to add an recipie to the website. We provide you the format for submitting a pull-request to [this GitHub repo](https://github.com/onflow/cadence-cookbook) so that your recipe can be added. We will go over the format for submitting your recipe in the following section!
 
 ## Adding a recipe
 
@@ -16,7 +16,7 @@ In order to submit a recipe to the Cadence Cookbook, you will need to submit a p
         ![Cadence Cookbook Architecture](https://i.ibb.co/FWp6W1T/open-cadence-architecture.png)
         
 2. Add a new folder in the `modules` folder with the name of your Cadence recipe
-    - *Name it something that identifies what your recipe is about so that it’s easy to maintain*
+    - *Name it something that identifies what your recipe is about so that it is easy to maintain*
 3. In your newly created folder, create an `index.js` file as well as two folders, one named `cadence` and one named `description`
     - *Tip: Just copy the contents inside one of the already existing folders in the modules folder*
 4. Within the `cadence` folder you will have four files with the following names:
@@ -52,7 +52,7 @@ export const contract = `pub resource interface Provider {
 `
 ```
 
-6. In the description folder you will create on file called ‘description.js’
+6. In the description folder you will create on file called `description.js`
 7. In this file you will have variables that you will assign that will be used for defining the recipe
  - Name - Name of your recipe
  - Description - A brief description of what your recipe is about
@@ -60,7 +60,7 @@ export const contract = `pub resource interface Provider {
  - Category - The category your recipe falls under. Feel free to use an existing one or create your own if needed
   - Icon - The icon for your recipe. The Cadence Cookbook uses the fortAwesome library for Icons, so please use an icon from there
     - bgColor- The bgColor of the thumbnail. Please try to use one that is not similar to the previous ones
-    - Script - If the interaction code with your smart contract is a script, please label this as ‘true’, if it is a transaction label this as ‘false’
+    - Script - If the interaction code with your smart contract is a script, please label this as `true`, if it is a transaction label this as `false`
     
 
 ```jsx
@@ -178,7 +178,7 @@ function 'YourRecipeNameHere'(){
 export default 'YourRecipeNameHere'
 ```
 
-9. Lastly, we now have to import your component into the ‘index.js’ file located in the modules folder.
+9. Lastly, we now have to import your component into the `index.js` file located in the modules folder.
  - To import, just import your component and add it to the bottom of all the other imported components that are to be exported.
 
 ```jsx
@@ -239,6 +239,6 @@ export default [
 
 Now with all of this being finished, you should be done with adding your recipe to the Cadence Cookbook. 
 
-Open a pull request on GitHub for the changes you’ve added and all should be good to go as soon as we merge the request.
+Open a pull request on GitHub for the changes you've added and all should be good to go as soon as we merge the request.
 
 Thank you for contributing! Please reach out to tyllen.bicakcic@dapperlabs.com if you have any additional questions 😎
