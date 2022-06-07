@@ -1,29 +1,32 @@
-# Contributing To Open Cadence
+# Contributing to the Cadence Cookbook
 
-## How to contribute to Open-Cadence?
+## How to contribute?
 
-Contributing to Open Cadence is easy! And we’d love for you to share your work with the community so that we can keep on benefiting from each others work and keep creating amazing projects on Flow!
+Contributing to the Cadence Cookbook is easy! And we’d love for you to share your work with the community so that we can keep on benefiting from each others work and keep creating amazing projects on Flow!
 
-In order to contribute, we’ve tried to make it as easy as possible to add an example to the website. We provide you the format for submitting a pull-request to [this GitHub repo](https://github.com/onflow/open-cadence) so that your example can be added. We’ll go over the format for submitting your example in the following section!
+In order to contribute, we’ve tried to make it as easy as possible to add an recipie to the website. We provide you the format for submitting a pull-request to [this GitHub repo](https://github.com/onflow/cadence-cookbook) so that your recipe can be added. We’ll go over the format for submitting your recipe in the following section!
 
-## Adding an Example to Open Cadence Format
-In order to submit an example to the Open Cadence GitHub, you will need to submit a pull request in line with the following format in order to get it merged to the site. The format is as follows.
+## Adding a recipe
 
-1. Navigate to the ‘modules’ folder in the ‘src’ folder in the repository
-    - *Here you will see all of the examples that are available on open cadence, and you can start to get an idea of how you will structure your folders to be approved*
+In order to submit a recipe to the Cadence Cookbook, you will need to submit a pull request in line with the following format in order to get it merged to the site. The format is as follows:
+
+1. Navigate to the `src/modules` folder in the repository
+    - *Here you will see all of the existing recipes, and you can start to get an idea of how you will structure your folders to be approved*
         
-        ![Open Cadence Architecture](https://i.ibb.co/FWp6W1T/open-cadence-architecture.png)
+        ![Cadence Cookbook Architecture](https://i.ibb.co/FWp6W1T/open-cadence-architecture.png)
         
-2. Add a new folder in the ‘modules’ folder with the name of your Cadence example
-    - *Name it something that identifies what your example is about so that it’s easy to maintain*
-3. In your newly created folder, create an ‘index.js’ file as well as two folders, one named ‘cadence’ and one named ‘description’
+2. Add a new folder in the `modules` folder with the name of your Cadence recipe
+    - *Name it something that identifies what your recipe is about so that it’s easy to maintain*
+3. In your newly created folder, create an `index.js` file as well as two folders, one named `cadence` and one named `description`
     - *Tip: Just copy the contents inside one of the already existing folders in the modules folder*
-4. Within the ‘cadence’ folder you will have four files with the following names
- - contract.js
- - contractExplain.js
- - transaction.js
- - transactionExplain.js
-5. In each of these folders, you will input the text for the necessary parts of the contract and explanation that is needed. You can see in the example below how each const is created
+4. Within the `cadence` folder you will have four files with the following names:
+ - `contract.js`
+ - `contractExplain.js`
+ - `transaction.js`
+ - `transactionExplain.js`
+5. In each of these folders, you will input the text for the necessary parts of the contract and explanation that is needed. 
+    You can see in the example below how each const is created
+    
 ```jsx
 export const contract = `pub resource interface Provider {
 
@@ -50,12 +53,12 @@ export const contract = `pub resource interface Provider {
 ```
 
 6. In the description folder you will create on file called ‘description.js’
-7. In this file you will have variables that you will assign that will be used for constructing the example
- - Name - Name of your example
- - Description - A brief description of what your example is about
- - Playground Link- A Playground Link that shows what your example does in real time
- - Category - The category your example falls under. Feel free to use an existing one or create your own if needed
-  - Icon - The icon for your example. Open Cadence uses the fortAwesome library for Icons, so please use an icon from there
+7. In this file you will have variables that you will assign that will be used for defining the recipe
+ - Name - Name of your recipe
+ - Description - A brief description of what your recipe is about
+ - Playground Link- A Playground Link that shows what your recipe does in real time
+ - Category - The category your recipe falls under. Feel free to use an existing one or create your own if needed
+  - Icon - The icon for your recipe. The Cadence Cookbook uses the fortAwesome library for Icons, so please use an icon from there
     - bgColor- The bgColor of the thumbnail. Please try to use one that is not similar to the previous ones
     - Script - If the interaction code with your smart contract is a script, please label this as ‘true’, if it is a transaction label this as ‘false’
     
@@ -80,7 +83,7 @@ export const script = false
 ```
 
 8. Next we have the index.js file
-    - I would copy one of the previous examples index.js files and just paste it into your code to make things easy.
+    - I would copy one of the existing `index.js` files and just paste it into your code to make things easy.
     - *To note, when pasting the code, please change the name of the function so that we are not repeating function names when exporting the component to the index.js file in the modules folder.*
 
 ```jsx
@@ -93,7 +96,7 @@ import { contract } from './cadence/contract';
 import { transaction } from './cadence/transaction';
 import { transactionExplain } from './cadence/transactionExplain';
 
-function 'YourExampleNameHere'(){
+function 'YourRecipeNameHere'(){
 
     const [ toggle, setToggle ] = useState(false)
 
@@ -112,7 +115,7 @@ function 'YourExampleNameHere'(){
             </div>
             <div className="text-left pl-4">
                 <div>
-                    {/* name of example will go here */}
+                    {/* name of recipe will go here */}
                     <p><b>{name}</b></p>
                 </div>
                 <div>
@@ -172,11 +175,11 @@ function 'YourExampleNameHere'(){
     )
 }
 
-export default 'YourExampleNameHere'
+export default 'YourRecipeNameHere'
 ```
 
 9. Lastly, we now have to import your component into the ‘index.js’ file located in the modules folder.
- - To import, just import your component and add it to the bottom of all the other imported components that are to be exported for use in open-cadence.
+ - To import, just import your component and add it to the bottom of all the other imported components that are to be exported.
 
 ```jsx
 import AddAdminResource from "./Add_Admin_Resource"
@@ -203,7 +206,7 @@ import SetInSeriesNFT from "./Set_In_Series_NFT"
 import TokenVault from "./Token_Vault"
 import VaultMinter from "./Vault_Minter"
 import WithdrawTokens from "./Withdrawing_Tokens"
-import 'YourExampleNameHere' from "./'YourExampleNameHere'"
+import 'YourRecipeNameHere' from "./'YourRecipeNameHere'"
 
 export default [
     MintNFT,
@@ -230,10 +233,12 @@ export default [
     PurchaseMPNFT,
     MintKittyItemNFT,
     GetKittyItemMetadata
-		'YourExampleNameHere'
+		'YourRecipeNameHere'
 ]
 ```
 
-Now with all of this being finished, you should be done with adding your example to Open Cadence. Open a pull request on GitHub for the changes you’ve added and all should be good to go as soon as we merge the request.
+Now with all of this being finished, you should be done with adding your recipe to the Cadence Cookbook. 
+
+Open a pull request on GitHub for the changes you’ve added and all should be good to go as soon as we merge the request.
 
 Thank you for contributing! Please reach out to tyllen.bicakcic@dapperlabs.com if you have any additional questions 😎
