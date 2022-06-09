@@ -11,7 +11,7 @@ function Nav({
             <img src={logo} className=' h-10 ml-6' alt="logo" />
             <div className='flex pt-2 ml-3 text-slate-900 w-full'>
                 <div className="pl-6 hover:font-medium hover:text-green-400" onClick={() => setResults(flowExamples)}>
-                    <Link to="/">Examples</Link>
+                    <Link to="/">Recipes</Link>
                 </div>
                 <div className='ml-auto mr-10 -mb-2 -mt-[3px]'>
                     <button
