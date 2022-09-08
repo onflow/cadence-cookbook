@@ -7,7 +7,7 @@ export const name = "Create a TopShot Set"
 
 export const description = "Using the TopShot contract, this is how you would create a set so that you could add plays to them and mint moments from those plays."
 
-export const playgroundLink = "https://play.onflow.org/15c1e86e-010c-4a7c-bcfd-98a1bddc36a7?type=tx&id=9e42f1aa-3f25-4ffc-87f0-b9d109e1d851&storage=none"
+export const playgroundLink = "https://play.onflow.org/63a7ce9f-3315-4c55-8392-2d626bb8387d?type=account&id=91c4010c-2407-4a3c-a0c1-cc4d3904d9f8&storage=none"
 
 export const category = "Top Shot"
 
