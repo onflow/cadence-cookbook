@@ -6,7 +6,7 @@ Then you would have your series resource that would only exist in your account i
 
 Here you would enter in all the necessary parameters that go into creating an NFT Set. Once that's taken in you first check to make sure that the series doesn't already contain that setId.
 
-If that is true then you establish the new NFTSetData struct. Afterwards you add the setId to the setId's array. Then you initialize the number of NFT's minted to 0 based on your setID # in the series because you are creating a brand new set.
+If that is true then you establish the new NFTSetData struct. Afterwards you add the setId to the setId's array. Then you initialize the number of NFTS minted to 0 based on your setID # in the series because you are creating a brand new set.
 
 Afterwards you store the setId and the NFTSetData struct in the setData dictionary where all the sets are able to be tracked.
 

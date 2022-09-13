@@ -3,9 +3,9 @@ import { faAddressBook } from "@fortawesome/free-solid-svg-icons"
 
 
 
-export const name = "Collection's for holding NFT's"
+export const name = "Collection's for holding NFTS"
 
-export const description = "This resource holds your NFT's in a collection in your account"
+export const description = "This resource holds your NFTS in a collection in your account"
 
 export const playgroundLink = "https://play.onflow.org/41befd2d-31f3-47f0-ae30-aad776961e31?type=tx&id=88850298-bed1-4bb9-b77e-4df200f76278&storage=none"
 

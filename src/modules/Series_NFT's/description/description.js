@@ -3,7 +3,7 @@ import { faDice } from "@fortawesome/free-solid-svg-icons"
 
 
 
-export const name = `Implementing Series for NFT's`
+export const name = `Implementing Series for NFTS`
 
 export const description = "This cadence code will help you being to understand how to implement series and sets into your NFT project"
 
