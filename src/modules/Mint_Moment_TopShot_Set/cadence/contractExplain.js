@@ -6,7 +6,7 @@ If not, we then get the number of moments minted for this play and store that nu
 
 We then return the moment with is of an NFT resource type, to later be stored in a collection in a receivers account.
 
-We could also batch mint these moments. This would save a lot of time if you wanted to mint 60,000 moments. When doing this, you would have to create a collection resource that would deposit all of the minted NFT's into it.
+We could also batch mint these moments. This would save a lot of time if you wanted to mint 60,000 moments. When doing this, you would have to create a collection resource that would deposit all of the minted NFTS into it.
 
 Once that happens you would return the collection resource and then deposit that into the receivers collection.
 

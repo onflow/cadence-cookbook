@@ -7,7 +7,7 @@ export const name = "Token Vault"
 
 export const description = "This explains the vault resource that can be created in order for you to handle fungible tokens."
 
-export const playgroundLink = "https://play.onflow.org/ef2fe054-148b-4c75-94f1-95bd33b6ce00?type=tx&id=1629c020-d908-475e-87db-c81d1c496964"
+export const playgroundLink = "https://play.onflow.org/8b168390-9712-4578-a437-d15125cf18d9"
 
 export const category = "Fungible Token"
 
