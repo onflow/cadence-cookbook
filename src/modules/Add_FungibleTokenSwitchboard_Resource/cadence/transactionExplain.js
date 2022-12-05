@@ -1,0 +1,1 @@
+export const transactionExplain = `This transaction will create and save a Switchboard resource to the signer's account, and it also will create the needed public capabilities to access it. After setting up their switchboard, in order to make it support receiving a certain token, users will need to add the desired token's receiver capability to their switchboard resource.`;
