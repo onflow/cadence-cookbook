@@ -6,6 +6,7 @@ import {
     description,
     icon,
     name,
+    playgroundLink,
     bgColor,
     script,
 } from './description/description';
@@ -59,6 +60,9 @@ function FungibleTokenSwitchboard() {
                     <p>{transactionExplain}</p>
                 </div>
                 <div style={{ contentVisibility: 'hidden' }}>
+                    <p>{playgroundLink}</p>
+                </div>
+                <div style={{ contentVisibility: 'hidden' }}>
                     <p>{icon}</p>
                 </div>
                 <div style={{ contentVisibility: 'hidden' }}>
@@ -75,6 +79,7 @@ function FungibleTokenSwitchboard() {
                     transaction={transaction}
                     transactionExplainer={transactionExplain}
                     category={category}
+                    playgroundLink={playgroundLink}
                     description={description}
                     setToggle={setToggle}
                     icon={icon}
