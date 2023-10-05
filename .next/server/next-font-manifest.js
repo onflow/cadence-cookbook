@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/lealobanov/Desktop/Projects/cadence-cookbook/cadence-cookbook/src/app/layout\":[\"static/media/83c76cede88902c5-s.p.woff2\",\"static/media/6a44acd4f1e705fc-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
