@@ -35,6 +35,28 @@ const recipes = [
   test2,
   test3,
   test4,
+  //mintNFT
+  //collectionsForHoldingNFTs
+  //creatingCollectionForAccount
+  //NFTwithMetadata
+  //metadataViews
+  //multipleMetadataViews
+  //tokenVault
+  //withdrawingTokens
+  //creatingAVault
+  //vaultMinter
+  //implementingSeriesForNFTs
+  //creatingASetInSeries
+  //mintingNFTsInASet
+  //adminResource
+  //addAdminResourceToAccount
+  //createATopShotPlay
+  //createATopShotSet
+  //addAPlayToATopShotSet
+  //mintingAMomentInTopShotSet
+  //createAMarketplace
+  //createAnNFTListing
+  //purchaseNFTOnMarketplace
 ];
 
 export async function getAllRecipes() {
