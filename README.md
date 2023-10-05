@@ -1,4 +1,4 @@
-# Cadence Cookbook
+# Cadence Cookbook - UI updates 
 
 Explore various Cadence smarts contracts & transaction scripts for different use cases.
 
