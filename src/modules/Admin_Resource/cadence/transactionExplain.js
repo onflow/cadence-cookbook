@@ -1,2 +1,0 @@
-export const transactionExplain = `Here we use the transaction to create a series from the admin account. We borrow a reference to the Admin resource and then use it to execute the addSeries function.
-`

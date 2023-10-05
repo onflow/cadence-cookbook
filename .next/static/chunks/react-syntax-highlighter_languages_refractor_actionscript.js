@@ -1,0 +1,22 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["react-syntax-highlighter_languages_refractor_actionscript"],{
+
+/***/ "(app-pages-browser)/./node_modules/refractor/lang/actionscript.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/refractor/lang/actionscript.js ***!
+  \*****************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("\n\nmodule.exports = actionscript\nactionscript.displayName = 'actionscript'\nactionscript.aliases = []\nfunction actionscript(Prism) {\n  Prism.languages.actionscript = Prism.languages.extend('javascript', {\n    keyword: /\\b(?:as|break|case|catch|class|const|default|delete|do|else|extends|finally|for|function|if|implements|import|in|instanceof|interface|internal|is|native|new|null|package|private|protected|public|return|super|switch|this|throw|try|typeof|use|var|void|while|with|dynamic|each|final|get|include|namespace|native|override|set|static)\\b/,\n    operator: /\\+\\+|--|(?:[+\\-*\\/%^]|&&?|\\|\\|?|<<?|>>?>?|[!=]=?)=?|[~?@]/\n  })\n  Prism.languages.actionscript['class-name'].alias = 'function'\n  if (Prism.languages.markup) {\n    Prism.languages.insertBefore('actionscript', 'string', {\n      xml: {\n        pattern: /(^|[^.])<\\/?\\w+(?:\\s+[^\\s>\\/=]+=(\"|')(?:\\\\[\\s\\S]|(?!\\2)[^\\\\])*\\2)*\\s*\\/?>/,\n        lookbehind: true,\n        inside: {\n          rest: Prism.languages.markup\n        }\n      }\n    })\n  }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL25vZGVfbW9kdWxlcy9yZWZyYWN0b3IvbGFuZy9hY3Rpb25zY3JpcHQuanMiLCJtYXBwaW5ncyI6IkFBQVk7O0FBRVo7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxHQUFHO0FBQ0g7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL19OX0UvLi9ub2RlX21vZHVsZXMvcmVmcmFjdG9yL2xhbmcvYWN0aW9uc2NyaXB0LmpzPzZiOGMiXSwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnXG5cbm1vZHVsZS5leHBvcnRzID0gYWN0aW9uc2NyaXB0XG5hY3Rpb25zY3JpcHQuZGlzcGxheU5hbWUgPSAnYWN0aW9uc2NyaXB0J1xuYWN0aW9uc2NyaXB0LmFsaWFzZXMgPSBbXVxuZnVuY3Rpb24gYWN0aW9uc2NyaXB0KFByaXNtKSB7XG4gIFByaXNtLmxhbmd1YWdlcy5hY3Rpb25zY3JpcHQgPSBQcmlzbS5sYW5ndWFnZXMuZXh0ZW5kKCdqYXZhc2NyaXB0Jywge1xuICAgIGtleXdvcmQ6IC9cXGIoPzphc3xicmVha3xjYXNlfGNhdGNofGNsYXNzfGNvbnN0fGRlZmF1bHR8ZGVsZXRlfGRvfGVsc2V8ZXh0ZW5kc3xmaW5hbGx5fGZvcnxmdW5jdGlvbnxpZnxpbXBsZW1lbnRzfGltcG9ydHxpbnxpbnN0YW5jZW9mfGludGVyZmFjZXxpbnRlcm5hbHxpc3xuYXRpdmV8bmV3fG51bGx8cGFja2FnZXxwcml2YXRlfHByb3RlY3RlZHxwdWJsaWN8cmV0dXJufHN1cGVyfHN3aXRjaHx0aGlzfHRocm93fHRyeXx0eXBlb2Z8dXNlfHZhcnx2b2lkfHdoaWxlfHdpdGh8ZHluYW1pY3xlYWNofGZpbmFsfGdldHxpbmNsdWRlfG5hbWVzcGFjZXxuYXRpdmV8b3ZlcnJpZGV8c2V0fHN0YXRpYylcXGIvLFxuICAgIG9wZXJhdG9yOiAvXFwrXFwrfC0tfCg/OlsrXFwtKlxcLyVeXXwmJj98XFx8XFx8P3w8PD98Pj4/Pj98WyE9XT0/KT0/fFt+P0BdL1xuICB9KVxuICBQcmlzbS5sYW5ndWFnZXMuYWN0aW9uc2NyaXB0WydjbGFzcy1uYW1lJ10uYWxpYXMgPSAnZnVuY3Rpb24nXG4gIGlmIChQcmlzbS5sYW5ndWFnZXMubWFya3VwKSB7XG4gICAgUHJpc20ubGFuZ3VhZ2VzLmluc2VydEJlZm9yZSgnYWN0aW9uc2NyaXB0JywgJ3N0cmluZycsIHtcbiAgICAgIHhtbDoge1xuICAgICAgICBwYXR0ZXJuOiAvKF58W14uXSk8XFwvP1xcdysoPzpcXHMrW15cXHM+XFwvPV0rPShcInwnKSg/OlxcXFxbXFxzXFxTXXwoPyFcXDIpW15cXFxcXSkqXFwyKSpcXHMqXFwvPz4vLFxuICAgICAgICBsb29rYmVoaW5kOiB0cnVlLFxuICAgICAgICBpbnNpZGU6IHtcbiAgICAgICAgICByZXN0OiBQcmlzbS5sYW5ndWFnZXMubWFya3VwXG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9KVxuICB9XG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(app-pages-browser)/./node_modules/refractor/lang/actionscript.js\n"));
+
+/***/ })
+
+}]);
