@@ -34,3 +34,6 @@
 [submodule "src/data/recipes/implementing-series-for-nfts"]
 	path = src/data/recipes/implementing-series-for-nfts
 	url = https://github.com/lealobanov/implementing-series-for-nfts
+[submodule "src/data/recipes/creating-a-set-in-series"]
+	path = src/data/recipes/creating-a-set-in-series
+	url = https://github.com/lealobanov/creating-a-set-in-series
