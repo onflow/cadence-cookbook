@@ -4,3 +4,6 @@
 [submodule "src/data/recipes/mint-nft"]
 	path = src/data/recipes/mint-nft
 	url = https://github.com/lealobanov/mint-nft
+[submodule "src/data/recipes/collection-for-holding-nfts"]
+	path = src/data/recipes/collection-for-holding-nfts
+	url = https://github.com/lealobanov/collection-for-holding-nfts
