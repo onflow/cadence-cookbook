@@ -58,3 +58,6 @@
 [submodule "src/data/recipes/create-a-marketplace"]
 	path = src/data/recipes/create-a-marketplace
 	url = https://github.com/lealobanov/create-a-marketplace
+[submodule "src/data/recipes/create-an-nft-listing"]
+	path = src/data/recipes/create-an-nft-listing
+	url = https://github.com/lealobanov/create-an-nft-listing
