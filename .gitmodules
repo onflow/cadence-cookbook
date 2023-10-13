@@ -19,3 +19,6 @@
 [submodule "src/data/recipes/multiple-metadata-views"]
 	path = src/data/recipes/multiple-metadata-views
 	url = https://github.com/lealobanov/multiple-metadata-views
+[submodule "src/data/recipes/token-vault"]
+	path = src/data/recipes/token-vault
+	url = https://github.com/lealobanov/token-vault
