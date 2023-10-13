@@ -27,6 +27,10 @@ function fetchExternalRecipe(recipe) {
   const transactionPath = recipe.transactionCode;
   const testPath = recipe.testCasesCode;
 
+  const contractExplanationPath = recipe.smartContractExplanation;
+  const transactionExplanationPath = recipe.transactionExplanation;
+  const testExplanationPath = recipe.testCasesExplanation;
+
   const contractCode =
     contractPath !== undefined && contractPath !== null
       ? fs.readFileSync(`./src/data/recipes/${contractPath}`, "utf8")
@@ -40,9 +44,30 @@ function fetchExternalRecipe(recipe) {
       ? fs.readFileSync(`./src/data/recipes/${testPath}`, "utf8")
       : null;
 
+  const contractExplanation =
+    contractExplanationPath !== undefined && contractExplanationPath !== null
+      ? fs.readFileSync(`./src/data/recipes/${contractExplanationPath}`, "utf8")
+      : null;
+  const transactionExplanation =
+    transactionExplanationPath !== undefined &&
+    transactionExplanationPath !== null
+      ? fs.readFileSync(
+          `./src/data/recipes/${transactionExplanationPath}`,
+          "utf8"
+        )
+      : null;
+  const testCasesExplanation =
+    testExplanationPath !== undefined && testExplanationPath !== null
+      ? fs.readFileSync(`./src/data/recipes/${testExplanationPath}`, "utf8")
+      : null;
+
   recipe.smartContractCode = contractCode;
   recipe.transactionCode = transactionCode;
   recipe.testCasesCode = testCasesCode;
+
+  recipe.smartContractExplanation = contractExplanation;
+  recipe.transactionExplanation = transactionExplanation;
+  recipe.testCasesExplanation = testCasesExplanation;
 
   return recipe;
 }
