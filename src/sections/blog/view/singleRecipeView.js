@@ -125,7 +125,10 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
           {post.smartContractExplanation !== undefined &&
             post.smartContractExplanation !== null && (
-              <Markdown sx={{ mt: 5, mb: 5 }} children={post.smartContractExplanation} />
+              <Markdown
+                sx={{ mt: 5, mb: 5 }}
+                children={post.smartContractExplanation}
+              />
             )}
 
           <Typography variant="h5" sx={{ mt: 5, mb: 5 }}>
@@ -159,9 +162,13 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
               />
             )}
 
-          <Typography variant="h5" sx={{ mb: 5 }}>
-            Cadence Test Cases
-          </Typography>
+          {((post.testCasesCode !== undefined && post.testCasesCode !== null) ||
+            (post.testCasesExplanation !== undefined &&
+              post.testCasesExplanation !== null)) && (
+            <Typography variant="h5" sx={{ mb: 5 }}>
+              Cadence Test Cases
+            </Typography>
+          )}
         </Stack>
 
         {post.testCasesCode !== undefined && post.testCasesCode !== null && (
@@ -193,7 +200,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             <FaqsList />
           </Stack> */}
 
-          <Stack direction="row">
+          {/* <Stack direction="row">
             <Typography
               variant="overline"
               sx={{ mb: 3, color: "text.secondary" }}
@@ -227,7 +234,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
               post.tags.map((tag) => (
                 <Chip key={tag} label={tag} variant="soft" />
               ))}
-          </Stack>
+          </Stack> */}
 
           <Divider />
 
@@ -277,7 +284,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
   const renderLatestPosts = (
     <>
-      <Typography variant="h4" sx={{ mb: 5 }}>
+      <Typography variant="h4" sx={{ mt: 5, mb: 5 }}>
         Related Recipes
       </Typography>
 
