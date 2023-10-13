@@ -22,3 +22,6 @@
 [submodule "src/data/recipes/token-vault"]
 	path = src/data/recipes/token-vault
 	url = https://github.com/lealobanov/token-vault
+[submodule "src/data/recipes/withdrawing-tokens"]
+	path = src/data/recipes/withdrawing-tokens
+	url = https://github.com/lealobanov/withdrawing-tokens
