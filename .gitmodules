@@ -10,3 +10,6 @@
 [submodule "src/data/recipes/creating-collection-for-account"]
 	path = src/data/recipes/creating-collection-for-account
 	url = https://github.com/lealobanov/creating-collection-for-account
+[submodule "src/data/recipes/nft-with-metadata"]
+	path = src/data/recipes/nft-with-metadata
+	url = https://github.com/lealobanov/nft-with-metadata
