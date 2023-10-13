@@ -43,3 +43,6 @@
 [submodule "src/data/recipes/admin-resource"]
 	path = src/data/recipes/admin-resource
 	url = https://github.com/lealobanov/admin-resource
+[submodule "src/data/recipes/add-admin-resource-to-account"]
+	path = src/data/recipes/add-admin-resource-to-account
+	url = https://github.com/lealobanov/add-admin-resource-to-account
