@@ -13,3 +13,6 @@
 [submodule "src/data/recipes/nft-with-metadata"]
 	path = src/data/recipes/nft-with-metadata
 	url = https://github.com/lealobanov/nft-with-metadata
+[submodule "src/data/recipes/metadata-views"]
+	path = src/data/recipes/metadata-views
+	url = https://github.com/lealobanov/metadata-views
