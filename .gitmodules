@@ -1,3 +1,6 @@
 [submodule "src/data/recipes/add-a-play-to-topshot-set"]
 	path = src/data/recipes/add-a-play-to-topshot-set
 	url = https://github.com/lealobanov/add-a-play-to-topshot-set
+[submodule "src/data/recipes/mint-nft"]
+	path = src/data/recipes/mint-nft
+	url = https://github.com/lealobanov/mint-nft
