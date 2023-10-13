@@ -16,3 +16,6 @@
 [submodule "src/data/recipes/metadata-views"]
 	path = src/data/recipes/metadata-views
 	url = https://github.com/lealobanov/metadata-views
+[submodule "src/data/recipes/multiple-metadata-views"]
+	path = src/data/recipes/multiple-metadata-views
+	url = https://github.com/lealobanov/multiple-metadata-views
