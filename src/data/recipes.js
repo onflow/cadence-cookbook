@@ -5,6 +5,7 @@ import { test1 } from "./recipes/test1";
 import { test2 } from "./recipes/test2";
 import { test3 } from "./recipes/test3";
 import { test4 } from "./recipes/test4";
+import { mintNFT } from "./recipes/mint-nft";
 
 function fetchExternalRecipe(recipe) {
   const contractPath = recipe.smartContractCode;
@@ -19,7 +20,7 @@ function fetchExternalRecipe(recipe) {
     `./src/data/recipes/${transactionPath}`,
     "utf8"
   );
-  const testCasesCode = fs.readFileSync(`./src/data/recipes/${testPath}`, "utf8");
+  const testCasesCode = (testPath !== undefined && testPath !== null) ? fs.readFileSync(`./src/data/recipes/${testPath}`, "utf8") : null;
 
   recipe.smartContractCode = contractCode;
   recipe.transactionCode = transactionCode;
@@ -30,7 +31,7 @@ function fetchExternalRecipe(recipe) {
 
 const recipes = [
   createNFTListing,
-  fetchExternalRecipe(sampleRecipe), // recipe sourced from Git submodule
+  fetchExternalRecipe(mintNFT), // recipe sourced from Git submodule
   test1,
   test2,
   test3,

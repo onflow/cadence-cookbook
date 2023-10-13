@@ -67,7 +67,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             href: "/",
           },
           {
-            name: "NFT Storefront Essentials",
+            name: "Module Name",
             href: "/",
           },
           {
@@ -118,10 +118,10 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             Sample info blurb
           </Alert>
 
-          <Markdown
+          {/* <Markdown
             sx={{ mt: 5, mb: 5 }}
             children={post.smartContractExplanation}
-          />
+          /> */}
 
           <Typography variant="h5" sx={{ mb: 5 }}>
             Transaction Example
@@ -141,17 +141,17 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
         <Stack sx={{ maxWidth: 920, mx: "auto" }}>
           <Alert sx={{ mt: 5 }} severity="info">Sample info blurb</Alert>
 
-          <Markdown
+          {/* <Markdown
             sx={{ mt: 5, mb: 5 }}
             children={post.transactionExplanation}
-          />
+          /> */}
 
           <Typography variant="h5" sx={{ mb: 5 }}>
             Cadence Test Cases
           </Typography>
         </Stack>
 
-        <Box pl={30} pr={30} alignItems="center">
+        {/* <Box pl={30} pr={30} alignItems="center">
           <CopyBlock
             text={post.testCasesCode}
             language="swift"
@@ -159,7 +159,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             theme={dracula}
             wrapLines
           />
-        </Box>
+        </Box> */}
 
         <Stack sx={{ maxWidth: 920, mx: "auto" }}>
           <Markdown sx={{ mt: 5, mb: 5 }} children={post.testCasesExplanation} />
@@ -201,7 +201,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
           </Stack>
 
           <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
-            {post.tags.map((tag) => (
+            {post.tags !== undefined && post.tags !== null && post.tags.map((tag) => (
               <Chip key={tag} label={tag} variant="soft" />
             ))}
           </Stack>
@@ -234,7 +234,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             </AvatarGroup>
           </Stack> */}
 
-          <Stack direction="row" sx={{ mb: 3, mt: 5 }}>
+          {/* <Stack direction="row" sx={{ mb: 3, mt: 5 }}>
             <Typography variant="h4">Comments</Typography>
 
             <Typography variant="subtitle2" sx={{ color: "text.disabled" }}>
@@ -246,7 +246,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
           <Divider sx={{ mt: 5, mb: 2 }} />
 
-          <PostCommentList comments={post.comments} />
+          <PostCommentList comments={post.comments} /> */}
         </Stack>
       </Container>
     </>
