@@ -1,0 +1,3 @@
+[submodule "src/data/recipes/add-a-play-to-topshot-set"]
+	path = src/data/recipes/add-a-play-to-topshot-set
+	url = https://github.com/lealobanov/add-a-play-to-topshot-set
