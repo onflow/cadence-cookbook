@@ -40,3 +40,6 @@
 [submodule "src/data/recipes/minting-nfts-in-a-set"]
 	path = src/data/recipes/minting-nfts-in-a-set
 	url = https://github.com/lealobanov/minting-nfts-in-a-set
+[submodule "src/data/recipes/admin-resource"]
+	path = src/data/recipes/admin-resource
+	url = https://github.com/lealobanov/admin-resource
