@@ -28,3 +28,6 @@
 [submodule "src/data/recipes/creating-a-vault"]
 	path = src/data/recipes/creating-a-vault
 	url = https://github.com/lealobanov/creating-a-vault
+[submodule "src/data/recipes/vault-minter"]
+	path = src/data/recipes/vault-minter
+	url = https://github.com/lealobanov/vault-minter
