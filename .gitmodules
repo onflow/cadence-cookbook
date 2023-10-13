@@ -46,3 +46,6 @@
 [submodule "src/data/recipes/add-admin-resource-to-account"]
 	path = src/data/recipes/add-admin-resource-to-account
 	url = https://github.com/lealobanov/add-admin-resource-to-account
+[submodule "src/data/recipes/create-a-topshot-play"]
+	path = src/data/recipes/create-a-topshot-play
+	url = https://github.com/lealobanov/create-a-topshot-play
