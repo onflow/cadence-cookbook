@@ -31,3 +31,6 @@
 [submodule "src/data/recipes/vault-minter"]
 	path = src/data/recipes/vault-minter
 	url = https://github.com/lealobanov/vault-minter
+[submodule "src/data/recipes/implementing-series-for-nfts"]
+	path = src/data/recipes/implementing-series-for-nfts
+	url = https://github.com/lealobanov/implementing-series-for-nfts
