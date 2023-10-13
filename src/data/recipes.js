@@ -1,6 +1,5 @@
 import * as fs from "node:fs";
 import { createNFTListing } from "./recipes/createNFTListing";
-import { sampleRecipe } from "./recipes/sample-recipe/sample-recipe";
 import { test1 } from "./recipes/test1";
 import { test2 } from "./recipes/test2";
 import { test3 } from "./recipes/test3";
@@ -36,7 +35,6 @@ const recipes = [
   test2,
   test3,
   test4,
-  //mintNFT
   //collectionsForHoldingNFTs
   //creatingCollectionForAccount
   //NFTwithMetadata

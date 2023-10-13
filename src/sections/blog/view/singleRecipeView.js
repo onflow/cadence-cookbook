@@ -77,7 +77,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
         sx={{ maxWidth: 720, ml: "9%", mb: "2%" }}
       />
       <PostDetailsHero
-        title={post.description}
+        title={post.featuredText}
         author={post.author}
         coverUrl={post.coverUrl}
         createdAt={post.createdAt}
@@ -94,52 +94,62 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
       <Container maxWidth={false}>
         <Stack sx={{ maxWidth: 920, mx: "auto" }}>
-          <Typography variant="subtitle1" sx={{ mb: 5 }}>
-            {post.excerpt}
-          </Typography>
+          {post.excerpt !== undefined && post.excerpt !== null && (
+            <Typography variant="subtitle1" sx={{ mb: 5 }}>
+              {post.excerpt}
+            </Typography>
+          )}
 
           <Typography variant="h5" sx={{ mb: 5 }}>
             Smart Contract Example
           </Typography>
         </Stack>
 
-        <Box pl={30} pr={30} alignItems="center">
-          <CopyBlock
-            text={post.smartContractCode}
-            language="swift"
-            showLineNumbers
-            theme={dracula}
-            wrapLines
-          />
-        </Box>
+        {post.smartContractCode !== undefined &&
+          post.smartContractCode !== null && (
+            <Box pl={30} pr={30} alignItems="center">
+              <CopyBlock
+                text={post.smartContractCode}
+                language="swift"
+                showLineNumbers
+                theme={dracula}
+                wrapLines
+              />
+            </Box>
+          )}
 
         <Stack sx={{ maxWidth: 920, mx: "auto" }}>
-          <Alert sx={{ mt: 5 }} severity="success">
+          {/* <Alert sx={{ mt: 5, mb: 5 }} severity="success">
             Sample info blurb
-          </Alert>
+          </Alert> */}
 
-          {/* <Markdown
-            sx={{ mt: 5, mb: 5 }}
-            children={post.smartContractExplanation}
-          /> */}
+          {post.smartContractExplanation !== undefined &&
+            post.smartContractExplanation !== null && (
+              <Markdown children={post.smartContractExplanation} />
+            )}
 
-          <Typography variant="h5" sx={{ mb: 5 }}>
+          <Typography variant="h5" sx={{ mt: 5, mb: 5 }}>
             Transaction Example
           </Typography>
         </Stack>
 
-        <Box pl={30} pr={30} alignItems="center">
-          <CopyBlock
-            text={post.transactionCode}
-            language="swift"
-            showLineNumbers
-            theme={dracula}
-            wrapLines
-          />
-        </Box>
+        {post.transactionCode !== undefined &&
+          post.transactionCode !== null && (
+            <Box pl={30} pr={30} alignItems="center">
+              <CopyBlock
+                text={post.transactionCode}
+                language="swift"
+                showLineNumbers
+                theme={dracula}
+                wrapLines
+              />
+            </Box>
+          )}
 
         <Stack sx={{ maxWidth: 920, mx: "auto" }}>
-          <Alert sx={{ mt: 5 }} severity="info">Sample info blurb</Alert>
+          {/* <Alert sx={{ mt: 5 }} severity="info">
+            Sample info blurb
+          </Alert> */}
 
           {/* <Markdown
             sx={{ mt: 5, mb: 5 }}
@@ -162,15 +172,21 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
         </Box> */}
 
         <Stack sx={{ maxWidth: 920, mx: "auto" }}>
-          <Markdown sx={{ mt: 5, mb: 5 }} children={post.testCasesExplanation} />
+          {post.testCasesExplanation !== undefined &&
+            post.testCasesExplanation !== null && (
+              <Markdown
+                sx={{ mt: 5, mb: 5 }}
+                children={post.testCasesExplanation}
+              />
+            )}
 
-          <Typography variant="h5" sx={{ mb: 3 }}>
+          {/* <Typography variant="h5" sx={{ mb: 3 }}>
             FAQs
           </Typography>
 
           <Stack sx={{ mb: 5 }}>
             <FaqsList />
-          </Stack>
+          </Stack> */}
 
           <Stack direction="row">
             <Typography
@@ -201,9 +217,11 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
           </Stack>
 
           <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
-            {post.tags !== undefined && post.tags !== null && post.tags.map((tag) => (
-              <Chip key={tag} label={tag} variant="soft" />
-            ))}
+            {post.tags !== undefined &&
+              post.tags !== null &&
+              post.tags.map((tag) => (
+                <Chip key={tag} label={tag} variant="soft" />
+              ))}
           </Stack>
 
           <Divider />
