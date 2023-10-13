@@ -1,10 +1,26 @@
 import * as fs from "node:fs";
-import { createNFTListing } from "./recipes/createNFTListing";
-import { test1 } from "./recipes/test1";
-import { test2 } from "./recipes/test2";
-import { test3 } from "./recipes/test3";
-import { test4 } from "./recipes/test4";
 import { mintNFT } from "./recipes/mint-nft";
+import { collectionForHoldingNfts } from "./recipes/collection-for-holding-nfts";
+import { creatingCollectionForAccount } from "./recipes/creating-collection-for-account";
+import { nftWithMetdata } from "./recipes/nft-with-metadata";
+import { metadataViews } from "./recipes/metadata-views";
+import { multipleMetadataViews } from "./recipes/multiple-metadata-views";
+import { tokenVault } from "./recipes/token-vault";
+import { withdrawingTokens } from "./recipes/withdrawing-tokens";
+import { creatingAVault } from "./recipes/creating-a-vault";
+import { vaultMinter } from "./recipes/vault-minter";
+import { implementingSeriesForNFTs } from "./recipes/implementing-series-for-nfts";
+import { creatingASetInSeries } from "./recipes/creating-a-set-in-series";
+import { mintingNftsInASet } from "./recipes/minting-nfts-in-a-set";
+import { adminResource } from "./recipes/admin-resource";
+import { addAdminResourceToAccount } from "./recipes/add-admin-resource-to-account";
+import { createATopShotPlay } from "./recipes/create-a-topshot-play";
+import { createATopShotSet } from "./recipes/create-a-topshot-set";
+import { addAPlayToTopShotSet } from "./recipes/add-a-play-to-topshot-set";
+import { mintingAMomentInTopShotSet } from "./recipes/minting-a-moment-in-topshot-set";
+import { createAMarketplace } from "./recipes/create-a-marketplace";
+import { createAnNFTListing } from "./recipes/create-an-nft-listing";
+import { purchaseNftOnMarketplace } from "./recipes/purchase-nft-on-marketplace";
 
 function fetchExternalRecipe(recipe) {
   const contractPath = recipe.smartContractCode;
@@ -29,33 +45,28 @@ function fetchExternalRecipe(recipe) {
 }
 
 const recipes = [
-  createNFTListing,
-  fetchExternalRecipe(mintNFT), // recipe sourced from Git submodule
-  test1,
-  test2,
-  test3,
-  test4,
-  //collectionsForHoldingNFTs
-  //creatingCollectionForAccount
-  //NFTwithMetadata
-  //metadataViews
-  //multipleMetadataViews
-  //tokenVault
-  //withdrawingTokens
-  //creatingAVault
-  //vaultMinter
-  //implementingSeriesForNFTs
-  //creatingASetInSeries
-  //mintingNFTsInASet
-  //adminResource
-  //addAdminResourceToAccount
-  //createATopShotPlay
-  //createATopShotSet
-  //addAPlayToATopShotSet
-  //mintingAMomentInTopShotSet
-  //createAMarketplace
-  //createAnNFTListing
-  //purchaseNFTOnMarketplace
+  fetchExternalRecipe(mintNFT), 
+  fetchExternalRecipe(collectionForHoldingNfts),
+  fetchExternalRecipe(creatingCollectionForAccount),
+  fetchExternalRecipe(nftWithMetdata),
+  fetchExternalRecipe(metadataViews),
+  fetchExternalRecipe(multipleMetadataViews),
+  fetchExternalRecipe(tokenVault),
+  fetchExternalRecipe(withdrawingTokens),
+  fetchExternalRecipe(creatingAVault),
+  fetchExternalRecipe(vaultMinter),
+  fetchExternalRecipe(implementingSeriesForNFTs),
+  fetchExternalRecipe(creatingASetInSeries),
+  fetchExternalRecipe(mintingNftsInASet),
+  fetchExternalRecipe(adminResource),
+  fetchExternalRecipe(addAdminResourceToAccount),
+  fetchExternalRecipe(createATopShotPlay),
+  fetchExternalRecipe(createATopShotSet),
+  fetchExternalRecipe(addAPlayToTopShotSet),
+  fetchExternalRecipe(mintingAMomentInTopShotSet),
+  fetchExternalRecipe(createAMarketplace),
+  fetchExternalRecipe(createAnNFTListing),
+  fetchExternalRecipe(purchaseNftOnMarketplace),
 ];
 
 export async function getAllRecipes() {
