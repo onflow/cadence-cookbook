@@ -7,3 +7,6 @@
 [submodule "src/data/recipes/collection-for-holding-nfts"]
 	path = src/data/recipes/collection-for-holding-nfts
 	url = https://github.com/lealobanov/collection-for-holding-nfts
+[submodule "src/data/recipes/creating-collection-for-account"]
+	path = src/data/recipes/creating-collection-for-account
+	url = https://github.com/lealobanov/creating-collection-for-account
