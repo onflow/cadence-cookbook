@@ -55,3 +55,6 @@
 [submodule "src/data/recipes/minting-a-moment-in-topshot-set"]
 	path = src/data/recipes/minting-a-moment-in-topshot-set
 	url = https://github.com/lealobanov/minting-a-moment-in-topshot-set
+[submodule "src/data/recipes/create-a-marketplace"]
+	path = src/data/recipes/create-a-marketplace
+	url = https://github.com/lealobanov/create-a-marketplace
