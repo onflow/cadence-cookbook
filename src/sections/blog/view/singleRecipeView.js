@@ -125,7 +125,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
           {post.smartContractExplanation !== undefined &&
             post.smartContractExplanation !== null && (
-              <Markdown children={post.smartContractExplanation} />
+              <Markdown sx={{ mt: 5, mb: 5 }} children={post.smartContractExplanation} />
             )}
 
           <Typography variant="h5" sx={{ mt: 5, mb: 5 }}>
@@ -151,25 +151,30 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             Sample info blurb
           </Alert> */}
 
-          {/* <Markdown
-            sx={{ mt: 5, mb: 5 }}
-            children={post.transactionExplanation}
-          /> */}
+          {post.transactionExplanation !== undefined &&
+            post.transactionExplanation !== null && (
+              <Markdown
+                sx={{ mt: 5, mb: 5 }}
+                children={post.transactionExplanation}
+              />
+            )}
 
           <Typography variant="h5" sx={{ mb: 5 }}>
             Cadence Test Cases
           </Typography>
         </Stack>
 
-        {/* <Box pl={30} pr={30} alignItems="center">
-          <CopyBlock
-            text={post.testCasesCode}
-            language="swift"
-            showLineNumbers
-            theme={dracula}
-            wrapLines
-          />
-        </Box> */}
+        {post.testCasesCode !== undefined && post.testCasesCode !== null && (
+          <Box pl={30} pr={30} alignItems="center">
+            <CopyBlock
+              text={post.testCasesCode}
+              language="swift"
+              showLineNumbers
+              theme={dracula}
+              wrapLines
+            />
+          </Box>
+        )}
 
         <Stack sx={{ maxWidth: 920, mx: "auto" }}>
           {post.testCasesExplanation !== undefined &&

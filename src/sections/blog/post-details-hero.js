@@ -58,6 +58,19 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
           {title}
         </Typography>
 
+        <Typography
+          variant="subtitle2"
+          sx={{
+            zIndex: 9,
+            color: 'common.white',
+            position: 'absolute',
+            maxWidth: 480,
+            pt: { xs: 18, md: 22 },
+          }}
+        >
+          {fDate(createdAt)}
+        </Typography>
+
         <Stack
           sx={{
             left: 0,
@@ -66,33 +79,7 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
             position: 'absolute',
           }}
         >
-          {author && createdAt && (
-            <Stack
-              direction="row"
-              alignItems="center"
-              sx={{
-                px: { xs: 2, md: 3 },
-                pb: { xs: 3, md: 8 },
-              }}
-            >
-              <Avatar
-                alt={author.name}
-                src={author.avatarUrl}
-                sx={{ width: 64, height: 64, mr: 2 }}
-              />
-
-              <ListItemText
-                sx={{ color: 'common.white' }}
-                primary={author.name}
-                secondary={fDate(createdAt)}
-                primaryTypographyProps={{ typography: 'subtitle1', mb: 0.5 }}
-                secondaryTypographyProps={{
-                  color: 'inherit',
-                  sx: { opacity: 0.64 },
-                }}
-              />
-            </Stack>
-          )}
+          
 
           <SpeedDial
             direction={smUp ? 'left' : 'up'}
