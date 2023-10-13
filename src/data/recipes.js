@@ -27,15 +27,18 @@ function fetchExternalRecipe(recipe) {
   const transactionPath = recipe.transactionCode;
   const testPath = recipe.testCasesCode;
 
-  const contractCode = fs.readFileSync(
-    `./src/data/recipes/${contractPath}`,
-    "utf8"
-  );
-  const transactionCode = fs.readFileSync(
-    `./src/data/recipes/${transactionPath}`,
-    "utf8"
-  );
-  const testCasesCode = (testPath !== undefined && testPath !== null) ? fs.readFileSync(`./src/data/recipes/${testPath}`, "utf8") : null;
+  const contractCode =
+    contractPath !== undefined && contractPath !== null
+      ? fs.readFileSync(`./src/data/recipes/${contractPath}`, "utf8")
+      : null;
+  const transactionCode =
+    transactionPath !== undefined && transactionPath !== null
+      ? fs.readFileSync(`./src/data/recipes/${transactionPath}`, "utf8")
+      : null;
+  const testCasesCode =
+    testPath !== undefined && testPath !== null
+      ? fs.readFileSync(`./src/data/recipes/${testPath}`, "utf8")
+      : null;
 
   recipe.smartContractCode = contractCode;
   recipe.transactionCode = transactionCode;
@@ -45,7 +48,7 @@ function fetchExternalRecipe(recipe) {
 }
 
 const recipes = [
-  fetchExternalRecipe(mintNFT), 
+  fetchExternalRecipe(mintNFT),
   fetchExternalRecipe(collectionForHoldingNfts),
   fetchExternalRecipe(creatingCollectionForAccount),
   fetchExternalRecipe(nftWithMetdata),
