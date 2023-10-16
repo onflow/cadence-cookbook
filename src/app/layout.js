@@ -31,7 +31,6 @@ import { primaryFont } from 'src/theme/typography';
 // components
 import ProgressBar from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
-import SnackbarProvider from 'src/components/snackbar/snackbar-provider';
 import { SettingsProvider, SettingsDrawer } from 'src/components/settings';
 
 
@@ -89,13 +88,11 @@ export default function RootLayout({ children }) {
             >
               <ThemeProvider>
                 <MotionLazy>
-                  <SnackbarProvider>
                       <SettingsDrawer />
                       <ProgressBar />
                         <MainLayout>
                         {children}
                         </MainLayout>
-                  </SnackbarProvider>
                 </MotionLazy>
               </ThemeProvider>
             </SettingsProvider>

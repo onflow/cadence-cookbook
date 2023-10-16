@@ -24,7 +24,6 @@ import { useRouter } from 'src/routes/hooks';
 import SearchNotFound from 'src/components/search-not-found';
 //
 import ResultItem from './result-item';
-import { useNavData } from '../../dashboard/config-navigation';
 import { applyFilter, groupedData, getAllItems } from './utils';
 
 // ----------------------------------------------------------------------
@@ -40,7 +39,6 @@ function Searchbar() {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const navData = useNavData();
 
   const handleClose = useCallback(() => {
     search.onFalse();
@@ -73,7 +71,7 @@ function Searchbar() {
   }, []);
 
   const dataFiltered = applyFilter({
-    inputData: getAllItems({ data: navData }),
+    inputData: getAllItems({ data: [] }),
     query: searchQuery,
   });
 
