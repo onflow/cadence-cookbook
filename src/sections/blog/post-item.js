@@ -165,20 +165,20 @@ export function PostContent({ title, createdAt,  totalShares, totalComments, ind
           }),
         }}
       >
-        <Stack direction="row" alignItems="center">
+        {/* <Stack direction="row" alignItems="center">
           <Iconify icon="eva:message-circle-fill" width={16} sx={{ mr: 0.5 }} />
           {fShortenNumber(totalComments)}
-        </Stack>
+        </Stack> */}
 
         {/* <Stack direction="row" alignItems="center">
           <Iconify icon="solar:eye-bold" width={16} sx={{ mr: 0.5 }} />
           {fShortenNumber(totalViews)}
         </Stack> */}
 
-        <Stack direction="row" alignItems="center">
+        {/* <Stack direction="row" alignItems="center">
           <Iconify icon="solar:share-bold" width={16} sx={{ mr: 0.5 }} />
           {fShortenNumber(totalShares)}
-        </Stack>
+        </Stack> */}
       </Stack>
     </CardContent>
   );

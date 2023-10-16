@@ -23,6 +23,7 @@ import Iconify from 'src/components/iconify';
 // ----------------------------------------------------------------------
 
 export default function PostDetailsHero({ title, author, coverUrl, createdAt }) {
+
   const theme = useTheme();
 
   const smUp = useResponsive('up', 'sm');
@@ -71,6 +72,19 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
           {fDate(createdAt)}
         </Typography>
 
+        <Typography
+          variant="body2"
+          sx={{
+            zIndex: 9,
+            color: 'common.white',
+            position: 'absolute',
+            maxWidth: 480,
+            pt: { xs: 22, md: 26 },
+          }}
+        >
+          Recipe by: {author}
+        </Typography>
+
         <Stack
           sx={{
             left: 0,
@@ -109,7 +123,7 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
 }
 
 PostDetailsHero.propTypes = {
-  author: PropTypes.object,
+  author: PropTypes.string,
   coverUrl: PropTypes.string,
   createdAt: PropTypes.string,
   title: PropTypes.string,
