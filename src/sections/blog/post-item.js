@@ -11,10 +11,8 @@ import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 import { useResponsive } from 'src/hooks/use-responsive';
 import { fDate } from 'src/utils/format-time';
-import { fShortenNumber } from 'src/utils/format-number';
 import { AvatarShape } from 'src/assets/illustrations';
 import Image from 'src/components/image';
-import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
 
 

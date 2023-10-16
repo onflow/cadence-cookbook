@@ -1,4 +1,3 @@
-// ----------------------------------------------------------------------
 
 export function flattenArray(list, key = 'children') {
   let children = [];

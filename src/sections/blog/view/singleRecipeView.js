@@ -9,22 +9,14 @@ import {
   Container,
   Typography,
   Box,
-  Button,
-  Alert,
 } from "@mui/material";
 import Markdown from "src/components/markdown";
 import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
-import FaqsList from "src/sections/faqs/faqs-list";
 import PostList from "../post-list";
-import PostCommentList from "../post-comment-list";
-import PostCommentForm from "../post-comment-form";
 import PostDetailsHero from "../post-details-hero";
 import { PostDetailsSkeleton } from "../post-skeleton";
 
 export default function SingleRecipeView({ recipe, relatedRecipes }) {
-  // const { post, postError, postLoading } = useGetPost(title);
-
-  // const { latestPosts, latestPostsLoading } = useGetLatestPosts(title);
 
   const latestPosts = relatedRecipes;
   const post = recipe;
