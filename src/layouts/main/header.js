@@ -74,13 +74,6 @@ export default function Header() {
               Contribute
             </Button>
 
-            {/* <SettingsButton
-              sx={{
-                ml: { xs: 1, md: 0 },
-                mr: { md: 2 },
-              }}
-            /> */}
-
             {!mdUp && <NavMobile offsetTop={offsetTop} data={navConfig} />}
           </Stack>
         </Container>
