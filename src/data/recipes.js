@@ -72,50 +72,51 @@ function fetchExternalRecipe(recipe) {
   return recipe;
 }
 
-const recipesByModule = [
-  {
-    module: "NFT Fundamentals",
-    recipes: [
-      fetchExternalRecipe(mintNFT),
-      fetchExternalRecipe(collectionForHoldingNfts),
-      fetchExternalRecipe(creatingCollectionForAccount),
-      fetchExternalRecipe(nftWithMetdata),
-      fetchExternalRecipe(metadataViews),
-      fetchExternalRecipe(multipleMetadataViews),
-      fetchExternalRecipe(implementingSeriesForNFTs),
-      fetchExternalRecipe(creatingASetInSeries),
-      fetchExternalRecipe(mintingNftsInASet),
-      fetchExternalRecipe(createATopShotPlay),
-      fetchExternalRecipe(createATopShotSet),
-      fetchExternalRecipe(addAPlayToTopShotSet),
-      fetchExternalRecipe(mintingAMomentInTopShotSet),
-    ]
-  },
-  {
-    module: "Working With Fungible Tokens",
-    recipes: [
-      fetchExternalRecipe(tokenVault),
-      fetchExternalRecipe(withdrawingTokens),
-      fetchExternalRecipe(creatingAVault),
-      fetchExternalRecipe(vaultMinter),
-    ]
-  },
-  {
-    module: "Getting Started With Access Management",
-    recipes: [
-      fetchExternalRecipe(adminResource),
-      fetchExternalRecipe(addAdminResourceToAccount),
-    ]
-  },
-  {
-    module: "NFT Storefront Essentials",
-    recipes: [
-      fetchExternalRecipe(createAMarketplace),
-      fetchExternalRecipe(createAnNFTListing),
-      fetchExternalRecipe(purchaseNftOnMarketplace),
-    ]
-  }
-]
+// const recipesByModule = [
+//   {
+//     module: "NFT Fundamentals",
+//     recipes: [
+//       fetchExternalRecipe(mintNFT),
+//       fetchExternalRecipe(collectionForHoldingNfts),
+//       fetchExternalRecipe(creatingCollectionForAccount),
+//       fetchExternalRecipe(nftWithMetdata),
+//       fetchExternalRecipe(metadataViews),
+//       fetchExternalRecipe(multipleMetadataViews),
+//       fetchExternalRecipe(implementingSeriesForNFTs),
+//       fetchExternalRecipe(creatingASetInSeries),
+//       fetchExternalRecipe(mintingNftsInASet),
+//       fetchExternalRecipe(createATopShotPlay),
+//       fetchExternalRecipe(createATopShotSet),
+//       fetchExternalRecipe(addAPlayToTopShotSet),
+//       fetchExternalRecipe(mintingAMomentInTopShotSet),
+//     ]
+//   },
+//   {
+//     module: "Working With Fungible Tokens",
+//     recipes: [
+//       fetchExternalRecipe(tokenVault),
+//       fetchExternalRecipe(withdrawingTokens),
+//       fetchExternalRecipe(creatingAVault),
+//       fetchExternalRecipe(vaultMinter),
+//     ]
+//   },
+//   {
+//     module: "Getting Started With Access Management",
+//     recipes: [
+//       fetchExternalRecipe(adminResource),
+//       fetchExternalRecipe(addAdminResourceToAccount),
+//     ]
+//   },
+//   {
+//     module: "NFT Storefront Essentials",
+//     recipes: [
+//       fetchExternalRecipe(createAMarketplace),
+//       fetchExternalRecipe(createAnNFTListing),
+//       fetchExternalRecipe(purchaseNftOnMarketplace),
+//     ]
+//   }
+// ]
+
 const recipes = [
   fetchExternalRecipe(mintNFT),
   fetchExternalRecipe(collectionForHoldingNfts),
