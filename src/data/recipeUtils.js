@@ -53,30 +53,27 @@ export function fetchExternalRecipe(recipe) {
   return recipe;
 }
 
-
-const flattenRecipes = arr => arr.flatMap(({ recipes, ...rest }) => 
-recipes.map(o => ({
-    ...rest,
-    ...o
-  }))
-)
+const flattenRecipes = (arr) =>
+  arr.flatMap(({ recipes, ...rest }) =>
+    recipes.map((o) => ({
+      ...rest,
+      ...o,
+    }))
+  );
 
 export async function getAllRecipes() {
-
   const recipes = flattenRecipes(recipesByModule);
 
   return recipes;
 }
 
 export async function getSingleRecipe(slug) {
-
   const recipes = flattenRecipes(recipesByModule);
 
   return recipes.filter((i) => i.slug === slug)[0];
 }
 
 export async function getRecipesByParentModule(module) {
-
   const recipes = flattenRecipes(recipesByModule);
 
   return recipes.filter((i) => i.module === module);
@@ -91,12 +88,35 @@ export async function getRelatedRecipes(module, slug) {
 }
 
 export async function getNextRecipe(module, slug) {
-  
-  const recipes = flattenRecipes(recipesByModule).filter((i) => i.module === module);
+  const recipes = flattenRecipes(recipesByModule).filter(
+    (i) => i.module === module
+  );
 
-  const thisRecipeIndex = recipes.map(function(e) { return e.slug; }).indexOf(slug);
+  const thisRecipeIndex = recipes
+    .map(function (e) {
+      return e.slug;
+    })
+    .indexOf(slug);
 
-  const nextRecipe = (recipes.length > thisRecipeIndex+1) ? recipes[thisRecipeIndex+1] : null
+  const nextRecipe =
+    recipes.length > thisRecipeIndex + 1 ? recipes[thisRecipeIndex + 1] : null;
 
   return nextRecipe;
+}
+
+export async function getPreviousRecipe(module, slug) {
+  const recipes = flattenRecipes(recipesByModule).filter(
+    (i) => i.module === module
+  );
+
+  const thisRecipeIndex = recipes
+    .map(function (e) {
+      return e.slug;
+    })
+    .indexOf(slug);
+
+  const previousRecipe =
+    thisRecipeIndex - 1 >= 0 ? recipes[thisRecipeIndex - 1] : null;
+
+  return previousRecipe;
 }

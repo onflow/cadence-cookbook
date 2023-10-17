@@ -243,12 +243,13 @@ export default function SingleRecipeView({
               </Typography>
             )}
             <Box sx={{ flexGrow: 1 }} />
-            <Button
+            {previousRecipeSlug !== null && <Button
+            onClick={() => push(paths.recipe(previousRecipeSlug))}
               sx={{ mr: 1, backgroundColor: "text.secondary" }}
               variant="contained"
             >
               Previous Lesson
-            </Button>
+            </Button>}
             {nextRecipeSlug !== null && (
               <Button onClick={() => push(paths.recipe(nextRecipeSlug))} sx={{ backgroundColor: "#08ec8c" }} variant="contained">
                 Continue
