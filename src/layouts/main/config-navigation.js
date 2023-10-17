@@ -35,7 +35,7 @@ export const navConfig = [
   {
     title: "Recipes",
     path: "/",
-    icon: <Iconify icon="solar:file-bold-duotone" />,
+    icon: <Iconify icon="mingcute:paper-line" />,
     children: [
       {
         subheader: "NFT Fundamentals",
