@@ -10,6 +10,7 @@ import {
   Typography,
   Box,
   Button,
+  LinearProgress
 } from "@mui/material";
 import Markdown from "src/components/markdown";
 import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
@@ -237,11 +238,15 @@ export default function SingleRecipeView({
           </Stack>
 
           <Stack direction="row" sx={{ mb: 5 }}>
+            <Stack>
             {nextRecipeTitle !== null && (
               <Typography variant="body2" sx={{ mb: 3 }}>
                 <strong>Up Next:</strong> {nextRecipeTitle}
               </Typography>
             )}
+            <LinearProgressWithLabel value={90}/>
+            </Stack>
+            
             <Box sx={{ flexGrow: 1 }} />
             {previousRecipeSlug !== null && <Button
             onClick={() => push(paths.recipe(previousRecipeSlug))}
@@ -256,6 +261,8 @@ export default function SingleRecipeView({
               </Button>
             )}
           </Stack>
+
+          
 
           {/* <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
             {post.tags !== undefined &&
@@ -339,4 +346,28 @@ export default function SingleRecipeView({
 SingleRecipeView.propTypes = {
   recipe: PropTypes.object,
   relatedRecipes: PropTypes.array,
+};
+
+
+function LinearProgressWithLabel(value) {
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ width: '100%', mr: 1 }}>
+        <LinearProgress variant="determinate"  />
+      </Box>
+      <Box sx={{ minWidth: 35 }}>
+        <Typography variant="body2" color="text.secondary">{`${Math.round(
+          value
+        )}%`}</Typography>
+      </Box>
+    </Box>
+  );
+}
+
+LinearProgressWithLabel.propTypes = {
+  /**
+   * The value of the progress indicator for the determinate and buffer variants.
+   * Value between 0 and 100.
+   */
+  value: PropTypes.number.isRequired,
 };
