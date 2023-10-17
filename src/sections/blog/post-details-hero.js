@@ -54,7 +54,6 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt, pl
           sx={{
             zIndex: 9,
             color: 'common.white',
-            position: 'absolute',
             maxWidth: 480,
             pt: { xs: 4, md: 8 },
           }}
@@ -67,9 +66,8 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt, pl
           sx={{
             zIndex: 9,
             color: 'common.white',
-            position: 'absolute',
             maxWidth: 480,
-            pt: { xs: 16, md: 22 },
+            pt: { xs: 2, md: 2 },
           }}
         >
           {fDate(createdAt)}
@@ -80,9 +78,8 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt, pl
           sx={{
             zIndex: 9,
             color: 'common.white',
-            position: 'absolute',
-            maxWidth: 480,
-            pt: { xs: 20, md: 26 },
+            maxWidth: {xs: "90%", md: "50%"},
+            pt: { xs: 2, md: 2 },
           }}
         >
           <i>Contributed by</i> {author}

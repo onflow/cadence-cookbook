@@ -66,7 +66,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             name: post?.title,
           },
         ]}
-        sx={{ maxWidth: 720, ml: {xs: "5%", md: "9%"}, mb: "2%", pb: {xs: 2} }}
+        sx={{  ml: {xs: "5%", md: "9%"}, mb: "2%", pb: {xs: 2} }}
       />
       <PostDetailsHero
         title={(post.featuredText !== null && post.featuredText !== undefined && post.featuredText !== "") ? post.featuredText : post.title }
