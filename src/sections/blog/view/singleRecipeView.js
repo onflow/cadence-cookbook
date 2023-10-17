@@ -48,7 +48,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
       <Typography
         variant="h4"
         component="h1"
-        sx={{ ml: "9%", mb: "1%", mt: "2%" }}
+        sx={{ ml: {xs: "5%", md: "9%"}, mb: "1%", mt: "2%", pt: {xs: 2}}}
       >
         {post.title}
       </Typography>
@@ -66,13 +66,14 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             name: post?.title,
           },
         ]}
-        sx={{ maxWidth: 720, ml: "9%", mb: "2%" }}
+        sx={{ maxWidth: 720, ml: {xs: "5%", md: "9%"}, mb: "2%", pb: {xs: 2} }}
       />
       <PostDetailsHero
-        title={post.featuredText}
+        title={(post.featuredText !== null && post.featuredText !== undefined && post.featuredText !== "") ? post.featuredText : post.title }
         author={post.author}
         coverUrl={post.coverUrl}
         createdAt={post.createdAt}
+        playgroundLink={post.playgroundLink}
       />
 
       <Container
@@ -99,7 +100,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
         {post.smartContractCode !== undefined &&
           post.smartContractCode !== null && (
-            <Box pl={30} pr={30} alignItems="center">
+            <Box pl={{md:30, xs: 2}} pr={{md:30, xs: 2}} alignItems="center">
               <CopyBlock
                 text={post.smartContractCode}
                 language="swift"
@@ -130,7 +131,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
         {post.transactionCode !== undefined &&
           post.transactionCode !== null && (
-            <Box pl={30} pr={30} alignItems="center">
+            <Box pl={{md:30, xs: 2}} pr={{md:30, xs: 2}} alignItems="center">
               <CopyBlock
                 text={post.transactionCode}
                 language="swift"
@@ -164,7 +165,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
         </Stack>
 
         {post.testCasesCode !== undefined && post.testCasesCode !== null && (
-          <Box pl={30} pr={30} alignItems="center">
+          <Box pl={{md:30, xs: 2}} pr={{md:30, xs: 2}} alignItems="center">
             <CopyBlock
               text={post.testCasesCode}
               language="swift"

@@ -19,14 +19,17 @@ import { fDate } from 'src/utils/format-time';
 import { bgGradient } from 'src/theme/css';
 // components
 import Iconify from 'src/components/iconify';
-
+import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 // ----------------------------------------------------------------------
 
-export default function PostDetailsHero({ title, author, coverUrl, createdAt }) {
+export default function PostDetailsHero({ title, author, coverUrl, createdAt, playgroundLink }) {
 
   const theme = useTheme();
 
   const smUp = useResponsive('up', 'sm');
+
+  const { push } = useRouter();
 
   return (
     <Box
@@ -39,8 +42,8 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
           endColor: `${alpha(theme.palette.grey[900], 0.64)} 100%`,
         }),
         borderRadius: 2,
-        ml: 15,
-        mr: 15
+        ml: {xs:3, md: 15},
+        mr: {xs:3, md: 15}
         
       }}
     >
@@ -53,7 +56,7 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
             color: 'common.white',
             position: 'absolute',
             maxWidth: 480,
-            pt: { xs: 2, md: 8 },
+            pt: { xs: 4, md: 8 },
           }}
         >
           {title}
@@ -66,7 +69,7 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
             color: 'common.white',
             position: 'absolute',
             maxWidth: 480,
-            pt: { xs: 18, md: 22 },
+            pt: { xs: 16, md: 22 },
           }}
         >
           {fDate(createdAt)}
@@ -79,10 +82,10 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
             color: 'common.white',
             position: 'absolute',
             maxWidth: 480,
-            pt: { xs: 22, md: 26 },
+            pt: { xs: 20, md: 26 },
           }}
         >
-          Recipe by: {author}
+          <i>Contributed by</i> {author}
         </Typography>
 
         <Stack
@@ -106,15 +109,15 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt }) 
               right: { xs: 16, md: 24 },
             }}
           >
-            {_socials.map((action) => (
               <SpeedDialAction
-                key={action.name}
-                icon={<Iconify icon={action.icon} sx={{ color: action.color }} />}
-                tooltipTitle={action.name}
+                onClick={() => {
+                  push(playgroundLink);}}
+                key="Flow Playground"
+                icon={<Iconify icon="noto:playground-slide"/>}
+                tooltipTitle="Flow Playground"
                 tooltipPlacement="top"
                 FabProps={{ color: 'default' }}
               />
-            ))}
           </SpeedDial>
         </Stack>
       </Container>
