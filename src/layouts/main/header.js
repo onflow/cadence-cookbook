@@ -49,7 +49,7 @@ export default function Header() {
         }}
       >
         <Container sx={{ height: 1, display: "flex", alignItems: "center" }}>
-          <Logo sx={{ml: -3}} />
+          <Logo sx={{ml: {md: -3}}} />
           <Typography sx={{ml: 1, fontSize: "16px"}}><strong>Cadence Cookbook</strong></Typography>
 
          

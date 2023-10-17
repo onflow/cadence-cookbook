@@ -2,7 +2,8 @@
 
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-// @mui
+import { Stack, Typography } from '@mui/material';
+
 import List from '@mui/material/List';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -56,7 +57,11 @@ export default function NavMobile({ offsetTop, data }) {
         }}
       >
         <Scrollbar>
+          <Stack direction="row">
           <Logo sx={{ mx: 2.5, my: 3 }} />
+          <Typography sx={{ my:3, fontSize: "16px"}}><strong>Cadence Cookbook</strong></Typography>
+          </Stack>
+          
 
           <List component="nav" disablePadding>
             {data.map((link) => (

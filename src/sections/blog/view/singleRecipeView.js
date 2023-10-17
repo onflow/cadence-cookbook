@@ -86,7 +86,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
       />
 
       <Container maxWidth={false}>
-        <Stack sx={{ maxWidth: 920, mx: "auto" }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto",  pl: {xs: 2}, pr: {xs: 2} }}>
           {post.excerpt !== undefined && post.excerpt !== null && (
             <Typography variant="subtitle1" sx={{ mb: 5 }}>
               {post.excerpt}
@@ -111,7 +111,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             </Box>
           )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto" }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto",  pl: {xs: 2}, pr: {xs: 2} }}>
           {/* <Alert sx={{ mt: 5, mb: 5 }} severity="success">
             Sample info blurb
           </Alert> */}
@@ -142,7 +142,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             </Box>
           )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto" }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto", pl: {xs: 2}, pr: {xs: 2} }}>
           {/* <Alert sx={{ mt: 5 }} severity="info">
             Sample info blurb
           </Alert> */}
@@ -176,7 +176,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
           </Box>
         )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto" }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto",  pl: {xs: 2}, pr: {xs: 2} }}>
           {post.testCasesExplanation !== undefined &&
             post.testCasesExplanation !== null && (
               <Markdown
@@ -276,7 +276,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
   );
 
   const renderLatestPosts = (
-    <>
+    <Stack sx={{ pl: {xs: 2}, pr: {xs: 2}}}>
       <Typography variant="h4" sx={{ mt: 5, mb: 5 }}>
         Related Recipes
       </Typography>
@@ -286,7 +286,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
         loading={false}
         disabledIndex
       />
-    </>
+    </Stack>
   );
 
   return (
