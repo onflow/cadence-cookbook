@@ -59,7 +59,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             href: "/",
           },
           {
-            name: "Module Name",
+            name: post?.module,
             href: "/",
           },
           {
@@ -282,7 +282,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
       </Typography>
 
       <PostList
-        posts={latestPosts.slice(latestPosts.length - 4)}
+        posts={latestPosts.slice(0,4)}
         loading={false}
         disabledIndex
       />

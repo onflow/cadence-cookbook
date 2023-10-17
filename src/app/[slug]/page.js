@@ -21,6 +21,7 @@ export default async function RecipePage({params}) {
     redirect(paths.page404);
   }
   
-  const relatedRecipes = await getRelatedRecipes(params.slug);
+  const relatedRecipes = await getRelatedRecipes(recipe.module, recipe.slug);
+
   return <SingleRecipeView recipe={recipe} relatedRecipes={relatedRecipes} />;
 }

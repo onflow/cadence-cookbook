@@ -72,89 +72,83 @@ function fetchExternalRecipe(recipe) {
   return recipe;
 }
 
-// const recipesByModule = [
-//   {
-//     module: "NFT Fundamentals",
-//     recipes: [
-//       fetchExternalRecipe(mintNFT),
-//       fetchExternalRecipe(collectionForHoldingNfts),
-//       fetchExternalRecipe(creatingCollectionForAccount),
-//       fetchExternalRecipe(nftWithMetdata),
-//       fetchExternalRecipe(metadataViews),
-//       fetchExternalRecipe(multipleMetadataViews),
-//       fetchExternalRecipe(implementingSeriesForNFTs),
-//       fetchExternalRecipe(creatingASetInSeries),
-//       fetchExternalRecipe(mintingNftsInASet),
-//       fetchExternalRecipe(createATopShotPlay),
-//       fetchExternalRecipe(createATopShotSet),
-//       fetchExternalRecipe(addAPlayToTopShotSet),
-//       fetchExternalRecipe(mintingAMomentInTopShotSet),
-//     ]
-//   },
-//   {
-//     module: "Working With Fungible Tokens",
-//     recipes: [
-//       fetchExternalRecipe(tokenVault),
-//       fetchExternalRecipe(withdrawingTokens),
-//       fetchExternalRecipe(creatingAVault),
-//       fetchExternalRecipe(vaultMinter),
-//     ]
-//   },
-//   {
-//     module: "Getting Started With Access Management",
-//     recipes: [
-//       fetchExternalRecipe(adminResource),
-//       fetchExternalRecipe(addAdminResourceToAccount),
-//     ]
-//   },
-//   {
-//     module: "NFT Storefront Essentials",
-//     recipes: [
-//       fetchExternalRecipe(createAMarketplace),
-//       fetchExternalRecipe(createAnNFTListing),
-//       fetchExternalRecipe(purchaseNftOnMarketplace),
-//     ]
-//   }
-// ]
+const recipesByModule = [
+  {
+    module: "NFT Fundamentals",
+    recipes: [
+      fetchExternalRecipe(mintNFT),
+      fetchExternalRecipe(collectionForHoldingNfts),
+      fetchExternalRecipe(creatingCollectionForAccount),
+      fetchExternalRecipe(nftWithMetdata),
+      fetchExternalRecipe(metadataViews),
+      fetchExternalRecipe(multipleMetadataViews),
+      fetchExternalRecipe(implementingSeriesForNFTs),
+      fetchExternalRecipe(creatingASetInSeries),
+      fetchExternalRecipe(mintingNftsInASet),
+      fetchExternalRecipe(createATopShotPlay),
+      fetchExternalRecipe(createATopShotSet),
+      fetchExternalRecipe(addAPlayToTopShotSet),
+      fetchExternalRecipe(mintingAMomentInTopShotSet),
+    ]
+  },
+  {
+    module: "Working With Fungible Tokens",
+    recipes: [
+      fetchExternalRecipe(tokenVault),
+      fetchExternalRecipe(withdrawingTokens),
+      fetchExternalRecipe(creatingAVault),
+      fetchExternalRecipe(vaultMinter),
+    ]
+  },
+  {
+    module: "Getting Started With Access Management",
+    recipes: [
+      fetchExternalRecipe(adminResource),
+      fetchExternalRecipe(addAdminResourceToAccount),
+    ]
+  },
+  {
+    module: "NFT Storefront Essentials",
+    recipes: [
+      fetchExternalRecipe(createAMarketplace),
+      fetchExternalRecipe(createAnNFTListing),
+      fetchExternalRecipe(purchaseNftOnMarketplace),
+    ]
+  }
+]
 
-const recipes = [
-  fetchExternalRecipe(mintNFT),
-  fetchExternalRecipe(collectionForHoldingNfts),
-  fetchExternalRecipe(creatingCollectionForAccount),
-  fetchExternalRecipe(nftWithMetdata),
-  fetchExternalRecipe(metadataViews),
-  fetchExternalRecipe(multipleMetadataViews),
-  fetchExternalRecipe(tokenVault),
-  fetchExternalRecipe(withdrawingTokens),
-  fetchExternalRecipe(creatingAVault),
-  fetchExternalRecipe(vaultMinter),
-  fetchExternalRecipe(implementingSeriesForNFTs),
-  fetchExternalRecipe(creatingASetInSeries),
-  fetchExternalRecipe(mintingNftsInASet),
-  fetchExternalRecipe(adminResource),
-  fetchExternalRecipe(addAdminResourceToAccount),
-  fetchExternalRecipe(createATopShotPlay),
-  fetchExternalRecipe(createATopShotSet),
-  fetchExternalRecipe(addAPlayToTopShotSet),
-  fetchExternalRecipe(mintingAMomentInTopShotSet),
-  fetchExternalRecipe(createAMarketplace),
-  fetchExternalRecipe(createAnNFTListing),
-  fetchExternalRecipe(purchaseNftOnMarketplace),
-];
+const flattenRecipes = arr => arr.flatMap(({ recipes, ...rest }) => 
+recipes.map(o => ({
+    ...rest,
+    ...o
+  }))
+)
 
 export async function getAllRecipes() {
+
+  const recipes = flattenRecipes(recipesByModule);
+
   return recipes;
 }
 
 export async function getSingleRecipe(slug) {
+
+  const recipes = flattenRecipes(recipesByModule);
+
   return recipes.filter((i) => i.slug === slug)[0];
 }
 
 export async function getRecipesByParentModule(module) {
+
+  const recipes = flattenRecipes(recipesByModule);
+
   return recipes.filter((i) => i.module === module);
 }
 
-export async function getRelatedRecipes(slug) {
+export async function getRelatedRecipes(module, slug) {
   // Implement a filter based on recipe tags or module
-  return recipes;
+
+  const recipes = flattenRecipes(recipesByModule);
+
+  return recipes.filter((i) => i.module === module && i.slug !== slug);
 }
