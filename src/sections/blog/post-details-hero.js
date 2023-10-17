@@ -19,7 +19,6 @@ import { fDate } from 'src/utils/format-time';
 import { bgGradient } from 'src/theme/css';
 // components
 import Iconify from 'src/components/iconify';
-import { redirect } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 // ----------------------------------------------------------------------
 

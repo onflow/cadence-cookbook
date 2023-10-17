@@ -89,3 +89,14 @@ export async function getRelatedRecipes(module, slug) {
 
   return recipes.filter((i) => i.module === module && i.slug !== slug);
 }
+
+export async function getNextRecipe(module, slug) {
+  
+  const recipes = flattenRecipes(recipesByModule).filter((i) => i.module === module);
+
+  const thisRecipeIndex = recipes.map(function(e) { return e.slug; }).indexOf(slug);
+
+  const nextRecipe = (recipes.length > thisRecipeIndex+1) ? recipes[thisRecipeIndex+1] : null
+
+  return nextRecipe;
+}

@@ -16,10 +16,21 @@ import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
 import PostList from "../post-list";
 import PostDetailsHero from "../post-details-hero";
 import { PostDetailsSkeleton } from "../post-skeleton";
+import { paths } from "src/routes/paths";
+import { useRouter } from "next/navigation";
 
-export default function SingleRecipeView({ recipe, relatedRecipes }) {
+export default function SingleRecipeView({
+  recipe,
+  relatedRecipes,
+  nextRecipeTitle,
+  nextRecipeSlug,
+  previousRecipeSlug,
+}) {
+
   const latestPosts = relatedRecipes;
   const post = recipe;
+
+  const { push } = useRouter();
 
   const renderSkeleton = <PostDetailsSkeleton />;
 
@@ -213,7 +224,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
           <Divider />
 
-          <Stack direction="row" sx={{mt: 5}}>
+          <Stack direction="row" sx={{ mt: 5 }}>
             <Typography
               variant="overline"
               sx={{ mb: 3, color: "text.secondary" }}
@@ -226,9 +237,11 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
           </Stack>
 
           <Stack direction="row" sx={{ mb: 5 }}>
-            <Typography variant="body2" sx={{ mb: 3 }}>
-              <strong>Up Next:</strong> Handling Marketplace Purchases
-            </Typography>
+            {nextRecipeTitle !== null && (
+              <Typography variant="body2" sx={{ mb: 3 }}>
+                <strong>Up Next:</strong> {nextRecipeTitle}
+              </Typography>
+            )}
             <Box sx={{ flexGrow: 1 }} />
             <Button
               sx={{ mr: 1, backgroundColor: "text.secondary" }}
@@ -236,9 +249,11 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             >
               Previous Lesson
             </Button>
-            <Button sx={{ backgroundColor: "#08ec8c" }} variant="contained">
-              Continue
-            </Button>
+            {nextRecipeSlug !== null && (
+              <Button onClick={() => push(paths.recipe(nextRecipeSlug))} sx={{ backgroundColor: "#08ec8c" }} variant="contained">
+                Continue
+              </Button>
+            )}
           </Stack>
 
           {/* <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
