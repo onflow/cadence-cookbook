@@ -1,4 +1,4 @@
-import { getAllRecipes } from 'src/data/recipes';
+import { getAllRecipes } from 'src/data/recipeUtils';
 import { HomePageView } from 'src/sections/blog/view';
 
 export const metadata = {

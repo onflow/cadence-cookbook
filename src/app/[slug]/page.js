@@ -1,6 +1,6 @@
 import { paths } from "src/routes/paths";
 import { SingleRecipeView } from "src/sections/blog/view";
-import { getAllRecipes, getRelatedRecipes, getSingleRecipe } from "src/data/recipes";
+import { fetchExternalRecipe, getAllRecipes, getRelatedRecipes, getSingleRecipe } from "src/data/recipeUtils";
 import { redirect } from 'next/navigation';
 
 export const metadata = {
@@ -20,8 +20,10 @@ export default async function RecipePage({params}) {
   if (!recipe) {
     redirect(paths.page404);
   }
+
+  const fetchedRecipe = fetchExternalRecipe(recipe)
   
   const relatedRecipes = await getRelatedRecipes(recipe.module, recipe.slug);
 
-  return <SingleRecipeView recipe={recipe} relatedRecipes={relatedRecipes} />;
+  return <SingleRecipeView recipe={fetchedRecipe} relatedRecipes={relatedRecipes} />;
 }

@@ -11,6 +11,7 @@ import { RouterLink } from 'src/routes/components';
 import Iconify from 'src/components/iconify';
 //
 import { ListItem } from './styles';
+import Image from 'src/components/image';
 
 // ----------------------------------------------------------------------
 
@@ -19,6 +20,8 @@ export const NavItem = forwardRef(
     const { title, path, children } = item;
 
     const renderContent = (
+      <>
+      {/* <Image ratio="1/1" src='/assets/icons/empty/ic_content.svg'></Image> */}
       <ListItem
         ref={ref}
         disableRipple
@@ -32,6 +35,7 @@ export const NavItem = forwardRef(
 
         {!!children && <Iconify width={16} icon="eva:arrow-ios-downward-fill" sx={{ ml: 1 }} />}
       </ListItem>
+      </>
     );
 
     // External link
