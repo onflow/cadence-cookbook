@@ -1,4 +1,5 @@
 import { getAllRecipes } from 'src/data/recipeUtils';
+import { featuredRecipes } from 'src/data/recipes';
 import { HomePageView } from 'src/sections/blog/view';
 
 export const metadata = {
@@ -8,5 +9,5 @@ export const metadata = {
 export default async function HomePage() {
   const recipes = await getAllRecipes();
 
-  return <HomePageView recipes={recipes} />;
+  return <HomePageView recipes={recipes} featuredRecipes={featuredRecipes}/>;
 }

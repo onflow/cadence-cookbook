@@ -21,14 +21,15 @@ export default function PostItem({ post, index }) {
 
   const mdUp = useResponsive('up', 'md');
 
-  const { coverUrl, title, totalViews, totalComments, totalShares, author, createdAt } = post;
+  const { coverUrl, title, slug, totalViews, totalComments, totalShares, author, createdAt } = post;
+
 
   const latestPost = index === 0 || index === 1 || index === 2;
 
   if (mdUp && latestPost) {
     return (
       <Card>
-        <Avatar
+        {/* <Avatar
           alt={author.name}
           src={author.avatarUrl}
           sx={{
@@ -37,9 +38,10 @@ export default function PostItem({ post, index }) {
             zIndex: 9,
             position: 'absolute',
           }}
-        />
+        /> */}
 
         <PostContent
+          slug={slug}
           title={title}
           createdAt={createdAt}
           totalViews={totalViews}
@@ -50,8 +52,8 @@ export default function PostItem({ post, index }) {
 
         <Image
           alt={title}
-          src={coverUrl}
-          overlay={alpha(theme.palette.grey[900], 0.48)}
+          src={coverUrl !== undefined ? coverUrl : "/assets/images/sample_recipe_cover.png"}
+          overlay={alpha(theme.palette.grey[900], 0.52)}
           sx={{
             width: 1,
             height: 360,
@@ -66,16 +68,16 @@ export default function PostItem({ post, index }) {
       <Box sx={{ position: 'relative' }}>
         <AvatarShape
           sx={{
-            left: 0,
-            zIndex: 9,
-            width: 88,
-            height: 36,
-            bottom: -16,
+            // left: 0,
+            // zIndex: 9,
+            // width: 88,
+            // height: 36,
+            // bottom: -16,
             position: 'absolute',
           }}
         />
 
-        <Avatar
+        {/* <Avatar
           alt={author.name}
           src={author.avatarUrl}
           sx={{
@@ -84,12 +86,13 @@ export default function PostItem({ post, index }) {
             bottom: -24,
             position: 'absolute',
           }}
-        />
+        /> */}
 
-        <Image alt={title} src={coverUrl} ratio="4/3" />
+        <Image overlay={alpha(theme.palette.grey[900], 0.22)} alt={title} src={coverUrl !== undefined ? coverUrl : "/assets/images/sample_recipe_cover.png"} ratio="4/3" />
       </Box>
 
       <PostContent
+        slug={slug}
         title={title}
         totalViews={totalViews}
         totalComments={totalComments}
@@ -105,10 +108,10 @@ PostItem.propTypes = {
   post: PropTypes.object,
 };
 
-export function PostContent({ title, createdAt,  totalShares, totalComments, index }) {
+export function PostContent({ slug, title, createdAt,  totalShares, totalComments, index }) {
   const mdUp = useResponsive('up', 'md');
 
-  const linkTo = paths.recipe("slug");
+  const linkTo = paths.recipe(slug);
   
   const latestPostLarge = index === 0;
 
@@ -117,7 +120,7 @@ export function PostContent({ title, createdAt,  totalShares, totalComments, ind
   return (
     <CardContent
       sx={{
-        pt: 6,
+        pt: 3,
         width: 1,
         ...((latestPostLarge || latestPostSmall) && {
           pt: 0,
@@ -144,7 +147,7 @@ export function PostContent({ title, createdAt,  totalShares, totalComments, ind
       </Typography>
 
       <Link color="inherit" component={RouterLink} href={linkTo}>
-        <TextMaxLine variant={mdUp && latestPostLarge ? 'h5' : 'subtitle2'} line={2} persistent>
+        <TextMaxLine variant={mdUp && latestPostLarge ? 'h5' : 'subtitle1'} line={2} persistent>
           {title}
         </TextMaxLine>
       </Link>

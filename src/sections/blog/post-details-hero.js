@@ -3,24 +3,15 @@ import PropTypes from 'prop-types';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
 import SpeedDial from '@mui/material/SpeedDial';
 import Typography from '@mui/material/Typography';
-import ListItemText from '@mui/material/ListItemText';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-// _mock
-import { _socials } from 'src/_mock';
-// hooks
 import { useResponsive } from 'src/hooks/use-responsive';
-// utils
 import { fDate } from 'src/utils/format-time';
-// theme
 import { bgGradient } from 'src/theme/css';
-// components
 import Iconify from 'src/components/iconify';
 import { useRouter } from 'next/navigation';
-// ----------------------------------------------------------------------
 
 export default function PostDetailsHero({ title, author, coverUrl, createdAt, playgroundLink }) {
 
@@ -54,7 +45,7 @@ export default function PostDetailsHero({ title, author, coverUrl, createdAt, pl
             zIndex: 9,
             color: 'common.white',
             maxWidth: 480,
-            pt: { xs: 4, md: 8 },
+            pt: { xs: 4, md: 6 },
           }}
         >
           {title}

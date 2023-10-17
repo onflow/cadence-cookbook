@@ -10,7 +10,7 @@ import {
   Typography,
   Box,
   Button,
-  LinearProgress
+  LinearProgress,
 } from "@mui/material";
 import Markdown from "src/components/markdown";
 import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
@@ -27,7 +27,6 @@ export default function SingleRecipeView({
   nextRecipeSlug,
   previousRecipeSlug,
 }) {
-
   const latestPosts = relatedRecipes;
   const post = recipe;
 
@@ -239,30 +238,34 @@ export default function SingleRecipeView({
 
           <Stack direction="row" sx={{ mb: 5 }}>
             <Stack>
-            {nextRecipeTitle !== null && (
-              <Typography variant="body2" sx={{ mb: 3 }}>
-                <strong>Up Next:</strong> {nextRecipeTitle}
-              </Typography>
-            )}
-            <LinearProgressWithLabel value={90}/>
+              {nextRecipeTitle !== null && (
+                <Typography variant="body2" sx={{ mb: 3 }}>
+                  <strong>Up Next:</strong> {nextRecipeTitle}
+                </Typography>
+              )}
+              <LinearProgressWithLabel value={90} />
             </Stack>
-            
+
             <Box sx={{ flexGrow: 1 }} />
-            {previousRecipeSlug !== null && <Button
-            onClick={() => push(paths.recipe(previousRecipeSlug))}
-              sx={{ mr: 1, backgroundColor: "text.secondary" }}
-              variant="contained"
-            >
-              Previous Lesson
-            </Button>}
+            {previousRecipeSlug !== null && (
+              <Button
+                onClick={() => push(paths.recipe(previousRecipeSlug))}
+                sx={{ mr: 1, backgroundColor: "text.secondary" }}
+                variant="contained"
+              >
+                Previous Lesson
+              </Button>
+            )}
             {nextRecipeSlug !== null && (
-              <Button onClick={() => push(paths.recipe(nextRecipeSlug))} sx={{ backgroundColor: "#08ec8c" }} variant="contained">
+              <Button
+                onClick={() => push(paths.recipe(nextRecipeSlug))}
+                sx={{ backgroundColor: "#08ec8c" }}
+                variant="contained"
+              >
                 Continue
               </Button>
             )}
           </Stack>
-
-          
 
           {/* <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
             {post.tags !== undefined &&
@@ -348,12 +351,11 @@ SingleRecipeView.propTypes = {
   relatedRecipes: PropTypes.array,
 };
 
-
 function LinearProgressWithLabel(value) {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ width: '100%', mr: 1 }}>
-        <LinearProgress variant="determinate"  />
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ width: "100%", mr: 1 }}>
+        <LinearProgress variant="determinate" />
       </Box>
       <Box sx={{ minWidth: 35 }}>
         <Typography variant="body2" color="text.secondary">{`${Math.round(

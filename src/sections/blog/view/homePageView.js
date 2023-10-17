@@ -19,12 +19,10 @@ const _carouselsExample = [...Array(20)].map((_, index) => ({
   description: _mock.description(index),
 }));
 
-export default function HomePageView({ recipes }) {
+export default function HomePageView({ recipes, featuredRecipes }) {
   const settings = useSettingsContext();
 
   const [sortBy, setSortBy] = useState("latest");
-
-  // const { posts, postsLoading } = useGetPosts();
 
   const dataFiltered = applyFilter({
     inputData: recipes,
@@ -37,10 +35,7 @@ export default function HomePageView({ recipes }) {
 
   return (
     <Container sx={{mt: 15}} maxWidth={settings.themeStretch ? false : "lg"}>
-      <CarouselAnimation data={_carouselsExample.slice(12, 16)} />
-
-      {/* <AppFeatured/>  */}
-      
+      <CarouselAnimation data={featuredRecipes} />
 
       <Stack
         spacing={3}

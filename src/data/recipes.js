@@ -21,9 +21,13 @@ import { createAMarketplace } from "./recipes/create-a-marketplace";
 import { createAnNFTListing } from "./recipes/create-an-nft-listing";
 import { purchaseNftOnMarketplace } from "./recipes/purchase-nft-on-marketplace";
 
+// Recipes featured on the Cadence Cookbook homepage
+export const featuredRecipes = [mintNFT, tokenVault, adminResource, createAMarketplace]
+
 export const recipes = [
     {
       module: "NFT Fundamentals",
+      fallBackImage:  "", // Module cover image if none provided
       recipes: [
         mintNFT,
         collectionForHoldingNfts,
@@ -42,6 +46,7 @@ export const recipes = [
     },
     {
       module: "Working With Fungible Tokens",
+      fallBackImage:  "", // Module cover image if none provided
       recipes: [
         tokenVault,
         withdrawingTokens,
@@ -51,6 +56,7 @@ export const recipes = [
     },
     {
       module: "Getting Started With Access Management",
+      fallBackImage:  "", // Module cover image if none provided
       recipes: [
         adminResource,
         addAdminResourceToAccount,
@@ -58,6 +64,7 @@ export const recipes = [
     },
     {
       module: "NFT Storefront Essentials",
+      fallBackImage:  "", // Module cover image if none provided
       recipes: [
         createAMarketplace,
         createAnNFTListing,
