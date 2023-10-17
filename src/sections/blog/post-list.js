@@ -34,27 +34,9 @@ export default function PostList({ posts, loading, disabledIndex }) {
 
   return (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{mb: 5}}>
         {loading ? renderSkeleton : renderList}
       </Grid>
-
-      {posts.length > 8 && (
-        <Stack
-          alignItems="center"
-          sx={{
-            mt: 8,
-            mb: { xs: 10, md: 15 },
-          }}
-        >
-          <Button
-            size="large"
-            variant="outlined"
-            startIcon={<Iconify icon="svg-spinners:12-dots-scale-rotate" width={24} />}
-          >
-            Load More
-          </Button>
-        </Stack>
-      )}
     </>
   );
 }

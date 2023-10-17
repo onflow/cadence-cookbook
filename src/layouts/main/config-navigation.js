@@ -34,7 +34,7 @@ const nftStorefrontEssentials =  flattenRecipes(recipes)
 export const navConfig = [
   {
     title: "Recipes",
-    path: "/",
+    path: "/recipes",
     icon: <Iconify icon="mingcute:paper-line" />,
     children: [
       {

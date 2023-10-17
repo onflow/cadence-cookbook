@@ -9,6 +9,7 @@ import {
   Container,
   Typography,
   Box,
+  Button,
 } from "@mui/material";
 import Markdown from "src/components/markdown";
 import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
@@ -17,7 +18,6 @@ import PostDetailsHero from "../post-details-hero";
 import { PostDetailsSkeleton } from "../post-skeleton";
 
 export default function SingleRecipeView({ recipe, relatedRecipes }) {
-
   const latestPosts = relatedRecipes;
   const post = recipe;
 
@@ -48,7 +48,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
       <Typography
         variant="h4"
         component="h1"
-        sx={{ ml: {xs: "5%", md: "9%"}, mb: "1%", mt: "2%", pt: {xs: 2}}}
+        sx={{ ml: { xs: "5%", md: "9%" }, mb: "1%", mt: "2%", pt: { xs: 2 } }}
       >
         {post.title}
       </Typography>
@@ -66,10 +66,16 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             name: post?.title,
           },
         ]}
-        sx={{  ml: {xs: "5%", md: "9%"}, mb: "2%", pb: {xs: 2} }}
+        sx={{ ml: { xs: "5%", md: "9%" }, mb: "2%", pb: { xs: 2 } }}
       />
       <PostDetailsHero
-        title={(post.featuredText !== null && post.featuredText !== undefined && post.featuredText !== "") ? post.featuredText : post.title }
+        title={
+          post.featuredText !== null &&
+          post.featuredText !== undefined &&
+          post.featuredText !== ""
+            ? post.featuredText
+            : post.title
+        }
         author={post.author}
         coverUrl={post.coverUrl}
         createdAt={post.createdAt}
@@ -86,7 +92,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
       />
 
       <Container maxWidth={false}>
-        <Stack sx={{ maxWidth: 920, mx: "auto",  pl: {xs: 2}, pr: {xs: 2} }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
           {post.excerpt !== undefined && post.excerpt !== null && (
             <Typography variant="subtitle1" sx={{ mb: 5 }}>
               {post.excerpt}
@@ -100,7 +106,11 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
         {post.smartContractCode !== undefined &&
           post.smartContractCode !== null && (
-            <Box pl={{md:30, xs: 2}} pr={{md:30, xs: 2}} alignItems="center">
+            <Box
+              pl={{ md: 30, xs: 2 }}
+              pr={{ md: 30, xs: 2 }}
+              alignItems="center"
+            >
               <CopyBlock
                 text={post.smartContractCode}
                 language="swift"
@@ -111,7 +121,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             </Box>
           )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto",  pl: {xs: 2}, pr: {xs: 2} }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
           {/* <Alert sx={{ mt: 5, mb: 5 }} severity="success">
             Sample info blurb
           </Alert> */}
@@ -131,7 +141,11 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
 
         {post.transactionCode !== undefined &&
           post.transactionCode !== null && (
-            <Box pl={{md:30, xs: 2}} pr={{md:30, xs: 2}} alignItems="center">
+            <Box
+              pl={{ md: 30, xs: 2 }}
+              pr={{ md: 30, xs: 2 }}
+              alignItems="center"
+            >
               <CopyBlock
                 text={post.transactionCode}
                 language="swift"
@@ -142,7 +156,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             </Box>
           )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto", pl: {xs: 2}, pr: {xs: 2} }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
           {/* <Alert sx={{ mt: 5 }} severity="info">
             Sample info blurb
           </Alert> */}
@@ -165,7 +179,11 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
         </Stack>
 
         {post.testCasesCode !== undefined && post.testCasesCode !== null && (
-          <Box pl={{md:30, xs: 2}} pr={{md:30, xs: 2}} alignItems="center">
+          <Box
+            pl={{ md: 30, xs: 2 }}
+            pr={{ md: 30, xs: 2 }}
+            alignItems="center"
+          >
             <CopyBlock
               text={post.testCasesCode}
               language="swift"
@@ -176,7 +194,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
           </Box>
         )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto",  pl: {xs: 2}, pr: {xs: 2} }}>
+        <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
           {post.testCasesExplanation !== undefined &&
             post.testCasesExplanation !== null && (
               <Markdown
@@ -193,7 +211,9 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             <FaqsList />
           </Stack> */}
 
-          {/* <Stack direction="row">
+          <Divider />
+
+          <Stack direction="row" sx={{mt: 5}}>
             <Typography
               variant="overline"
               sx={{ mb: 3, color: "text.secondary" }}
@@ -205,7 +225,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             </Typography>
           </Stack>
 
-          <Stack direction="row" sx={{ mb: 3 }}>
+          <Stack direction="row" sx={{ mb: 5 }}>
             <Typography variant="body2" sx={{ mb: 3 }}>
               <strong>Up Next:</strong> Handling Marketplace Purchases
             </Typography>
@@ -221,7 +241,7 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
             </Button>
           </Stack>
 
-          <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
+          {/* <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
             {post.tags !== undefined &&
               post.tags !== null &&
               post.tags.map((tag) => (
@@ -276,16 +296,12 @@ export default function SingleRecipeView({ recipe, relatedRecipes }) {
   );
 
   const renderLatestPosts = (
-    <Stack sx={{ pl: {xs: 2}, pr: {xs: 2}}}>
+    <Stack sx={{ pl: { xs: 2 }, pr: { xs: 2 } }}>
       <Typography variant="h4" sx={{ mt: 5, mb: 5 }}>
         Related Recipes
       </Typography>
 
-      <PostList
-        posts={latestPosts.slice(0,4)}
-        loading={false}
-        disabledIndex
-      />
+      <PostList posts={latestPosts.slice(0, 4)} loading={false} disabledIndex />
     </Stack>
   );
 
