@@ -262,7 +262,7 @@ export default function SingleRecipeView({
             {nextRecipeSlug !== null && (
               <Button
                 onClick={() => push(paths.recipe(nextRecipeSlug))}
-                sx={{ backgroundColor: "#08ec8c" }}
+                sx={{ backgroundColor: "#02D87E" }}
                 variant="contained"
               >
                 Continue

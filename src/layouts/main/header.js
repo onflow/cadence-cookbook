@@ -65,7 +65,7 @@ export default function Header() {
             direction={{ xs: "row", md: "row-reverse" }}
           >
             <Button
-              sx={{backgroundColor: "#08ec8c"}}
+              sx={{backgroundColor: "#02D87E"}}
               variant="contained"
               target="_blank"
               rel="noopener"

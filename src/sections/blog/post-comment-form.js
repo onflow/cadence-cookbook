@@ -65,7 +65,7 @@ export default function PostCommentForm() {
             </IconButton>
           </Stack> */}
 
-          <LoadingButton sx={{backgroundColor: "#08ec8c"}} type="submit" variant="contained" loading={isSubmitting}>
+          <LoadingButton sx={{backgroundColor: "#02D87E"}} type="submit" variant="contained" loading={isSubmitting}>
             Post comment
           </LoadingButton>
         </Stack>

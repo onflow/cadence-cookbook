@@ -6,32 +6,32 @@ import { alpha } from '@mui/material/styles';
 
 const GREY = {
   0: '#FFFFFF',
-  100: '#F9FAFB',
+  100: '#EBEBEB',
   200: '#F4F6F8',
-  300: '#DFE3E8',
+  300: '#C2C2C2',
   400: '#C4CDD5',
-  500: '#919EAB',
+  500: '#939393',
   600: '#637381',
-  700: '#454F5B',
+  700: '#828282',
   800: '#212B36',
   900: '#161C24',
 };
 
 const PRIMARY = {
-  lighter: '#C8FAD6',
-  light: '#5BE49B',
-  main: '#08ec8c',
-  dark: '#007867',
+  lighter: '#BFFCE2',
+  light: '#8FF9CC',
+  main: '#00EF8B',
+  dark: '#02D87E',
   darker: '#004B50',
   contrastText: '#FFFFFF',
 };
 
 const SECONDARY = {
-  lighter: '#EFD6FF',
-  light: '#C684FF',
-  main: '#8E33FF',
-  dark: '#5119B7',
-  darker: '#27097A',
+  lighter: '#77D1D4',
+  light: '#40ADB3',
+  main: '#6ABDE2',
+  dark: '#3980B6',
+  darker: '#2A578D',
   contrastText: '#FFFFFF',
 };
 

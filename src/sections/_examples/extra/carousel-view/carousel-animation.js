@@ -127,7 +127,7 @@ function CarouselItem({ item, active }) {
           <Button
             onClick={() => push(paths.recipe(item.slug))}
             variant="contained"
-            sx={{ mt: 3, mb: 3, backgroundColor: "#08ec8c" }}
+            sx={{ mt: 3, mb: 3, backgroundColor: "#02D87E" }}
           >
             Read More
           </Button>
