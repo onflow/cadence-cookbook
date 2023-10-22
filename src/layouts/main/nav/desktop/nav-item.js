@@ -94,11 +94,7 @@ export function NavItemDashboard({ item, sx, ...other }) {
             tap: { scale: 0.98 },
           }}
         >
-          <Box
-            component="img"
-            alt="illustration_dashboard"
-            src="/assets/illustrations/illustration_dashboard.png"
-          />
+          
         </m.div>
       </CardActionArea>
     </Link>

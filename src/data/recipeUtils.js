@@ -1,5 +1,6 @@
 import * as fs from "node:fs";
 import { recipes } from "./recipes";
+import { randomIntFromInterval } from "src/utils/random_interval";
 
 const recipesByModule = recipes;
 
@@ -42,6 +43,9 @@ export function fetchExternalRecipe(recipe) {
       ? fs.readFileSync(`./src/data/recipes/${testExplanationPath}`, "utf8")
       : null;
 
+  
+  const setCoverUrl = recipe.coverUrl === undefined ? `/assets/illustrations/flow/bg${randomIntFromInterval(1,9)}.png` : recipe.coverUrl
+
   recipe.smartContractCode = contractCode;
   recipe.transactionCode = transactionCode;
   recipe.testCasesCode = testCasesCode;
@@ -49,6 +53,8 @@ export function fetchExternalRecipe(recipe) {
   recipe.smartContractExplanation = contractExplanation;
   recipe.transactionExplanation = transactionExplanation;
   recipe.testCasesExplanation = testCasesExplanation;
+
+  recipe.coverUrl = setCoverUrl
 
   return recipe;
 }

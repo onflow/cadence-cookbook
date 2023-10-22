@@ -11,9 +11,9 @@ import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 import { useResponsive } from 'src/hooks/use-responsive';
 import { fDate } from 'src/utils/format-time';
-import { AvatarShape } from 'src/assets/illustrations';
 import Image from 'src/components/image';
 import TextMaxLine from 'src/components/text-max-line';
+import { randomIntFromInterval } from 'src/utils/random_interval';
 
 
 export default function PostItem({ post, index }) {
@@ -52,8 +52,7 @@ export default function PostItem({ post, index }) {
 
         <Image
           alt={title}
-          src={coverUrl !== undefined ? coverUrl : "/assets/images/sample_recipe_cover.png"}
-          overlay={alpha(theme.palette.grey[900], 0.52)}
+          src={coverUrl !== undefined ? coverUrl : `/assets/illustrations/flow/bg-dark${randomIntFromInterval(1,5)}.png`}
           sx={{
             width: 1,
             height: 360,
@@ -66,29 +65,8 @@ export default function PostItem({ post, index }) {
   return (
     <Card>
       <Box sx={{ position: 'relative' }}>
-        <AvatarShape
-          sx={{
-            // left: 0,
-            // zIndex: 9,
-            // width: 88,
-            // height: 36,
-            // bottom: -16,
-            position: 'absolute',
-          }}
-        />
 
-        {/* <Avatar
-          alt={author.name}
-          src={author.avatarUrl}
-          sx={{
-            left: 24,
-            zIndex: 9,
-            bottom: -24,
-            position: 'absolute',
-          }}
-        /> */}
-
-        <Image overlay={alpha(theme.palette.grey[900], 0.22)} alt={title} src={coverUrl !== undefined ? coverUrl : "/assets/images/sample_recipe_cover.png"} ratio="4/3" />
+        <Image  alt={title} src={coverUrl !== undefined ? coverUrl : `/assets/illustrations/flow/bg${randomIntFromInterval(1,9)}.png`} ratio="4/3" />
       </Box>
 
       <PostContent
