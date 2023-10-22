@@ -1,27 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1"
-	 id="svg32" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256"
-	 style="enable-background:new 0 0 256 256;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#00EF8B;}
-	.st1{fill:#FFFFFF;}
-	.st2{fill:#16FF99;}
-</style>
-<sodipodi:namedview  bordercolor="#666666" borderopacity="1" fit-margin-bottom="0" fit-margin-left="0" fit-margin-right="0" fit-margin-top="0" gridtolerance="10" guidetolerance="10" id="namedview34" inkscape:current-layer="Layer_1-2" inkscape:cx="-165.09584" inkscape:cy="294.4716" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-height="878" inkscape:window-maximized="1" inkscape:window-width="1440" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="0.40971549" objecttolerance="10" pagecolor="#ffffff" showgrid="false">
-	</sodipodi:namedview>
-<g id="Layer_2_1_">
-	<g id="Layer_1-2">
-		<g id="g43" transform="scale(2.56)">
-			<circle id="circle20" class="st0" cx="50" cy="50" r="50"/>
-			<rect id="rect22" x="57.8" y="42.2" class="st1" width="14.1" height="14.1"/>
-			<path id="path24" class="st1" d="M43.7,61.6c0,2.9-2.4,5.3-5.3,5.3s-5.3-2.4-5.3-5.3c0-2.9,2.4-5.3,5.3-5.3c0,0,0,0,0,0h5.3V42.2
-				h-5.3C27.7,42.2,19,50.9,19,61.6S27.7,81,38.4,81s19.4-8.7,19.4-19.4l0,0v-5.3H43.7V61.6z"/>
-			<path id="path26" class="st1" d="M63.1,35.1H79V21H63.1c-10.7,0-19.4,8.7-19.4,19.4v1.8h14.1v-1.8C57.8,37.5,60.2,35.1,63.1,35.1
-				z"/>
-			<polygon id="polygon28" class="st2" points="57.8,42.2 57.8,42.2 43.7,42.2 43.7,56.3 57.8,56.3 			"/>
-		</g>
-	</g>
+<svg width="101" height="100" viewBox="0 0 101 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_13_8)">
+<path d="M50.5 100C78.1142 100 100.5 77.6142 100.5 50C100.5 22.3858 78.1142 0 50.5 0C22.8858 0 0.5 22.3858 0.5 50C0.5 77.6142 22.8858 100 50.5 100Z" fill="#00EF8B"/>
+<path d="M72.44 42.18H58.32V56.3H72.44V42.18Z" fill="white"/>
+<path d="M44.21 61.59C44.21 62.6382 43.8992 63.6629 43.3168 64.5345C42.7344 65.4061 41.9067 66.0854 40.9382 66.4866C39.9698 66.8877 38.9041 66.9927 37.876 66.7882C36.8479 66.5837 35.9036 66.0789 35.1623 65.3377C34.4211 64.5964 33.9163 63.6521 33.7118 62.624C33.5073 61.5959 33.6123 60.5302 34.0134 59.5618C34.4146 58.5933 35.0939 57.7656 35.9655 57.1832C36.8371 56.6008 37.8618 56.29 38.91 56.29H44.21V42.18H38.91C35.0711 42.18 31.3183 43.3184 28.1264 45.4512C24.9344 47.584 22.4466 50.6154 20.9775 54.1621C19.5084 57.7088 19.124 61.6115 19.873 65.3767C20.6219 69.1419 22.4705 72.6004 25.1851 75.3149C27.8996 78.0295 31.3581 79.8781 35.1233 80.627C38.8885 81.376 42.7912 80.9916 46.3379 79.5225C49.8846 78.0534 52.916 75.5656 55.0488 72.3736C57.1816 69.1817 58.32 65.4289 58.32 61.59V56.29H44.21V61.59Z" fill="white"/>
+<path d="M63.62 35.12H79.5V21H63.62C58.4738 21.0053 53.5398 23.052 49.9009 26.6909C46.262 30.3298 44.2153 35.2638 44.21 40.41V42.18H58.32V40.41C58.3226 39.0061 58.8822 37.6606 59.8759 36.6688C60.8695 35.677 62.2161 35.12 63.62 35.12Z" fill="white"/>
+<path d="M44.21 56.29H58.32V42.18H44.21V56.29Z" fill="#00EF8B"/>
 </g>
+<defs>
+<clipPath id="clip0_13_8">
+<rect width="100" height="100" fill="white" transform="translate(0.5)"/>
+</clipPath>
+</defs>
 </svg>

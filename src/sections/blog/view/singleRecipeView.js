@@ -27,6 +27,9 @@ export default function SingleRecipeView({
   nextRecipeSlug,
   previousRecipeSlug,
 }) {
+
+  console.log(recipe)
+  
   const latestPosts = relatedRecipes;
   const post = recipe;
 
