@@ -12,13 +12,6 @@ import CarouselAnimation from "src/sections/_examples/extra/carousel-view/carous
 import PostList from "../post-list";
 import PostSort from "../post-sort";
 
-const _carouselsExample = [...Array(20)].map((_, index) => ({
-  id: _mock.id(index),
-  title: `Recipe Name ${index}`,
-  coverUrl: "/assets/images/sample_recipe_cover.png",
-  description: _mock.description(index),
-}));
-
 export default function HomePageView({ recipes, featuredRecipes }) {
   const settings = useSettingsContext();
 
@@ -74,10 +67,6 @@ const applyFilter = ({ inputData, sortBy }) => {
 
   if (sortBy === "oldest") {
     return orderBy(inputData, ["createdAt"], ["asc"]);
-  }
-
-  if (sortBy === "popular") {
-    return orderBy(inputData, ["totalViews"], ["desc"]);
   }
 
   return inputData;
