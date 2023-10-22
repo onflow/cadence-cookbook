@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { usePathname } from 'src/routes/hooks';
 import Logo from 'src/components/logo';
+import FooterLogo from 'src/components/footer-logo';
 
 
 // const LINKS = [
@@ -41,7 +42,7 @@ export default function Footer() {
       }}
     >
       <Container>
-        <Logo sx={{ mb: 1, mx: 'auto' }} />
+        <FooterLogo sx={{ mb: 1, mx: 'auto' }} />
 
         <Typography variant="caption" component="div">
           © All rights reserved
