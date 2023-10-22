@@ -66,7 +66,7 @@ export default function PostItem({ post, index }) {
     <Card>
       <Box sx={{ position: 'relative' }}>
 
-        <Image  alt={title} src={coverUrl !== undefined ? coverUrl : `/assets/illustrations/flow/bg${randomIntFromInterval(1,9)}.png`} ratio="4/3" />
+        <Image  alt={title} src={coverUrl !== undefined ? coverUrl : `/assets/illustrations/flow/bg${randomIntFromInterval(1,8)}.png`} ratio="4/3" />
       </Box>
 
       <PostContent

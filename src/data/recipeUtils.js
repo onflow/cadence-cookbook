@@ -44,7 +44,7 @@ export function fetchExternalRecipe(recipe) {
       : null;
 
   
-  const setCoverUrl = recipe.coverUrl === undefined ? `/assets/illustrations/flow/bg${randomIntFromInterval(1,9)}.png` : recipe.coverUrl
+  const setCoverUrl = recipe.coverUrl === undefined ? `/assets/illustrations/flow/bg${randomIntFromInterval(1,8)}.png` : recipe.coverUrl
 
   recipe.smartContractCode = contractCode;
   recipe.transactionCode = transactionCode;

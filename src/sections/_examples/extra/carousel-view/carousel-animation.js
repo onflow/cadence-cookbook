@@ -76,7 +76,7 @@ function CarouselItem({ item, active }) {
         src={
           coverUrl !== null && coverUrl !== undefined
             ? coverUrl
-            : `/assets/illustrations/flow/bg${randomIntFromInterval(1,9)}.png`
+            : `/assets/illustrations/flow/bg${randomIntFromInterval(1,8)}.png`
         }
         ratio="16/9"
       />}
@@ -86,7 +86,7 @@ function CarouselItem({ item, active }) {
         src={
           coverUrl !== null && coverUrl !== undefined
             ? coverUrl
-            : `/assets/illustrations/flow/bg${randomIntFromInterval(1,9)}.png`
+            : `/assets/illustrations/flow/bg${randomIntFromInterval(1,8)}.png`
         }
         ratio="1/1"
       />}
