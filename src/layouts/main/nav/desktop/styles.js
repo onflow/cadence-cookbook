@@ -34,7 +34,7 @@ export const ListItem = styled(ListItemButton, {
       duration: theme.transitions.duration.shorter,
     }),
     '&:hover': {
-      opacity: 0.48,
+      color: theme.palette.secondary.dark,
       backgroundColor: 'transparent',
     },
     // Sub item
@@ -89,6 +89,6 @@ export const StyledMenu = styled(Paper)(({ theme }) => ({
 export const StyledSubheader = styled(ListSubheader)(({ theme }) => ({
   ...theme.typography.overline,
   padding: 0,
-  fontSize: 11,
+  fontSize: 13,
   color: theme.palette.text.primary,
 }));

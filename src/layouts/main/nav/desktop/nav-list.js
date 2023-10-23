@@ -15,6 +15,7 @@ import { useActiveLink } from "src/routes/hooks/use-active-link";
 import { NavItem, NavItemDashboard } from "./nav-item";
 import { StyledSubheader, StyledMenu } from "./styles";
 import Image from "src/components/image";
+import { Typography } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
@@ -62,27 +63,23 @@ export default function NavList({ item, offsetTop }) {
               onMouseLeave={nav.onFalse}
               sx={{ display: "flex" }}
             >
-              
               {children.map((list) => (
                 <>
-                <Stack sx={{padding:3, width: "25%", mt: "-3%"}}>
-                <Image
-                    sx={{mb: 3, borderRadius: 2}}
-                    ratio="1/1"
-                    src="/assets/background/overlay_3.jpg"
+                  <Stack sx={{ padding: 3, width: "25%", mt: "-3%" }}>
+                    <Image
+                      sx={{ mb: 3, borderRadius: 2 }}
+                      ratio="1/1"
+                      src={`/assets/illustrations/flow/nav/${list.position}.png`}
+                    ></Image>
 
-                  ></Image>
-                  
-                 
-                  <NavSubList
-                    key={list.subheader}
-                    subheader={list.subheader}
-                    items={list.items}
-                    isDashboard={list.subheader === "Dashboard"}
-                    onClose={nav.onFalse}
-                  />
-                </Stack>
-                 
+                    <NavSubList
+                      key={list.subheader}
+                      subheader={list.subheader}
+                      items={list.items}
+                      isDashboard={list.subheader === "Dashboard"}
+                      onClose={nav.onFalse}
+                    />
+                  </Stack>
                 </>
               ))}
             </StyledMenu>
@@ -118,18 +115,30 @@ function NavSubList({ items, isDashboard, subheader, onClose }) {
     >
       <StyledSubheader disableSticky>{subheader}</StyledSubheader>
 
-      {items.map((item) =>
-        isDashboard ? (
-          <NavItemDashboard key={item.title} item={item} onClick={onClose} />
-        ) : (
-          <NavItem
-            subItem
-            key={item.title}
-            item={item}
-            active={pathname === `${item.path}/`}
-            onClick={onClose}
-          />
-        )
+      {items
+        .slice(0, 5)
+        .map((item) =>
+          isDashboard ? (
+            <NavItemDashboard key={item.title} item={item} onClick={onClose} />
+          ) : (
+            <NavItem
+              subItem
+              key={item.title}
+              item={item}
+              active={pathname === `${item.path}/`}
+              onClick={onClose}
+            />
+          )
+        )}
+
+      {items.length > 5 && (
+        <NavItem
+          subItem
+          key={`${subheader}-more`}
+          item={{ title: "More", path: "test_path" }}
+          active={pathname === `${"test_path"}/`}
+          onClick={onClose}
+        />
       )}
     </Stack>
   );
