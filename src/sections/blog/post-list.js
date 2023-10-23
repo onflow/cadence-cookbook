@@ -11,7 +11,7 @@ import { PostItemSkeleton } from './post-skeleton';
 
 // ----------------------------------------------------------------------
 
-export default function PostList({ posts, loading, disabledIndex }) {
+export default function PostList({ posts, loading, disabledIndex, moduleView }) {
   const renderSkeleton = (
     <>
       {[...Array(16)].map((_, index) => (
@@ -26,7 +26,7 @@ export default function PostList({ posts, loading, disabledIndex }) {
     <>
       {posts.map((post, index) => (
         <Grid key={post.id} xs={12} sm={6} md={!disabledIndex && index === 0 ? 6 : 3}>
-          <PostItem post={post} index={!disabledIndex ? index : undefined} />
+          <PostItem recipesInModule={posts.length} moduleView={moduleView} post={post} index={!disabledIndex ? index : undefined} />
         </Grid>
       ))}
     </>

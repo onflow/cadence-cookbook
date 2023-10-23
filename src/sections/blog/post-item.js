@@ -1,45 +1,42 @@
-import PropTypes from 'prop-types';
-import { alpha, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import CardContent from '@mui/material/CardContent';
-import { paths } from 'src/routes/paths';
-import { RouterLink } from 'src/routes/components';
-import { useResponsive } from 'src/hooks/use-responsive';
-import { fDate } from 'src/utils/format-time';
-import Image from 'src/components/image';
-import TextMaxLine from 'src/components/text-max-line';
-import { randomIntFromInterval } from 'src/utils/random_interval';
+import PropTypes from "prop-types";
+import { alpha, useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import { paths } from "src/routes/paths";
+import { RouterLink } from "src/routes/components";
+import { useResponsive } from "src/hooks/use-responsive";
+import { fDate } from "src/utils/format-time";
+import Image from "src/components/image";
+import TextMaxLine from "src/components/text-max-line";
+import { randomIntFromInterval } from "src/utils/random_interval";
+import { Chip } from "@mui/material";
+import Iconify from "src/components/iconify";
 
-
-export default function PostItem({ post, index }) {
+export default function PostItem({ post, index, moduleView, recipesInModule }) {
   const theme = useTheme();
 
-  const mdUp = useResponsive('up', 'md');
+  const mdUp = useResponsive("up", "md");
 
-  const { coverUrl, title, slug, totalViews, totalComments, totalShares, author, createdAt } = post;
-
+  const {
+    coverUrl,
+    title,
+    slug,
+    totalViews,
+    totalComments,
+    totalShares,
+    author,
+    createdAt,
+  } = post;
 
   const latestPost = index === 0 || index === 1 || index === 2;
 
   if (mdUp && latestPost) {
     return (
       <Card>
-        {/* <Avatar
-          alt={author.name}
-          src={author.avatarUrl}
-          sx={{
-            top: 24,
-            left: 24,
-            zIndex: 9,
-            position: 'absolute',
-          }}
-        /> */}
-
         <PostContent
           slug={slug}
           title={title}
@@ -48,11 +45,20 @@ export default function PostItem({ post, index }) {
           totalShares={totalShares}
           totalComments={totalComments}
           index={index}
+          moduleView={moduleView}
+          recipesInModule={recipesInModule}
         />
 
         <Image
           alt={title}
-          src={coverUrl !== undefined ? coverUrl : `/assets/illustrations/flow/bg-dark${randomIntFromInterval(1,5)}.png`}
+          src={
+            coverUrl !== undefined
+              ? coverUrl
+              : `/assets/illustrations/flow/bg-dark${randomIntFromInterval(
+                  1,
+                  5
+                )}.png`
+          }
           sx={{
             width: 1,
             height: 360,
@@ -64,9 +70,19 @@ export default function PostItem({ post, index }) {
 
   return (
     <Card>
-      <Box sx={{ position: 'relative' }}>
-
-        <Image  alt={title} src={coverUrl !== undefined ? coverUrl : `/assets/illustrations/flow/bg${randomIntFromInterval(1,8)}.png`} ratio="4/3" />
+      <Box sx={{ position: "relative" }}>
+        <Image
+          alt={title}
+          src={
+            coverUrl !== undefined
+              ? coverUrl
+              : `/assets/illustrations/flow/bg${randomIntFromInterval(
+                  1,
+                  8
+                )}.png`
+          }
+          ratio="4/3"
+        />
       </Box>
 
       <PostContent
@@ -76,6 +92,9 @@ export default function PostItem({ post, index }) {
         totalComments={totalComments}
         totalShares={totalShares}
         createdAt={createdAt}
+        moduleView={moduleView}
+        recipesInModule={recipesInModule}
+        index={index}
       />
     </Card>
   );
@@ -86,11 +105,19 @@ PostItem.propTypes = {
   post: PropTypes.object,
 };
 
-export function PostContent({ slug, title, createdAt,  totalShares, totalComments, index }) {
-  const mdUp = useResponsive('up', 'md');
+export function PostContent({
+  slug,
+  title,
+  createdAt,
+  recipesInModule,
+  totalComments,
+  index,
+  moduleView
+}) {
+  const mdUp = useResponsive("up", "md");
 
   const linkTo = paths.recipe(slug);
-  
+
   const latestPostLarge = index === 0;
 
   const latestPostSmall = index === 1 || index === 2;
@@ -104,9 +131,10 @@ export function PostContent({ slug, title, createdAt,  totalShares, totalComment
           pt: 0,
           zIndex: 9,
           bottom: 0,
-          position: 'absolute',
-          color: 'common.white',
+          position: "absolute",
+          color: "common.white",
         }),
+        height: 150
       }}
     >
       <Typography
@@ -114,10 +142,10 @@ export function PostContent({ slug, title, createdAt,  totalShares, totalComment
         component="div"
         sx={{
           mb: 1,
-          color: 'text.disabled',
+          color: "text.disabled",
           ...((latestPostLarge || latestPostSmall) && {
             opacity: 0.64,
-            color: 'common.white',
+            color: "common.white",
           }),
         }}
       >
@@ -125,10 +153,37 @@ export function PostContent({ slug, title, createdAt,  totalShares, totalComment
       </Typography>
 
       <Link color="inherit" component={RouterLink} href={linkTo}>
-        <TextMaxLine variant={mdUp && latestPostLarge ? 'h5' : 'subtitle1'} line={2} persistent>
+        <TextMaxLine
+          variant={mdUp && latestPostLarge ? "h5" : "subtitle1"}
+          line={2}
+          
+        >
           {title}
         </TextMaxLine>
       </Link>
+
+      {moduleView && <Chip
+        sx={{
+          color: "text.disabled",
+          ...((latestPostLarge || latestPostSmall) && {
+            opacity: 0.84,
+            color: "common.white",
+            borderColor: "common.white"
+          }),
+          p: 1,
+          mt: 1,
+          py: 1.5
+        }}
+        icon={
+          <Iconify color={(latestPostLarge || latestPostSmall) &&"common.white"} 
+      
+            icon="ph:steps-duotone"
+          ></Iconify>
+        }
+        variant="outlined"
+        label={`${index+1} of ${recipesInModule}`}
+        size="small"
+      ></Chip>}
 
       <Stack
         spacing={1.5}
@@ -136,11 +191,11 @@ export function PostContent({ slug, title, createdAt,  totalShares, totalComment
         justifyContent="flex-end"
         sx={{
           mt: 3,
-          typography: 'caption',
-          color: 'text.disabled',
+          typography: "caption",
+          color: "text.disabled",
           ...((latestPostLarge || latestPostSmall) && {
             opacity: 0.64,
-            color: 'common.white',
+            color: "common.white",
           }),
         }}
       >

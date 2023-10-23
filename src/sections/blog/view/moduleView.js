@@ -49,7 +49,7 @@ export default function ModuleView({ module }) {
         />
       </Stack>
 
-      <PostList posts={dataFiltered} loading={false} />
+      <PostList moduleView={true} posts={dataFiltered} loading={false} />
     </Container>
   );
 }
