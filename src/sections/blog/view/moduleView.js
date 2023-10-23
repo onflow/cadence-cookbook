@@ -49,7 +49,7 @@ export default function ModuleView({ module }) {
         />
       </Stack>
 
-      <PostList moduleView={true} posts={dataFiltered} loading={false} />
+      <PostList originalOrderOfPosts={module.recipes} moduleView={true} posts={dataFiltered} loading={false} />
     </Container>
   );
 }

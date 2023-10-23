@@ -1,17 +1,23 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import Grid from '@mui/material/Unstable_Grid2';
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Unstable_Grid2";
 // components
-import Iconify from 'src/components/iconify';
+import Iconify from "src/components/iconify";
 //
-import PostItem from './post-item';
-import { PostItemSkeleton } from './post-skeleton';
+import PostItem from "./post-item";
+import { PostItemSkeleton } from "./post-skeleton";
 
 // ----------------------------------------------------------------------
 
-export default function PostList({ posts, loading, disabledIndex, moduleView }) {
+export default function PostList({
+  posts,
+  loading,
+  disabledIndex,
+  moduleView,
+  originalOrderOfPosts,
+}) {
   const renderSkeleton = (
     <>
       {[...Array(16)].map((_, index) => (
@@ -25,8 +31,23 @@ export default function PostList({ posts, loading, disabledIndex, moduleView }) 
   const renderList = (
     <>
       {posts.map((post, index) => (
-        <Grid key={post.id} xs={12} sm={6} md={!disabledIndex && index === 0 ? 6 : 3}>
-          <PostItem recipesInModule={posts.length} moduleView={moduleView} post={post} index={!disabledIndex ? index : undefined} />
+        <Grid
+          key={post.id}
+          xs={12}
+          sm={6}
+          md={!disabledIndex && index === 0 ? 6 : 3}
+        >
+          <PostItem
+            moduleOrder={originalOrderOfPosts !== undefined && originalOrderOfPosts
+              .map(function (e) {
+                return e.slug;
+              })
+              .indexOf(post.slug)}
+            recipesInModule={posts.length}
+            moduleView={moduleView}
+            post={post}
+            index={!disabledIndex ? index : undefined}
+          />
         </Grid>
       ))}
     </>
@@ -34,7 +55,7 @@ export default function PostList({ posts, loading, disabledIndex, moduleView }) 
 
   return (
     <>
-      <Grid container spacing={3} sx={{mb: 5}}>
+      <Grid container spacing={3} sx={{ mb: 5 }}>
         {loading ? renderSkeleton : renderList}
       </Grid>
     </>

@@ -16,7 +16,7 @@ import { randomIntFromInterval } from "src/utils/random_interval";
 import { Chip } from "@mui/material";
 import Iconify from "src/components/iconify";
 
-export default function PostItem({ post, index, moduleView, recipesInModule }) {
+export default function PostItem({ post, index, moduleView, recipesInModule, moduleOrder }) {
   const theme = useTheme();
 
   const mdUp = useResponsive("up", "md");
@@ -47,6 +47,7 @@ export default function PostItem({ post, index, moduleView, recipesInModule }) {
           index={index}
           moduleView={moduleView}
           recipesInModule={recipesInModule}
+          moduleOrder={moduleOrder}
         />
 
         <Image
@@ -95,6 +96,7 @@ export default function PostItem({ post, index, moduleView, recipesInModule }) {
         moduleView={moduleView}
         recipesInModule={recipesInModule}
         index={index}
+        moduleOrder={moduleOrder}
       />
     </Card>
   );
@@ -112,6 +114,7 @@ export function PostContent({
   recipesInModule,
   totalComments,
   index,
+  moduleOrder,
   moduleView
 }) {
   const mdUp = useResponsive("up", "md");
@@ -181,7 +184,7 @@ export function PostContent({
           ></Iconify>
         }
         variant="outlined"
-        label={`${index+1} of ${recipesInModule}`}
+        label={`${moduleOrder+1} of ${recipesInModule}`}
         size="small"
       ></Chip>}
 
