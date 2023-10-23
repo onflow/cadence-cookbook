@@ -164,7 +164,7 @@ export function PostContent({ slug, title, createdAt,  totalShares, totalComment
 }
 
 PostContent.propTypes = {
-  createdAt: PropTypes.string,
+  createdAt: PropTypes.date,
   index: PropTypes.number,
   title: PropTypes.string,
   totalComments: PropTypes.number,

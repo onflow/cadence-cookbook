@@ -12,6 +12,7 @@ import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
 import Iconify from 'src/components/iconify';
 import { useRouter } from 'src/routes/hooks';
 import SearchNotFound from 'src/components/search-not-found';
+import { paths } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +20,7 @@ export default function PostSearch({ query, results, onSearch, hrefItem, loading
   const router = useRouter();
 
   const handleClick = (title) => {
-    router.push(hrefItem(title));
+    router.push(paths.recipe(title));
   };
 
   const handleKeyUp = (event) => {
@@ -83,28 +84,17 @@ export default function PostSearch({ query, results, onSearch, hrefItem, loading
         const parts = parse(post.title, matches);
 
         return (
-          <li {...props} key={post.id}>
-            <Avatar
-              key={post.id}
-              alt={post.title}
-              src={post.coverUrl}
-              variant="rounded"
-              sx={{
-                width: 48,
-                height: 48,
-                flexShrink: 0,
-                mr: 1.5,
-                borderRadius: 1,
-              }}
-            />
+          <li {...props} key={post.slug}>
+           
 
-            <Link key={inputValue} underline="none" onClick={() => handleClick(post.title)}>
+            <Link key={post.slug} underline="none" onClick={() => handleClick(post.slug)}>
               {parts.map((part, index) => (
                 <Typography
                   key={index}
                   component="span"
                   color={part.highlight ? 'primary' : 'textPrimary'}
                   sx={{
+                    
                     typography: 'body2',
                     fontWeight: part.highlight ? 'fontWeightSemiBold' : 'fontWeightMedium',
                   }}

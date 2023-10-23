@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Stack from '@mui/material/Stack';
 //
 import NavList from './nav-list';
+import { uniqueId } from 'lodash';
 
 
 export default function NavDesktop({ offsetTop, data }) {
@@ -10,7 +11,7 @@ export default function NavDesktop({ offsetTop, data }) {
     <Stack component="nav" direction="row" spacing={5} sx={{ mr: 2.5, height: 1 }}>
       
       {data.map((link) => (
-        <NavList key={link.title} item={link} offsetTop={offsetTop} />
+        <NavList key={uniqueId()} item={link} offsetTop={offsetTop} />
       ))}
     </Stack>
   );

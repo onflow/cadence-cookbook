@@ -16,7 +16,8 @@ import { navConfig } from "./config-navigation";
 import NavMobile from "./nav/mobile";
 import NavDesktop from "./nav/desktop";
 import { HeaderShadow } from "../_common";
-
+import { recipes } from "src/data/recipes";
+import { useState, useCallback } from "react";
 
 export default function Header() {
   const theme = useTheme();
@@ -24,6 +25,23 @@ export default function Header() {
   const mdUp = useResponsive("up", "md");
 
   const offsetTop = useOffSetTop(HEADER.H_DESKTOP);
+
+  const flattenRecipes = (arr) =>
+    arr.flatMap(({ recipes, ...rest }) =>
+      recipes.map((o) => ({
+        ...rest,
+        ...o,
+      }))
+    );
+  const searchOptions = flattenRecipes(recipes);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const handleSearch = useCallback((event) => {
+    if (event.target) {
+      setSearchQuery(event.target.value);
+    }
+    
+  }, []);
 
   return (
     <AppBar>
@@ -49,12 +67,20 @@ export default function Header() {
         }}
       >
         <Container sx={{ height: 1, display: "flex", alignItems: "center" }}>
-          <Logo sx={{ml: {md: -3}}} />
-          <Typography sx={{ml: 1, fontSize: "16px"}}><strong>Cadence Cookbook</strong></Typography>
+          <Logo sx={{ ml: { md: -3 } }} />
+          <Typography sx={{ ml: 1, fontSize: "16px" }}>
+            <strong>Cadence Cookbook</strong>
+          </Typography>
 
-         
-
-          {mdUp && <Stack sx={{ml: 5}}><PostSearch  query="Test" results={[]} /></Stack>}
+          {mdUp && (
+            <Stack sx={{ ml: 5 }}>
+              <PostSearch
+                query={searchQuery}
+                onSearch={handleSearch}
+                results={searchOptions}
+              />
+            </Stack>
+          )}
 
           <Box sx={{ flexGrow: 1 }} />
 
@@ -65,7 +91,10 @@ export default function Header() {
             direction={{ xs: "row", md: "row-reverse" }}
           >
             <Button
-              sx={{backgroundColor: "#02D87E", "&:hover": {backgroundColor: "#3980B6"}}}
+              sx={{
+                backgroundColor: "#02D87E",
+                "&:hover": { backgroundColor: "#3980B6" },
+              }}
               variant="contained"
               target="_blank"
               rel="noopener"
