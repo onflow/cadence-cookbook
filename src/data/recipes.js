@@ -27,6 +27,7 @@ export const featuredRecipes = [mintNFT, tokenVault, adminResource, createAMarke
 export const recipes = [
     {
       module: "NFT Fundamentals",
+      slug: "nft-fundamentals",
       fallBackImage:  "", // Module cover image if none provided
       recipes: [
         mintNFT,
@@ -46,6 +47,7 @@ export const recipes = [
     },
     {
       module: "Working With Fungible Tokens",
+      slug: "working-with-fungible-tokens",
       fallBackImage:  "", // Module cover image if none provided
       recipes: [
         tokenVault,
@@ -56,6 +58,7 @@ export const recipes = [
     },
     {
       module: "Getting Started With Access Management",
+      slug: "getting-started-with-access-management",
       fallBackImage:  "", // Module cover image if none provided
       recipes: [
         adminResource,
@@ -64,6 +67,7 @@ export const recipes = [
     },
     {
       module: "NFT Storefront Essentials",
+      slug: "nft-storefront-essentials",
       fallBackImage:  "", // Module cover image if none provided
       recipes: [
         createAMarketplace,
