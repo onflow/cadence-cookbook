@@ -34,7 +34,7 @@ export default function HomePageView({ recipes, featuredRecipes }) {
         spacing={3}
         justifyContent="space-between"
         alignItems={{ xs: "flex-end", sm: "center" }}
-        direction={{ xs: "column", sm: "row" }}
+        direction={{ xs: "row", sm: "row" }}
       >
         <Typography
         variant="h4"

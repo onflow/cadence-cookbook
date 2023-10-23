@@ -2,7 +2,7 @@
 
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-import { Button, Stack, Typography } from "@mui/material";
+import { Stack, Typography, Link } from "@mui/material";
 
 import List from "@mui/material/List";
 import Drawer from "@mui/material/Drawer";
@@ -12,10 +12,8 @@ import { usePathname } from "src/routes/hooks";
 import Logo from "src/components/logo";
 import SvgColor from "src/components/svg-color";
 import Scrollbar from "src/components/scrollbar";
-//
 import NavList from "./nav-list";
 
-// ----------------------------------------------------------------------
 
 export default function NavMobile({ offsetTop, data }) {
   const pathname = usePathname();
@@ -56,9 +54,20 @@ export default function NavMobile({ offsetTop, data }) {
         <Scrollbar>
           <Stack direction="row">
             <Logo sx={{ mx: 2.5, my: 3 }} />
-            <Typography sx={{ ml:-1, mt: 4, fontSize: "16px" }}>
-              <strong>Cadence Cookbook</strong>
-            </Typography>
+            <Link
+              sx={{
+                textDecoration: "none",
+                color: "black",
+                "&:hover": {
+                  textDecoration: "none",
+                },
+              }}
+              href={"/"}
+            >
+              <Typography sx={{ ml: -1, mt: 4, fontSize: "16px" }}>
+                <strong>Cadence Cookbook</strong>
+              </Typography>
+            </Link>
           </Stack>
 
           <List component="nav" disablePadding>
@@ -66,8 +75,6 @@ export default function NavMobile({ offsetTop, data }) {
               <NavList key={link.title} item={link} />
             ))}
           </List>
-
-        
         </Scrollbar>
       </Drawer>
     </>

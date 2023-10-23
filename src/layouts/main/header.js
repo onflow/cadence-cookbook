@@ -9,7 +9,7 @@ import { useOffSetTop } from "src/hooks/use-off-set-top";
 import { useResponsive } from "src/hooks/use-responsive";
 import { bgBlur } from "src/theme/css";
 import Logo from "src/components/logo";
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import PostSearch from "src/sections/blog/post-search";
 import { HEADER } from "../config-layout";
 import { navConfig } from "./config-navigation";
@@ -40,7 +40,6 @@ export default function Header() {
     if (event.target) {
       setSearchQuery(event.target.value);
     }
-    
   }, []);
 
   return (
@@ -68,9 +67,20 @@ export default function Header() {
       >
         <Container sx={{ height: 1, display: "flex", alignItems: "center" }}>
           <Logo sx={{ ml: { md: -3 } }} />
-          <Typography sx={{ ml: 1, fontSize: "16px" }}>
-            <strong>Cadence Cookbook</strong>
-          </Typography>
+          <Link
+            sx={{
+              textDecoration: "none",
+              color: "black",
+              "&:hover": {
+                textDecoration: "none",
+              },
+            }}
+            href={"/"}
+          >
+            <Typography sx={{ ml: 1, fontSize: "16px" }}>
+              <strong>Cadence Cookbook</strong>
+            </Typography>
+          </Link>
 
           {mdUp && (
             <Stack sx={{ ml: 5 }}>
