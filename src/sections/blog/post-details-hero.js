@@ -80,13 +80,7 @@ export default function PostDetailsHero({
           <i>Contributed by</i> {author}
         </Typography>
 
-        <Stack
-          sx={{
-            left: 0,
-            width: 1,
-            position: "absolute",
-          }}
-        >
+        <Stack>
           <SpeedDial
             direction={smUp ? "left" : "up"}
             ariaLabel="Share post"
@@ -94,8 +88,9 @@ export default function PostDetailsHero({
             FabProps={{ size: "medium" }}
             sx={{
               position: "absolute",
-              top: { xs: 94, md: 124 },
-              right: { xs: 16, md: 28 },
+              mb: { xs: "0%", md: "0%" },
+              mt: { xs: "5%", md: "5%" },
+              ml: { xs: "80%", md: "85%" },
             }}
           >
             <SpeedDialAction
