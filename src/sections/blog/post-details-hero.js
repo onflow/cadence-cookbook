@@ -30,12 +30,12 @@ export default function PostDetailsHero({
   return (
     <Box
       sx={{
-        height: 480,
+        height: 380,
         overflow: "hidden",
         ...bgGradient({
           imgUrl: coverUrl,
-          startColor: `${alpha(theme.palette.grey[900], 0.64)} 0%`,
-          endColor: `${alpha(theme.palette.grey[900], 0.64)} 100%`,
+          startColor: `${alpha(theme.palette.grey[900], 0.6)} 0%`,
+          endColor: `${alpha(theme.palette.grey[900], 0.5)} 90%`,
         }),
         borderRadius: 2,
         ml: { xs: 3, md: 15 },
@@ -84,10 +84,7 @@ export default function PostDetailsHero({
           sx={{
             left: 0,
             width: 1,
-            bottom: 0,
-            mt: 37,
-            ml: 2,
-            position: "relative",
+            position: "absolute",
           }}
         >
           <SpeedDial
@@ -97,8 +94,8 @@ export default function PostDetailsHero({
             FabProps={{ size: "medium" }}
             sx={{
               position: "absolute",
-              bottom: { xs: 32, md: 64 },
-              right: { xs: 16, md: 24 },
+              top: { xs: 94, md: 124 },
+              right: { xs: 16, md: 28 },
             }}
           >
             <SpeedDialAction
