@@ -134,3 +134,21 @@ export async function getPreviousRecipe(module, slug) {
 
   return previousRecipe;
 }
+
+export async function getModuleProgress(module, slug) {
+  const recipes = flattenRecipes(recipesByModule).filter(
+    (i) => i.module === module
+  );
+
+  const thisRecipeIndex = recipes
+    .map(function (e) {
+      return e.slug;
+    })
+    .indexOf(slug);
+
+  const totalRecipes = recipes.length
+
+  const proportionComplete = (thisRecipeIndex + 1)/totalRecipes
+
+  return proportionComplete
+}

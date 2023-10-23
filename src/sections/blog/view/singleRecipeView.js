@@ -28,6 +28,7 @@ export default function SingleRecipeView({
   nextRecipeSlug,
   previousRecipeSlug,
   moduleSlug,
+  progress
 }) {
   const latestPosts = relatedRecipes;
   const post = recipe;
@@ -247,7 +248,7 @@ export default function SingleRecipeView({
                   <strong>Up Next:</strong> {nextRecipeTitle}
                 </Typography>
               )}
-              <LinearProgressWithLabel value={90} />
+              <LinearProgressWithLabel value={progress} />
             </Stack>
 
             {isMdUp && (
@@ -392,6 +393,7 @@ SingleRecipeView.propTypes = {
 };
 
 function LinearProgressWithLabel({ value }) {
+
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Box sx={{ width: "100%", mr: 1 }}>
