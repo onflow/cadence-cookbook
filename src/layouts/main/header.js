@@ -69,7 +69,7 @@ export default function Header() {
               variant="contained"
               target="_blank"
               rel="noopener"
-              href=""
+              href="https://github.com/onflow/cadence-cookbook/blob/main/contribute.md"
             >
               Contribute
             </Button>
