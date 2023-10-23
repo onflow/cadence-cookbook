@@ -31,7 +31,8 @@ export const NavItem = forwardRef(
         open={open}
         {...other}
       >
-        {title}
+        {title !== "More" && title}
+        {title === "More" && <strong>{title}</strong>}
 
         {!!children && <Iconify width={16} icon="eva:arrow-ios-downward-fill" sx={{ ml: 1 }} />}
       </ListItem>

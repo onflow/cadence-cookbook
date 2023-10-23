@@ -15,7 +15,7 @@ import { useActiveLink } from "src/routes/hooks/use-active-link";
 import { NavItem, NavItemDashboard } from "./nav-item";
 import { StyledSubheader, StyledMenu } from "./styles";
 import Image from "src/components/image";
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import { paths } from "src/routes/paths";
 
 // ----------------------------------------------------------------------
@@ -115,7 +115,17 @@ function NavSubList({ items, isDashboard, subheader, subheaderSlug, onClose }) {
         }),
       }}
     >
-      <StyledSubheader disableSticky>{subheader}</StyledSubheader>
+      <Link
+        sx={{
+          textDecoration: "none",
+          "&:hover": {
+            textDecoration: "none"
+          },
+        }}
+        href={paths.module(subheaderSlug)}
+      >
+        <StyledSubheader disableSticky>{subheader}</StyledSubheader>
+      </Link>
 
       {items
         .slice(0, 5)
