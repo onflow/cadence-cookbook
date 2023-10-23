@@ -39,21 +39,25 @@ export const navConfig = [
     children: [
       {
         subheader: "NFT Fundamentals",
+        slug: "nft-fundamentals",
         items: nftFundamentals,
         position: "1"
       },
       {
         subheader: "Working With Fungible Tokens",
+        slug: "working-with-fungible-tokens",
         items: workingWithFungibleTokens,
         position: "2"
       },
       {
         subheader: "Getting Started With Access Management",
+        slug: "getting-started-with-access-management",
         items: gettingStartedWithAccessManagement,
         position: "3"
       },
       {
         subheader: "NFT Storefront Essentials",
+        slug: "nft-storefront-essentials",
         items: nftStorefrontEssentials,
         position: "4"
       },

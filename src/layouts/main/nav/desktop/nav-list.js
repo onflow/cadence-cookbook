@@ -16,6 +16,7 @@ import { NavItem, NavItemDashboard } from "./nav-item";
 import { StyledSubheader, StyledMenu } from "./styles";
 import Image from "src/components/image";
 import { Typography } from "@mui/material";
+import { paths } from "src/routes/paths";
 
 // ----------------------------------------------------------------------
 
@@ -75,6 +76,7 @@ export default function NavList({ item, offsetTop }) {
                     <NavSubList
                       key={list.subheader}
                       subheader={list.subheader}
+                      subheaderSlug={list.slug}
                       items={list.items}
                       isDashboard={list.subheader === "Dashboard"}
                       onClose={nav.onFalse}
@@ -97,7 +99,7 @@ NavList.propTypes = {
 
 // ----------------------------------------------------------------------
 
-function NavSubList({ items, isDashboard, subheader, onClose }) {
+function NavSubList({ items, isDashboard, subheader, subheaderSlug, onClose }) {
   const pathname = usePathname();
 
   return (
@@ -135,8 +137,8 @@ function NavSubList({ items, isDashboard, subheader, onClose }) {
         <NavItem
           subItem
           key={`${subheader}-more`}
-          item={{ title: "More", path: "test_path" }}
-          active={pathname === `${"test_path"}/`}
+          item={{ title: "More", path: paths.module(subheaderSlug) }}
+          active={false}
           onClick={onClose}
         />
       )}
