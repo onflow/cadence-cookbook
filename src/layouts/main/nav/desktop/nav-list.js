@@ -119,7 +119,7 @@ function NavSubList({ items, isDashboard, subheader, subheaderSlug, onClose }) {
         sx={{
           textDecoration: "none",
           "&:hover": {
-            textDecoration: "none"
+            textDecoration: "none",
           },
         }}
         href={paths.module(subheaderSlug)}

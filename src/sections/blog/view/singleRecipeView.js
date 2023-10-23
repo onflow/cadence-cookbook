@@ -19,6 +19,7 @@ import PostDetailsHero from "../post-details-hero";
 import { PostDetailsSkeleton } from "../post-skeleton";
 import { paths } from "src/routes/paths";
 import { useRouter } from "next/navigation";
+import { useResponsive } from "src/hooks/use-responsive";
 
 export default function SingleRecipeView({
   recipe,
@@ -26,14 +27,14 @@ export default function SingleRecipeView({
   nextRecipeTitle,
   nextRecipeSlug,
   previousRecipeSlug,
+  moduleSlug,
 }) {
-
-  console.log(recipe)
-  
   const latestPosts = relatedRecipes;
   const post = recipe;
 
   const { push } = useRouter();
+
+  const isMdUp = useResponsive("up", "md");
 
   const renderSkeleton = <PostDetailsSkeleton />;
 
@@ -74,7 +75,7 @@ export default function SingleRecipeView({
           },
           {
             name: post?.module,
-            href: "/",
+            href: paths.module(moduleSlug),
           },
           {
             name: post?.title,
@@ -249,26 +250,62 @@ export default function SingleRecipeView({
               <LinearProgressWithLabel value={90} />
             </Stack>
 
-            <Box sx={{ flexGrow: 1 }} />
-            {previousRecipeSlug !== null && (
-              <Button
-                onClick={() => push(paths.recipe(previousRecipeSlug))}
-                sx={{ mr: 1, backgroundColor: "text.secondary" }}
-                variant="contained"
-              >
-                Previous Lesson
-              </Button>
-            )}
-            {nextRecipeSlug !== null && (
-              <Button
-                onClick={() => push(paths.recipe(nextRecipeSlug))}
-                sx={{ backgroundColor: "#02D87E" }}
-                variant="contained"
-              >
-                Continue
-              </Button>
+            {isMdUp && (
+              <>
+                <Box sx={{ flexGrow: 1 }} />
+                {previousRecipeSlug !== null && (
+                  <Button
+                    onClick={() => push(paths.recipe(previousRecipeSlug))}
+                    sx={{
+                      mr: 1,
+                      backgroundColor: "text.secondary",
+                      maxHeight: 50,
+                      mt: 2,
+                    }}
+                    variant="contained"
+                  >
+                    Previous Lesson
+                  </Button>
+                )}
+                {nextRecipeSlug !== null && (
+                  <Button
+                    onClick={() => push(paths.recipe(nextRecipeSlug))}
+                    sx={{ backgroundColor: "#02D87E", maxHeight: 50, mt: 2 }}
+                    variant="contained"
+                  >
+                    Continue
+                  </Button>
+                )}
+              </>
             )}
           </Stack>
+
+          {!isMdUp && (
+            <Stack sx={{mt: -5}}>
+              {previousRecipeSlug !== null && (
+                <Button
+                  onClick={() => push(paths.recipe(previousRecipeSlug))}
+                  sx={{
+                    backgroundColor: "text.secondary",
+
+                    mt: 2,
+                  }}
+                  variant="contained"
+                >
+                  Previous Lesson
+                </Button>
+              )}
+              {nextRecipeSlug !== null && (
+                <Button
+                  onClick={() => push(paths.recipe(nextRecipeSlug))}
+                  sx={{ backgroundColor: "#02D87E", mt: 2 }}
+                  variant="contained"
+                >
+                  Continue
+                </Button>
+              )}
+            </Stack>
+          )}
 
           {/* <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
             {post.tags !== undefined &&
@@ -354,11 +391,11 @@ SingleRecipeView.propTypes = {
   relatedRecipes: PropTypes.array,
 };
 
-function LinearProgressWithLabel(value) {
+function LinearProgressWithLabel({ value }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Box sx={{ width: "100%", mr: 1 }}>
-        <LinearProgress variant="determinate" />
+        <LinearProgress value={value} variant="determinate" />
       </Box>
       <Box sx={{ minWidth: 35 }}>
         <Typography variant="body2" color="text.secondary">{`${Math.round(

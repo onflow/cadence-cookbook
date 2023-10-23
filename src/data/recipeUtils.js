@@ -77,6 +77,10 @@ export async function getSingleModule(slug) {
   return recipes.filter((i) => i.slug === slug)[0];
 }
 
+export async function getSingleModuleByTitle(title) {
+  return recipes.filter((i) => i.module === title)[0];
+}
+
 export async function getSingleRecipe(slug) {
   const recipes = flattenRecipes(recipesByModule);
 
