@@ -16,7 +16,7 @@ import RecipeFilters from "../recipe-filters";
 import { useBoolean } from "src/hooks/use-boolean";
 
 const defaultFilters = {
-  gender: [],
+  difficulty: [],
 };
 
 export const DIFFICULTY_OPTIONS = [

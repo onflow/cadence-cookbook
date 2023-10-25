@@ -7,16 +7,13 @@ import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Tooltip from "@mui/material/Tooltip";
-import { alpha } from "@mui/material/styles";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import InputBase, { inputBaseClasses } from "@mui/material/InputBase";
 import Iconify from "src/components/iconify";
 import Scrollbar from "src/components/scrollbar";
 
-// ----------------------------------------------------------------------
 
 export default function RecipeFilters({
   open,
@@ -77,7 +74,7 @@ export default function RecipeFilters({
           key={option.value}
           control={
             <Checkbox
-              checked={filters.gender.includes(option.label)}
+              checked={filters.difficulty.includes(option.label)}
               onClick={() => handleFilterDifficulty(option.label)}
             />
           }
