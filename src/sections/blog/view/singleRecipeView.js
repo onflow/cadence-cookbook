@@ -92,6 +92,7 @@ export default function SingleRecipeView({
             ? post.featuredText
             : post.title
         }
+        filters={post.filters}
         author={post.author}
         coverUrl={post.coverUrl}
         createdAt={post.createdAt}

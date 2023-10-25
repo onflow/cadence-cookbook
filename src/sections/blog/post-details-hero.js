@@ -13,10 +13,14 @@ import { bgGradient } from "src/theme/css";
 import Iconify from "src/components/iconify";
 import { useRouter } from "next/navigation";
 import { Icon } from "@mui/material";
+import { Chip } from "@mui/material";
+import { toTitleCase } from "./view/homePageView";
+
 
 export default function PostDetailsHero({
   title,
   author,
+  filters,
   coverUrl,
   createdAt,
   playgroundLink,
@@ -75,10 +79,29 @@ export default function PostDetailsHero({
             color: "common.white",
             maxWidth: { xs: "90%", md: "50%" },
             pt: { xs: 2, md: 2 },
+            mb: 1,
           }}
         >
           <i>Contributed by</i> {author}
         </Typography>
+
+        {filters !== undefined && filters.difficulty !== undefined && (
+        <Chip
+          sx={{
+            color: "common.white",
+            borderColor: "common.white",
+            backgroundColor: "#02D87E",
+            "&:hover": { backgroundColor: "#02D87E" },
+            p: 1,
+            mt: 1,
+            py: 1.5,
+            mr: 1,
+          }}
+          variant="filled"
+          label={toTitleCase(filters.difficulty)}
+          size="small"
+        ></Chip>
+      )}
 
         <Stack>
           <SpeedDial
@@ -89,7 +112,7 @@ export default function PostDetailsHero({
             sx={{
               position: "absolute",
               mb: { xs: "0%", md: "0%" },
-              mt: { xs: "5%", md: "5%" },
+              mt: { xs: "5%", md: "2%" },
               ml: { xs: "80%", md: "85%" },
             }}
           >
@@ -119,4 +142,5 @@ PostDetailsHero.propTypes = {
   coverUrl: PropTypes.string,
   createdAt: PropTypes.string,
   title: PropTypes.string,
+  filters: PropTypes.object
 };

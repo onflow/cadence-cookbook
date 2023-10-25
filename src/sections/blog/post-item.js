@@ -17,7 +17,13 @@ import { Chip } from "@mui/material";
 import Iconify from "src/components/iconify";
 import { toTitleCase } from "./view/homePageView";
 
-export default function PostItem({ post, index, moduleView, recipesInModule, moduleOrder }) {
+export default function PostItem({
+  post,
+  index,
+  moduleView,
+  recipesInModule,
+  moduleOrder,
+}) {
   const theme = useTheme();
 
   const mdUp = useResponsive("up", "md");
@@ -114,13 +120,13 @@ PostItem.propTypes = {
 export function PostContent({
   slug,
   title,
-  filters, 
+  filters,
   createdAt,
   recipesInModule,
   totalComments,
   index,
   moduleOrder,
-  moduleView
+  moduleView,
 }) {
   const mdUp = useResponsive("up", "md");
 
@@ -142,7 +148,7 @@ export function PostContent({
           position: "absolute",
           color: "common.white",
         }),
-        height: 150
+        height: 150,
       }}
     >
       <Typography
@@ -164,56 +170,61 @@ export function PostContent({
         <TextMaxLine
           variant={mdUp && latestPostLarge ? "h5" : "subtitle1"}
           line={2}
-          
         >
           {title}
         </TextMaxLine>
       </Link>
 
-      {moduleView && <Chip
-        sx={{
-          color: "text.disabled",
-          ...((latestPostLarge || latestPostSmall) && {
-            opacity: 0.84,
-            color: "common.white",
-            borderColor: "common.white"
-          }),
-          p: 1,
-          mt: 1,
-          py: 1.5,
-          mr: 1
-        }}
-        icon={
-          <Iconify color={(latestPostLarge || latestPostSmall) &&"common.white"} 
-      
-            icon="ph:steps-duotone"
-          ></Iconify>
-        }
-        variant="outlined"
-        label={`${moduleOrder+1} of ${recipesInModule}`}
-        size="small"
-      ></Chip>}
+      {moduleView && (
+        <Chip
+          sx={{
+            color: "text.disabled",
+            ...((latestPostLarge || latestPostSmall) && {
+              opacity: 0.84,
+              color: "common.white",
+              borderColor: "common.white",
+            }),
+            p: 1,
+            mt: 1,
+            py: 1.5,
+            mr: 1,
+          }}
+          icon={
+            <Iconify
+              color={(latestPostLarge || latestPostSmall) && "common.white"}
+              icon="ph:steps-duotone"
+            ></Iconify>
+          }
+          variant="outlined"
+          label={`${moduleOrder + 1} of ${recipesInModule}`}
+          size="small"
+        ></Chip>
+      )}
 
-{filters !== undefined && filters.difficulty !== undefined && <Chip
-        sx={{
-          color: "text.disabled",
-          ...((latestPostLarge || latestPostSmall) && {
-            opacity: 0.84,
+      {filters !== undefined && filters.difficulty !== undefined && (
+        <Chip
+          sx={{
             color: "common.white",
             borderColor: "common.white",
             backgroundColor: "#004B50",
             "&:hover": { backgroundColor: "#004B50" },
-          }),
-          p: 1,
-          mt: 1,
-          py: 1.5,
-          mr: 1
-        }}
-        
-        variant="filled"
-        label={toTitleCase(filters.difficulty) }
-        size="small"
-      ></Chip>}
+            ...((latestPostLarge || latestPostSmall) && {
+              opacity: 0.84,
+              color: "common.white",
+              borderColor: "common.white",
+              backgroundColor: "#004B50",
+              "&:hover": { backgroundColor: "#004B50" },
+            }),
+            p: 1,
+            mt: 1,
+            py: 1.5,
+            mr: 1,
+          }}
+          variant="filled"
+          label={toTitleCase(filters.difficulty)}
+          size="small"
+        ></Chip>
+      )}
 
       <Stack
         spacing={1.5}
