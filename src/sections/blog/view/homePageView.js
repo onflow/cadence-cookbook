@@ -2,7 +2,7 @@
 
 import PropTypes from "prop-types";
 import orderBy from "lodash/orderBy";
-import isEqual from 'lodash/isEqual';
+import isEqual from "lodash/isEqual";
 import { useCallback, useState } from "react";
 import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
@@ -15,16 +15,15 @@ import PostSort from "../post-sort";
 import RecipeFilters from "../recipe-filters";
 import { useBoolean } from "src/hooks/use-boolean";
 
-const defaultFilters = {
+export const defaultFilters = {
   difficulty: [],
 };
 
 export const DIFFICULTY_OPTIONS = [
-  { label: 'Beginner', value: 'Beginner' },
-  { label: 'Intermediate', value: 'Intermediate' },
-  { label: 'Advanced', value: 'Advanced' },
+  { label: "Beginner", value: "beginner" },
+  { label: "Intermediate", value: "intermediate" },
+  { label: "Advanced", value: "advanced" },
 ];
-
 
 export default function HomePageView({ recipes, featuredRecipes }) {
   const settings = useSettingsContext();
@@ -46,6 +45,7 @@ export default function HomePageView({ recipes, featuredRecipes }) {
   const dataFiltered = applyFilter({
     inputData: recipes,
     sortBy,
+    filters,
   });
 
   const handleSortBy = useCallback((newValue) => {
@@ -102,7 +102,23 @@ HomePageView.propTypes = {
   recipes: PropTypes.array,
 };
 
-const applyFilter = ({ inputData, sortBy }) => {
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
+
+const applyFilter = ({ inputData, sortBy, filters }) => {
+  const { difficulty } = filters;
+
+  if (difficulty.length) {
+    inputData = inputData.filter(
+      (product) =>
+        product.filters !== undefined &&
+        difficulty.includes(toTitleCase(product.filters.difficulty))
+    );
+  }
+
   if (sortBy === "latest") {
     return orderBy(inputData, ["createdAt"], ["desc"]);
   }
