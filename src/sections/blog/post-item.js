@@ -15,6 +15,7 @@ import TextMaxLine from "src/components/text-max-line";
 import { randomIntFromInterval } from "src/utils/random_interval";
 import { Chip } from "@mui/material";
 import Iconify from "src/components/iconify";
+import { toTitleCase } from "./view/homePageView";
 
 export default function PostItem({ post, index, moduleView, recipesInModule, moduleOrder }) {
   const theme = useTheme();
@@ -25,6 +26,7 @@ export default function PostItem({ post, index, moduleView, recipesInModule, mod
     coverUrl,
     title,
     slug,
+    filters,
     totalViews,
     totalComments,
     totalShares,
@@ -40,6 +42,7 @@ export default function PostItem({ post, index, moduleView, recipesInModule, mod
         <PostContent
           slug={slug}
           title={title}
+          filters={filters}
           createdAt={createdAt}
           totalViews={totalViews}
           totalShares={totalShares}
@@ -89,6 +92,7 @@ export default function PostItem({ post, index, moduleView, recipesInModule, mod
       <PostContent
         slug={slug}
         title={title}
+        filters={filters}
         totalViews={totalViews}
         totalComments={totalComments}
         totalShares={totalShares}
@@ -110,6 +114,7 @@ PostItem.propTypes = {
 export function PostContent({
   slug,
   title,
+  filters, 
   createdAt,
   recipesInModule,
   totalComments,
@@ -175,7 +180,8 @@ export function PostContent({
           }),
           p: 1,
           mt: 1,
-          py: 1.5
+          py: 1.5,
+          mr: 1
         }}
         icon={
           <Iconify color={(latestPostLarge || latestPostSmall) &&"common.white"} 
@@ -185,6 +191,27 @@ export function PostContent({
         }
         variant="outlined"
         label={`${moduleOrder+1} of ${recipesInModule}`}
+        size="small"
+      ></Chip>}
+
+{filters !== undefined && filters.difficulty !== undefined && <Chip
+        sx={{
+          color: "text.disabled",
+          ...((latestPostLarge || latestPostSmall) && {
+            opacity: 0.84,
+            color: "common.white",
+            borderColor: "common.white",
+            backgroundColor: "#004B50",
+            "&:hover": { backgroundColor: "#004B50" },
+          }),
+          p: 1,
+          mt: 1,
+          py: 1.5,
+          mr: 1
+        }}
+        
+        variant="filled"
+        label={toTitleCase(filters.difficulty) }
         size="small"
       ></Chip>}
 
@@ -223,6 +250,7 @@ export function PostContent({
 
 PostContent.propTypes = {
   createdAt: PropTypes.date,
+  filters: PropTypes.object,
   index: PropTypes.number,
   title: PropTypes.string,
   totalComments: PropTypes.number,
