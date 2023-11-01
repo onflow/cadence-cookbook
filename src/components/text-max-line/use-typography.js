@@ -1,7 +1,7 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
 // hooks
-import { useWidth } from 'src/hooks/use-responsive';
+import { useWidth } from '../../hooks/use-responsive';
 
 // ----------------------------------------------------------------------
 

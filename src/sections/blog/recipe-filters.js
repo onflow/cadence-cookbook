@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useCallback } from "react";
-
 import Stack from "@mui/material/Stack";
 import Badge from "@mui/material/Badge";
 import Drawer from "@mui/material/Drawer";
@@ -11,21 +10,18 @@ import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Iconify from "src/components/iconify";
-import Scrollbar from "src/components/scrollbar";
+import Iconify from "../../components/iconify";
+import Scrollbar from "../../components/scrollbar";
 
 
 export default function RecipeFilters({
   open,
   onOpen,
   onClose,
-  //
   filters,
   onFilters,
-  //
   canReset,
   onResetFilters,
-  //
   difficultyOptions,
 }) {
 

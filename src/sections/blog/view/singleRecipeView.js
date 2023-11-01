@@ -3,7 +3,6 @@
 import { CopyBlock, dracula } from "react-code-blocks";
 import PropTypes from "prop-types";
 import {
-  Chip,
   Stack,
   Divider,
   Container,
@@ -12,14 +11,14 @@ import {
   Button,
   LinearProgress,
 } from "@mui/material";
-import Markdown from "src/components/markdown";
-import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
+import Markdown from "../../../components/markdown";
+import CustomBreadcrumbs from "../../../components/custom-breadcrumbs";
 import PostList from "../post-list";
 import PostDetailsHero from "../post-details-hero";
 import { PostDetailsSkeleton } from "../post-skeleton";
-import { paths } from "src/routes/paths";
+import { paths } from "../../../routes/paths";
 import { useRouter } from "next/navigation";
-import { useResponsive } from "src/hooks/use-responsive";
+import { useResponsive } from "../../../hooks/use-responsive";
 
 export default function SingleRecipeView({
   recipe,

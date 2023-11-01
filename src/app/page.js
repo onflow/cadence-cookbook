@@ -1,4 +1,4 @@
-import { getAllRecipes } from '../data/recipes'
+import { getAllRecipes } from '../data/recipeUtils';
 import { featuredRecipes } from '../data/recipes';
 import { HomePageView } from '../sections/blog/view';
 

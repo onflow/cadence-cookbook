@@ -1,9 +1,5 @@
-// @mui
 import { styled, alpha } from '@mui/material/styles';
-// theme
-import { bgBlur } from 'src/theme/css';
-
-// ----------------------------------------------------------------------
+import { bgBlur } from '../../theme/css';
 
 export const StyledArrow = styled('span')(({ arrow, theme }) => {
   const SIZE = 14;

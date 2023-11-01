@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
  
 describe('Home', () => {
   it('Hello world', () => {
-    render(<HomePage />)
+    const { container } = render(<HomePage />)
  
     //expect(heading).toBeInTheDocument()
   })

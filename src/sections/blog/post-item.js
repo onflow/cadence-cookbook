@@ -6,15 +6,15 @@ import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
-import { paths } from "src/routes/paths";
-import { RouterLink } from "src/routes/components";
-import { useResponsive } from "src/hooks/use-responsive";
-import { fDate } from "src/utils/format-time";
-import Image from "src/components/image";
-import TextMaxLine from "src/components/text-max-line";
-import { randomIntFromInterval } from "src/utils/random_interval";
+import { paths } from "../../routes/paths";
+import { RouterLink } from "../../routes/components";
+import { useResponsive } from "../../hooks/use-responsive";
+import { fDate } from "../../utils/format-time";
+import Image from "../../components/image";
+import TextMaxLine from "../../components/text-max-line";
+import { randomIntFromInterval } from "../../utils/random_interval";
 import { Chip } from "@mui/material";
-import Iconify from "src/components/iconify";
+import Iconify from "../../components/iconify";
 import { toTitleCase } from "./view/homePageView";
 
 export default function PostItem({

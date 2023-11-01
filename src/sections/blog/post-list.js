@@ -1,15 +1,7 @@
 import PropTypes from "prop-types";
-// @mui
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Unstable_Grid2";
-// components
-import Iconify from "src/components/iconify";
-//
 import PostItem from "./post-item";
 import { PostItemSkeleton } from "./post-skeleton";
-
-// ----------------------------------------------------------------------
 
 export default function PostList({
   posts,

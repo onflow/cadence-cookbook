@@ -7,12 +7,12 @@ import { useCallback, useState } from "react";
 import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { POST_SORT_OPTIONS, _mock } from "src/_mock";
-import { useSettingsContext } from "src/components/settings";
+import { POST_SORT_OPTIONS, _mock } from "../../../_mock";
+import { useSettingsContext } from "../../../components/settings";
 import PostList from "../post-list";
 import PostSort from "../post-sort";
 import { DIFFICULTY_OPTIONS, defaultFilters } from "./homePageView";
-import { useBoolean } from "src/hooks/use-boolean";
+import { useBoolean } from "../../../hooks/use-boolean";
 import RecipeFilters from "../recipe-filters";
 
 export default function ModuleView({ module }) {
