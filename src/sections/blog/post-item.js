@@ -260,7 +260,7 @@ export function PostContent({
 }
 
 PostContent.propTypes = {
-  createdAt: PropTypes.date,
+  //createdAt: PropTypes.date,
   filters: PropTypes.object,
   index: PropTypes.number,
   title: PropTypes.string,

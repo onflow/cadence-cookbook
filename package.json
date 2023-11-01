@@ -17,12 +17,11 @@
     "re-build-test": "rm -rf node_modules .next out dist build && npm install && npm run build",
     "cy": "cypress open --e2e",
     "cy:headless": "cypress run",
-    "test": "jest --runInBand"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
     "@aws-amplify/auth": "^5.6.4",
-    "@babel/preset-env": "^7.23.2",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -94,11 +93,7 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.21",
-    "babel-jest": "^29.7.0",
-    "babel-preset-env": "^1.7.0",
     "cypress": "^13.4.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.0.3"
   }
 }

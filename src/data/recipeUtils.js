@@ -1,6 +1,6 @@
 import * as fs from "node:fs";
 import { recipes } from "./recipes";
-import { randomIntFromInterval } from "src/utils/random_interval";
+import { randomIntFromInterval } from "../utils/random_interval";
 
 const recipesByModule = recipes;
 

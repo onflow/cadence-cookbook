@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import Grid from "@mui/material/Unstable_Grid2";
 import PostItem from "./post-item";
 import { PostItemSkeleton } from "./post-skeleton";
+import { uniqueId } from "lodash";
 
 export default function PostList({
   posts,
@@ -24,7 +25,7 @@ export default function PostList({
     <>
       {posts.map((post, index) => (
         <Grid
-          key={post.id}
+          key={uniqueId()}
           xs={12}
           sm={6}
           md={!disabledIndex && index === 0 ? 6 : 3}
