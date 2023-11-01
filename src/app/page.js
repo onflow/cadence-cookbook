@@ -1,6 +1,6 @@
-import { getAllRecipes } from 'src/data/recipeUtils';
-import { featuredRecipes } from 'src/data/recipes';
-import { HomePageView } from 'src/sections/blog/view';
+import { getAllRecipes } from '../data/recipes'
+import { featuredRecipes } from '../data/recipes';
+import { HomePageView } from '../sections/blog/view';
 
 export const metadata = {
   title: 'Cadence Cookbook | Home',

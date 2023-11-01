@@ -8,19 +8,19 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
-import { bgGradient } from "src/theme/css";
+import { bgGradient } from "../../../../theme/css";
 // components
-import Image from "src/components/image";
-import { MotionContainer, varFade } from "src/components/animate";
+import Image from "../../../../components/image";
+import { MotionContainer, varFade } from "../../../../components/animate";
 import Carousel, {
   CarouselArrowIndex,
   useCarousel,
-} from "src/components/carousel";
-import { paths } from "src/routes/paths";
+} from "../../../../components/carousel";
+import { paths } from "../../../../routes/paths";
 import { useRouter } from "next/navigation";
-import { randomIntFromInterval } from "src/utils/random_interval";
-import TextMaxLine from "src/components/text-max-line/text-max-line";
-import { useResponsive } from "src/hooks/use-responsive";
+import { randomIntFromInterval } from "../../../../utils/random_interval";
+import TextMaxLine from "../../../../components/text-max-line/text-max-line";
+import { useResponsive } from "../../../../hooks/use-responsive";
 
 export default function CarouselAnimation({ data }) {
   const carousel = useCarousel({

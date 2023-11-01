@@ -7,13 +7,13 @@ import { useCallback, useState } from "react";
 import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { POST_SORT_OPTIONS, _mock } from "src/_mock";
-import { useSettingsContext } from "src/components/settings";
-import CarouselAnimation from "src/sections/_examples/extra/carousel-view/carousel-animation";
+import { POST_SORT_OPTIONS, _mock } from "../../../_mock";
+import { useSettingsContext } from "../../../components/settings";
+import CarouselAnimation from "../../../sections/_examples/extra/carousel-view/carousel-animation";
 import PostList from "../post-list";
 import PostSort from "../post-sort";
 import RecipeFilters from "../recipe-filters";
-import { useBoolean } from "src/hooks/use-boolean";
+import { useBoolean } from "../../../hooks/use-boolean";
 
 export const defaultFilters = {
   difficulty: [],
