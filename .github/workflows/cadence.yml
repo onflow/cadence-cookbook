@@ -42,7 +42,9 @@ jobs:
        - name: Trigger recipe test
          if: contains(env.RECIPE_REPO, ':')  
          run: |
-          flow test ${{ env.RECIPE_REPO }}/cadence/tests.cdc
+          if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
+            flow test ${{ env.RECIPE_REPO }}/cadence/tests.cdc
+          fi 
 
 
    
