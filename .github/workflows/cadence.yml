@@ -40,7 +40,7 @@ jobs:
            brew install flow-cli
            flow init
        - name: Trigger recipe test
-         if: (contains(env.RECIPE_REPO, ':') && ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != '')
+         if: ${{ contains(env.RECIPE_REPO, ':') && ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != '' }}
          run: |
           flow test ${{ env.RECIPE_REPO }}/cadence/tests.cdc
 
