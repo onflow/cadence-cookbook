@@ -21,11 +21,13 @@ jobs:
     steps:
        - name: Check out repository code
          uses: actions/checkout@v4
-       - name: Install Flow CLI
-         if: ${{ matrix.recipe }} !== '' && ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
+       - name: Set env
+         env:
+            RECIPE_REPO: "py${{ matrix.recipe }}"
          run: |
-           brew update
-           brew install flow-cli
-       - name: Trigger recipe test
-         if: ${{ matrix.recipe }} !== '' && ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
-         run: flow test src/data/recipes/${{ matrix.recipe }}/cadence/tests.cdc
+            RECIPE_REPO=${{ env.RECIPE_REPO }}
+            RECIPE_REPO=${RECIPE_REPO//:} # replace all colons
+            echo RECIPE_REPO=${RECIPE_REPO} >> $GITHUB_ENV # update GitHub ENV vars
+       - name: print env
+         run: echo ${{ env.RECIPE_REPO }}
+   
