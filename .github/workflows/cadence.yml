@@ -41,7 +41,6 @@ jobs:
            flow init
        - name: Trigger recipe test
          if: |
-          always() &&
           contains(env.RECIPE_REPO, ':')  &&
           ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
          run: |
