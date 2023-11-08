@@ -17,7 +17,7 @@ jobs:
     runs-on: macos-latest
     strategy:
         matrix:
-            recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}
+            recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}[:-1]
     steps:
        - name: Check out repository code
          uses: actions/checkout@v4
