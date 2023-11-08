@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Dynamically retrieve matrix
         id: set-matrix      
-        run: echo "::set-output name=matrix::$(ls src/data/recipes/* | jq -R -s -c 'split("\n")[:-2]')"
+        run: echo "::set-output name=matrix::$(ls src/data/recipes/* | jq -R -s -c 'split("\n")[:-3]')"
   run-cadence-tests:
     needs: get-recipe-repos
     runs-on: macos-latest
@@ -26,4 +26,4 @@ jobs:
            brew update
            brew install flow-cli
        - name: Trigger recipe test
-         run: flow test src/data/recipes/${{ matrix.recipe }}/cadence/tests.cdc'
+         run: flow test src/data/recipes/${{ matrix.recipe }}/cadence/tests.cdc
