@@ -33,13 +33,13 @@ jobs:
        - name: print env
          run: echo ${{ env.RECIPE_REPO }}
        - name: Install Flow CLI
-         if: ${{ env.RECIPE_REPO != '\n' }} && ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
+         if: ${{ contains(env.RECIPE_REPO, ':') }} && ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
          run: |
            brew update
            brew install flow-cli
            flow init
        - name: Trigger recipe test
-         if: ${{ env.RECIPE_REPO != '\n' }} && ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
+         if: ${{ contains(env.RECIPE_REPO, ':') }} && ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
          run: |
           flow test ${{ env.RECIPE_REPO }}/cadence/tests.cdc
 
