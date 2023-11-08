@@ -26,4 +26,5 @@ jobs:
            brew update
            brew install flow-cli
        - name: Trigger recipe test
+         if: ${{ hashFiles('src/data/recipes/${{ matrix.recipe }}/cadence/flow.json') != '' }}
          run: flow test src/data/recipes/${{ matrix.recipe }}/cadence/tests.cdc
