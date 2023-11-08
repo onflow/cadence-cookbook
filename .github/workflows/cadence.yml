@@ -2,12 +2,13 @@ name: Run Cadence tests
 on: push
 
 jobs:
-  build:
+  get-recipe-repos:
     runs-on: macos-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - name: Install Flow CLI
-        run: |
-          brew update
-          brew install flow-cli
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Dynamically retrieve matrix
+        id: set-matrix      
+        run: echo "::set-output name=matrix::$(ls src/data/recipes/*" >>
