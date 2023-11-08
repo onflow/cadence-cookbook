@@ -19,10 +19,6 @@ jobs:
         matrix:
             recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}
     steps:
-       - name: Check out repository code
-         uses: actions/checkout@v4
-         with:
-          submodules: 'true'
        - name: Set env
          env:
             RECIPE_REPO: "${{ matrix.recipe }}"
@@ -32,6 +28,11 @@ jobs:
             echo RECIPE_REPO=${RECIPE_REPO} >> $GITHUB_ENV # update GitHub ENV vars
        - name: print env
          run: echo ${{ env.RECIPE_REPO }}
+       - name: Check out repository code
+         if: contains(env.RECIPE_REPO, ':')
+         uses: actions/checkout@v4
+         with:
+          submodules: 'true'
        - name: Install Flow CLI
          if: contains(env.RECIPE_REPO, ':') && ${{ hashFiles(format('/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
          run: |
