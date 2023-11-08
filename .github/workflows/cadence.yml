@@ -17,13 +17,13 @@ jobs:
     runs-on: macos-latest
     strategy:
         matrix:
-            recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}
+            recipe: ${{ contains(fromJson(needs.get-recipe-repos.outputs.matrix), ":") }}
     steps:
        - name: Check out repository code
          uses: actions/checkout@v4
        - name: Set env
          env:
-            RECIPE_REPO: "py${{ matrix.recipe }}"
+            RECIPE_REPO: "${{ matrix.recipe }}"
          run: |
             RECIPE_REPO=${{ env.RECIPE_REPO }}
             RECIPE_REPO=${RECIPE_REPO//:} # replace all colons
