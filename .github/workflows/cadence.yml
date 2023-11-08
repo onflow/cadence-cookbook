@@ -12,3 +12,12 @@ jobs:
       - name: Dynamically retrieve matrix
         id: set-matrix      
         run: echo "::set-output name=matrix::$(ls src/data/recipes/*)"
+  run-cadence-tests:
+    needs: get-recipe-repos
+    runs-on: macos-latest
+    strategy:
+        matrix:
+            recipe: ${{ needs.get-recipe-repos.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v2   
+      - run: echo ${{ matrix.manifest }}
