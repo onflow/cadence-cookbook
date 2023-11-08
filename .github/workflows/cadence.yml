@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Dynamically retrieve matrix
         id: set-matrix      
-        run: echo "::set-output name=matrix::$(ls src/data/recipes/*: | jq -R -s -c 'split("\n")[:-1]' )"
+        run: echo "::set-output name=matrix::$(ls -d src/data/recipes/*) | jq -R -s -c 'split("\n")[:-1]' )"
   run-cadence-tests:
     needs: get-recipe-repos
     runs-on: macos-latest
