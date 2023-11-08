@@ -26,8 +26,6 @@ jobs:
             RECIPE_REPO=${{ env.RECIPE_REPO }}
             RECIPE_REPO=${RECIPE_REPO//:} # replace all colons
             echo RECIPE_REPO=${RECIPE_REPO} >> $GITHUB_ENV # update GitHub ENV vars
-       - name: print env
-         run: echo ${{ env.RECIPE_REPO }}
        - name: Check out repository code
          uses: actions/checkout@v4
          with:
