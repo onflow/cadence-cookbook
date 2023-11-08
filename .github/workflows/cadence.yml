@@ -17,7 +17,7 @@ jobs:
     runs-on: macos-latest
     strategy:
         matrix:
-            recipe: ${{ contains(fromJson(needs.get-recipe-repos.outputs.matrix), ":") }}
+            recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}
     steps:
        - name: Check out repository code
          uses: actions/checkout@v4
@@ -30,4 +30,15 @@ jobs:
             echo RECIPE_REPO=${RECIPE_REPO} >> $GITHUB_ENV # update GitHub ENV vars
        - name: print env
          run: echo ${{ env.RECIPE_REPO }}
+       - name: Install Flow CLI
+         if: ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', env.RECIPE_REPO)) }} != '' && ${{ hashFiles(format('src/data/recipes/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
+         run: |
+           brew update
+           brew install flow-cli
+       - name: Trigger recipe test
+         if: ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', env.RECIPE_REPO)) }} != '' && ${{ hashFiles(format('src/data/recipes/{0}/cadence/tests.cdc', env.RECIPE_REPO)) }} != ''
+         run: |
+          flow test src/data/recipes/${{ env.RECIPE_REPO }}/cadence/tests.cdc
+
+
    
