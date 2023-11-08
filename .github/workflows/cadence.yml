@@ -1,0 +1,14 @@
+name: Run Cadence tests
+on: push
+
+jobs:
+  get-recipe-repos:
+    runs-on: macos-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Dynamically retrieve matrix
+        id: set-matrix      
+        run: echo "::set-output name=matrix::$(ls src/data/recipes/*" 
