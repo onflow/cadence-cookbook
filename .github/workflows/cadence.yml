@@ -22,9 +22,10 @@ jobs:
        - name: Check out repository code
          uses: actions/checkout@v4
        - name: Install Flow CLI
+         if: ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
          run: |
            brew update
            brew install flow-cli
        - name: Trigger recipe test
-         if: ${{ hashFiles('src/data/recipes/${{ matrix.recipe }}/cadence/flow.json') != '' }}
+         if: ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
          run: flow test src/data/recipes/${{ matrix.recipe }}/cadence/tests.cdc
