@@ -26,4 +26,4 @@ jobs:
            brew update
            brew install flow-cli
        - name: Trigger recipe test
-         run: echo ${{ matrix.manifest }}
+         run: echo ${{ matrix.recipe }}
