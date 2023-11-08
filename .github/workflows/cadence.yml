@@ -1,5 +1,5 @@
 name: Run Cadence tests
-on: push
+on: pull_request
 
 jobs:
   get-recipe-repos:
