@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Dynamically retrieve matrix
         id: set-matrix      
-        run: echo "::set-output name=matrix::$(ls src/data/recipes/* | jq -R -s -c 'split("\n")[:-1]' | gsub("[:]"; ""))"
+        run: echo "::set-output name=matrix::$(ls src/data/recipes/* | jq -R -s -c 'split("\n")[:-1]' )"
   run-cadence-tests:
     needs: get-recipe-repos
     runs-on: macos-latest
@@ -22,10 +22,10 @@ jobs:
        - name: Check out repository code
          uses: actions/checkout@v4
        - name: Install Flow CLI
-         if: ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
+         if: ${{ matrix.recipe }} !== '' && ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
          run: |
            brew update
            brew install flow-cli
        - name: Trigger recipe test
-         if: ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
+         if: ${{ matrix.recipe }} !== '' && ${{ hashFiles(format('src/data/recipes/{0}/cadence/flow.json', matrix.recipe)) }} != ''
          run: flow test src/data/recipes/${{ matrix.recipe }}/cadence/tests.cdc
