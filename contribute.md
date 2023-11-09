@@ -15,9 +15,11 @@ Each recipe in the Cadence Cookbook is a practical coding example that showcases
 
 ## Contributing to the Cadence Cookbook
 
+Each recipe is added to the Cadence Cookbook as a Github submodule, which acts as a pointer to an independent repository containing the recipe code and associated explanations. To contribute to the Cadence Cookbook, you can create your own Github repository following the below recipe guidelines. Once ready, you can create a pull request to the main cadence-cookbook repository which adds a new sub-module to the src/data/recipes directory. The cadence-cookbook parent repository runs automated front-end and Cadence tests on all recipes during each release cycle to ensure code in the Cookbook is functional and up-to-date.
 
+Check out this video tutorial explaining the components of a sample Cookbook recipe repository, as well as what a contribution PR to the cadence-cookbook repository should look like: 
 
-## What is included in a Cookbook recipe?
+## What is included in a Cookbook recipe repository?
 
 Each recipe repository is subdivided into 2 main sections, Cadence code files (.cdc) under the `/cadence` directory, and explanation files (.txt) under the `/explanations` directory.
 
@@ -42,6 +44,8 @@ recipe-name/
 
 ## Supported Recipe Data
 
+The below list outlines the data fields currently supported for recipes in the Cadence Cookbook. This list will be maintained and updated as new features and data types are supported in the coming months.
+
 - `const recipe`: defines a unique identifier (slug) for the recipe
 - `title`: indicates the title of the recipe
 - `featuredText`(optional): a subheading for the recipe title
@@ -59,6 +63,8 @@ recipe-name/
 - `filters`: the filters object is used to perform filtering on recipes in the cookbook
     - `difficulty`: the difficulty filter supports one of ['beginner', 'intermediate', 'advanced']
 
+
+This is an example of a sample index.js file for a recipe repository. For reference and as a starting point for your recipe, we recommend referring to a sample recipe respository maintained by Flow, such as: https://github.com/lealobanov/add-a-play-to-topshot-set. 
 
 ```
 // Pass the repo name
