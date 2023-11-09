@@ -35,7 +35,7 @@ jobs:
            if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
              brew update
              brew install flow-cli
-             flow init
+             flow init --reset
            fi
        - name: Trigger recipe test
          run: |
