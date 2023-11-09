@@ -17,6 +17,8 @@ Each recipe in the Cadence Cookbook is a practical coding example that showcases
 
 Each recipe is added to the Cadence Cookbook as a Github submodule, which acts as a pointer to an independent repository containing the recipe code and associated explanations. To contribute to the Cadence Cookbook, you can create your own Github repository following the below recipe guidelines. Once ready, you can create a pull request to the main cadence-cookbook repository which adds a new sub-module to the src/data/recipes directory. The cadence-cookbook parent repository runs automated front-end and Cadence tests on all recipes during each release cycle to ensure code in the Cookbook is functional and up-to-date.
 
+### Contribution Guide
+
 Check out this video tutorial explaining the components of a sample Cookbook recipe repository, as well as what a contribution PR to the cadence-cookbook repository should look like: 
 
 ## What is included in a Cookbook recipe repository?
