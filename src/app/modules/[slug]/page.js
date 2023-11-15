@@ -2,9 +2,11 @@ import { paths } from "src/routes/paths";
 import { ModuleView } from "src/sections/blog/view";
 import { getAllRecipes, getSingleModule } from "src/data/recipeUtils";
 import { redirect } from 'next/navigation';
-
 // eslint-disable-next-line consistent-return
 export async function generateMetadata({ params }) {
+
+  const module = await getSingleModule(params.slug);
+
   const keywords = [
     "Cadence Cookbook",
     "Flow blockchain",
@@ -17,9 +19,10 @@ export async function generateMetadata({ params }) {
     "Cadence use cases",
     "Flow blockchain examples",
     "Flow blockchain use cases",
+    module.module
   ];
 
-  const module = await getSingleModule(params.slug);
+  
 
   if (module) {
 
