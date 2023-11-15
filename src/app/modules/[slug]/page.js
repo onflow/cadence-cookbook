@@ -1,6 +1,6 @@
 import { paths } from "src/routes/paths";
-import { ModuleView, SingleRecipeView } from "src/sections/blog/view";
-import { fetchExternalRecipe, getAllRecipes, getNextRecipe, getPreviousRecipe, getRelatedRecipes, getSingleModule, getSingleRecipe } from "src/data/recipeUtils";
+import { ModuleView } from "src/sections/blog/view";
+import { getAllRecipes, getSingleModule } from "src/data/recipeUtils";
 import { redirect } from 'next/navigation';
 
 export const metadata = {
