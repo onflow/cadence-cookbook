@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
-import { getAllRecipes, getSingleModule, getSingleModuleByTitle } from 'src/data/recipeUtils';
+import { getAllRecipes, getSingleModuleByTitle } from 'src/data/recipeUtils';
 
-const URL = 'https://cadence-cookbook.vercel.app';
+const URL = 'https://cookbook.flow.com';
 
 export default async function sitemap() {
   // Dynamic recipes
