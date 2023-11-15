@@ -1,10 +1,9 @@
 import { paths } from "src/routes/paths";
 import { ModuleView } from "src/sections/blog/view";
 import { getAllRecipes, getSingleModule } from "src/data/recipeUtils";
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 // eslint-disable-next-line consistent-return
 export async function generateMetadata({ params }) {
-
   const module = await getSingleModule(params.slug);
 
   const keywords = [
@@ -19,25 +18,20 @@ export async function generateMetadata({ params }) {
     "Cadence use cases",
     "Flow blockchain examples",
     "Flow blockchain use cases",
-    module.module
+    module.module,
   ];
 
-  
-
   if (module) {
-
     return {
       title: `${module.module} | Cadence Cookbook `,
-      description:
-        `Explore Cadence smart contracts and transaction scripts for different use cases on the Flow Blockchain in the ${module.title} module.`,
+      description: `Explore Cadence smart contracts and transaction scripts for different use cases on the Flow Blockchain in the ${module.title} module.`,
       keywords: keywords,
       alternates: {
         canonical: `https://cookbook.flow.com/modules/${params.slug}/`,
       },
       openGraph: {
         title: `${module.title} | Cadence Cookbook `,
-        description:
-        `Explore Cadence smart contracts and transaction scripts for different use cases on the Flow Blockchain in the ${module.title} module.`,
+        description: `Explore Cadence smart contracts and transaction scripts for different use cases on the Flow Blockchain in the ${module.title} module.`,
         url: `https://cookbook.flow.com/modules/${params.slug}/`,
         keywords: keywords,
         images: [
@@ -52,7 +46,6 @@ export async function generateMetadata({ params }) {
   }
 }
 
-
 export async function generateStaticParams() {
   const modules = await getAllRecipes();
   return modules.map((module) => ({
@@ -60,12 +53,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ModulePage({params}) {
+export default async function ModulePage({ params }) {
   const module = await getSingleModule(params.slug);
 
   if (!module) {
     redirect(paths.page404);
   }
 
-  return <ModuleView module={module}  />;
+  return <ModuleView module={module} />;
 }
