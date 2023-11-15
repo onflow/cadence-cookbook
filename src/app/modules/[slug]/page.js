@@ -2,6 +2,7 @@ import { paths } from "src/routes/paths";
 import { ModuleView } from "src/sections/blog/view";
 import { getAllRecipes, getSingleModule } from "src/data/recipeUtils";
 import { redirect } from "next/navigation";
+
 // eslint-disable-next-line consistent-return
 export async function generateMetadata({ params }) {
   const module = await getSingleModule(params.slug);

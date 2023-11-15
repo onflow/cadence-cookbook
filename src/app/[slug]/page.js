@@ -60,8 +60,6 @@ export async function generateStructuredData(params) {
 
 // eslint-disable-next-line consistent-return
 export async function generateMetadata({ params }) {
-  
-
   const recipe = await getSingleRecipe(params.slug);
 
   const keywords = [
@@ -76,7 +74,7 @@ export async function generateMetadata({ params }) {
     "Cadence use cases",
     "Flow blockchain examples",
     "Flow blockchain use cases",
-    recipe.title
+    recipe.title,
   ];
 
   if (recipe) {
