@@ -3,26 +3,18 @@
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import { useMemo } from 'react';
-// @mui
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 
-// components
 import { useSettingsContext } from 'src/components/settings';
-// system
 import { palette } from './palette';
 import { shadows } from './shadows';
 import { typography } from './typography';
 import { customShadows } from './custom-shadows';
 import { componentsOverrides } from './overrides';
-// options
 import { presets } from './options/presets';
 import { contrast } from './options/contrast';
 import RTL from './options/right-to-left';
-//
-import NextAppDirEmotionCacheProvider from './next-emotion-cache';
-
-// ----------------------------------------------------------------------
 
 export default function ThemeProvider({ children }) {
 
@@ -62,14 +54,12 @@ export default function ThemeProvider({ children }) {
   theme.components = merge(componentsOverrides(theme), contrastOption.components);
 
   return (
-    <NextAppDirEmotionCacheProvider options={{ key: 'css' }}>
       <MuiThemeProvider theme={theme}>
         <RTL themeDirection={settings.themeDirection}>
           <CssBaseline />
           {children}
         </RTL>
       </MuiThemeProvider>
-    </NextAppDirEmotionCacheProvider>
   );
 }
 
