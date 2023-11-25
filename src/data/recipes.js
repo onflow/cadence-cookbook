@@ -22,58 +22,50 @@ import { createAnNFTListing } from "./recipes/create-an-nft-listing";
 import { purchaseNftOnMarketplace } from "./recipes/purchase-nft-on-marketplace";
 
 // Recipes featured on the Cadence Cookbook homepage
-export const featuredRecipes = [mintNFT, tokenVault, adminResource, createAMarketplace]
+export const featuredRecipes = [
+  mintNFT,
+  tokenVault,
+  adminResource,
+  createAMarketplace,
+];
 
 export const recipes = [
-    {
-      module: "NFT Fundamentals",
-      slug: "nft-fundamentals",
-      fallBackImage:  "", // Module cover image if none provided
-      recipes: [
-        mintNFT,
-        collectionForHoldingNfts,
-        creatingCollectionForAccount,
-        nftWithMetdata,
-        metadataViews,
-        multipleMetadataViews,
-        implementingSeriesForNFTs,
-        creatingASetInSeries,
-        mintingNftsInASet,
-        createATopShotPlay,
-        createATopShotSet,
-        addAPlayToTopShotSet,
-        mintingAMomentInTopShotSet,
-      ]
-    },
-    {
-      module: "Working With Fungible Tokens",
-      slug: "working-with-fungible-tokens",
-      fallBackImage:  "", // Module cover image if none provided
-      recipes: [
-        tokenVault,
-        withdrawingTokens,
-        creatingAVault,
-        vaultMinter,
-      ]
-    },
-    {
-      module: "Getting Started With Access Management",
-      slug: "getting-started-with-access-management",
-      fallBackImage:  "", // Module cover image if none provided
-      recipes: [
-        adminResource,
-        addAdminResourceToAccount,
-      ]
-    },
-    {
-      module: "NFT Storefront Essentials",
-      slug: "nft-storefront-essentials",
-      fallBackImage:  "", // Module cover image if none provided
-      recipes: [
-        createAMarketplace,
-        createAnNFTListing,
-        purchaseNftOnMarketplace,
-      ]
-    }
-  ]
-  
+  {
+    module: "NFT Fundamentals",
+    slug: "nft-fundamentals",
+    fallBackImage: "", // Module cover image if none provided
+    recipes: [
+      mintNFT,
+      collectionForHoldingNfts,
+      creatingCollectionForAccount,
+      nftWithMetdata,
+      metadataViews,
+      multipleMetadataViews,
+      implementingSeriesForNFTs,
+      creatingASetInSeries,
+      mintingNftsInASet,
+      createATopShotPlay,
+      createATopShotSet,
+      addAPlayToTopShotSet,
+      mintingAMomentInTopShotSet,
+    ],
+  },
+  {
+    module: "Working With Fungible Tokens",
+    slug: "working-with-fungible-tokens",
+    fallBackImage: "", // Module cover image if none provided
+    recipes: [tokenVault, withdrawingTokens, creatingAVault, vaultMinter],
+  },
+  {
+    module: "Getting Started With Access Management",
+    slug: "getting-started-with-access-management",
+    fallBackImage: "", // Module cover image if none provided
+    recipes: [adminResource, addAdminResourceToAccount],
+  },
+  {
+    module: "NFT Storefront Essentials",
+    slug: "nft-storefront-essentials",
+    fallBackImage: "", // Module cover image if none provided
+    recipes: [createAMarketplace, createAnNFTListing, purchaseNftOnMarketplace],
+  },
+];

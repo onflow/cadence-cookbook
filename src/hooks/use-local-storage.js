@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from "react";
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ export function useLocalStorage(key, initialState) {
         };
       });
     },
-    [key]
+    [key],
   );
 
   const update = useCallback(
@@ -39,7 +39,7 @@ export function useLocalStorage(key, initialState) {
         [name]: updateValue,
       });
     },
-    [updateState]
+    [updateState],
   );
 
   const reset = useCallback(() => {

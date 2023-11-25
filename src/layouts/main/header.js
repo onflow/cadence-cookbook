@@ -31,7 +31,7 @@ export default function Header() {
       recipes.map((o) => ({
         ...rest,
         ...o,
-      }))
+      })),
     );
   const searchOptions = flattenRecipes(recipes);
 

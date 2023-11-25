@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useFormContext, Controller } from 'react-hook-form';
+import PropTypes from "prop-types";
+import { useEffect } from "react";
+import { useFormContext, Controller } from "react-hook-form";
 // @mui
-import FormHelperText from '@mui/material/FormHelperText';
+import FormHelperText from "@mui/material/FormHelperText";
 //
-import Editor from '../editor';
+import Editor from "../editor";
 
 // ----------------------------------------------------------------------
 
@@ -19,8 +19,8 @@ export default function RHFEditor({ name, helperText, ...other }) {
   const values = watch();
 
   useEffect(() => {
-    if (values[name] === '<p><br></p>') {
-      setValue(name, '', {
+    if (values[name] === "<p><br></p>") {
+      setValue(name, "", {
         shouldValidate: !isSubmitSuccessful,
       });
     }

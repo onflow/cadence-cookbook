@@ -1,9 +1,9 @@
-import { alpha } from '@mui/material/styles';
-import { toggleButtonClasses } from '@mui/material/ToggleButton';
+import { alpha } from "@mui/material/styles";
+import { toggleButtonClasses } from "@mui/material/ToggleButton";
 
 // ----------------------------------------------------------------------
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'];
+const COLORS = ["primary", "secondary", "info", "success", "warning", "error"];
 
 // ----------------------------------------------------------------------
 
@@ -11,16 +11,19 @@ export function toggleButton(theme) {
   const rootStyles = (ownerState) => {
     const defaultStyle = {
       [`&.${toggleButtonClasses.selected}`]: {
-        borderColor: 'currentColor',
-        boxShadow: '0 0 0 0.5px currentColor',
+        borderColor: "currentColor",
+        boxShadow: "0 0 0 0.5px currentColor",
       },
     };
 
     const colorStyle = COLORS.map((color) => ({
       ...(ownerState.color === color && {
-        '&:hover': {
+        "&:hover": {
           borderColor: alpha(theme.palette[color].main, 0.48),
-          backgroundColor: alpha(theme.palette[color].main, theme.palette.action.hoverOpacity),
+          backgroundColor: alpha(
+            theme.palette[color].main,
+            theme.palette.action.hoverOpacity,
+          ),
         },
       }),
     }));
@@ -54,11 +57,11 @@ export function toggleButton(theme) {
         grouped: {
           margin: 4,
           [`&.${toggleButtonClasses.selected}`]: {
-            boxShadow: 'none',
+            boxShadow: "none",
           },
-          '&:not(:first-of-type), &:not(:last-of-type)': {
+          "&:not(:first-of-type), &:not(:last-of-type)": {
             borderRadius: theme.shape.borderRadius,
-            borderColor: 'transparent',
+            borderColor: "transparent",
           },
         },
       },

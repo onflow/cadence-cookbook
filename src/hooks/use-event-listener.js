@@ -1,8 +1,9 @@
-import { useEffect, useRef, useLayoutEffect } from 'react';
+import { useEffect, useRef, useLayoutEffect } from "react";
 
 // ----------------------------------------------------------------------
 
-const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export function useEventListener(eventName, handler, element, options) {
   // Create a ref that stores handler

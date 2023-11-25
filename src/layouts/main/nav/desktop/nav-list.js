@@ -137,7 +137,7 @@ function NavSubList({ items, isDashboard, subheader, subheaderSlug, onClose }) {
               active={pathname === `${item.path}/`}
               onClick={onClose}
             />
-          )
+          ),
         )}
 
       {items.length > 5 && (

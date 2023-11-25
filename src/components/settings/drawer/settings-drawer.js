@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
 // @mui
-import { useTheme } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
-import Badge from '@mui/material/Badge';
-import Divider from '@mui/material/Divider';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Drawer, { drawerClasses } from '@mui/material/Drawer';
+import { useTheme } from "@mui/material/styles";
+import Stack from "@mui/material/Stack";
+import Badge from "@mui/material/Badge";
+import Divider from "@mui/material/Divider";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Drawer, { drawerClasses } from "@mui/material/Drawer";
 // theme
-import { paper } from '../../../theme/css';
+import { paper } from "../../../theme/css";
 //
-import Iconify from '../../iconify';
-import Scrollbar from '../../scrollbar';
+import Iconify from "../../iconify";
+import Scrollbar from "../../scrollbar";
 //
-import { useSettingsContext } from '../context';
-import BaseOptions from './base-option';
-import LayoutOptions from './layout-options';
-import PresetsOptions from './presets-options';
-import StretchOptions from './stretch-options';
-import FullScreenOption from './fullscreen-option';
+import { useSettingsContext } from "../context";
+import BaseOptions from "./base-option";
+import LayoutOptions from "./layout-options";
+import PresetsOptions from "./presets-options";
+import StretchOptions from "./stretch-options";
+import FullScreenOption from "./fullscreen-option";
 
 // ----------------------------------------------------------------------
 
@@ -31,8 +31,8 @@ export default function SettingsDrawer() {
 
   const labelStyles = {
     mb: 1.5,
-    color: 'text.disabled',
-    fontWeight: 'fontWeightSemiBold',
+    color: "text.disabled",
+    fontWeight: "fontWeightSemiBold",
   };
 
   const renderHead = (
@@ -68,9 +68,9 @@ export default function SettingsDrawer() {
 
       <BaseOptions
         value={settings.themeMode}
-        onChange={(newValue) => settings.onUpdate('themeMode', newValue)}
-        options={['light', 'dark']}
-        icons={['sun', 'moon']}
+        onChange={(newValue) => settings.onUpdate("themeMode", newValue)}
+        options={["light", "dark"]}
+        icons={["sun", "moon"]}
       />
     </div>
   );
@@ -83,9 +83,9 @@ export default function SettingsDrawer() {
 
       <BaseOptions
         value={settings.themeContrast}
-        onChange={(newValue) => settings.onUpdate('themeContrast', newValue)}
-        options={['default', 'bold']}
-        icons={['contrast', 'contrast_bold']}
+        onChange={(newValue) => settings.onUpdate("themeContrast", newValue)}
+        options={["default", "bold"]}
+        icons={["contrast", "contrast_bold"]}
       />
     </div>
   );
@@ -98,9 +98,9 @@ export default function SettingsDrawer() {
 
       <BaseOptions
         value={settings.themeDirection}
-        onChange={(newValue) => settings.onUpdate('themeDirection', newValue)}
-        options={['ltr', 'rtl']}
-        icons={['align_left', 'align_right']}
+        onChange={(newValue) => settings.onUpdate("themeDirection", newValue)}
+        options={["ltr", "rtl"]}
+        icons={["align_left", "align_right"]}
       />
     </div>
   );
@@ -113,8 +113,8 @@ export default function SettingsDrawer() {
 
       <LayoutOptions
         value={settings.themeLayout}
-        onChange={(newValue) => settings.onUpdate('themeLayout', newValue)}
-        options={['vertical', 'horizontal', 'mini']}
+        onChange={(newValue) => settings.onUpdate("themeLayout", newValue)}
+        options={["vertical", "horizontal", "mini"]}
       />
     </div>
   );
@@ -126,8 +126,8 @@ export default function SettingsDrawer() {
         component="div"
         sx={{
           ...labelStyles,
-          display: 'inline-flex',
-          alignItems: 'center',
+          display: "inline-flex",
+          alignItems: "center",
         }}
       >
         Stretch
@@ -138,7 +138,9 @@ export default function SettingsDrawer() {
 
       <StretchOptions
         value={settings.themeStretch}
-        onChange={() => settings.onUpdate('themeStretch', !settings.themeStretch)}
+        onChange={() =>
+          settings.onUpdate("themeStretch", !settings.themeStretch)
+        }
       />
     </div>
   );
@@ -151,7 +153,9 @@ export default function SettingsDrawer() {
 
       <PresetsOptions
         value={settings.themeColorPresets}
-        onChange={(newValue) => settings.onUpdate('themeColorPresets', newValue)}
+        onChange={(newValue) =>
+          settings.onUpdate("themeColorPresets", newValue)
+        }
       />
     </div>
   );
@@ -173,7 +177,7 @@ export default function SettingsDrawer() {
     >
       {renderHead}
 
-      <Divider sx={{ borderStyle: 'dashed' }} />
+      <Divider sx={{ borderStyle: "dashed" }} />
 
       <Scrollbar>
         <Stack spacing={3} sx={{ p: 3 }}>

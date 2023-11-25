@@ -13,7 +13,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Iconify from "../../components/iconify";
 import Scrollbar from "../../components/scrollbar";
 
-
 export default function RecipeFilters({
   open,
   onOpen,
@@ -24,7 +23,6 @@ export default function RecipeFilters({
   onResetFilters,
   difficultyOptions,
 }) {
-
   const handleFilterDifficulty = useCallback(
     (newValue) => {
       const checked = filters.difficulty.includes(newValue)
@@ -32,7 +30,7 @@ export default function RecipeFilters({
         : [...filters.difficulty, newValue];
       onFilters("difficulty", checked);
     },
-    [filters.difficulty, onFilters]
+    [filters.difficulty, onFilters],
   );
 
   const renderHead = (
@@ -131,5 +129,3 @@ RecipeFilters.propTypes = {
   categoryOptions: PropTypes.array,
   colorOptions: PropTypes.arrayOf(PropTypes.string),
 };
-
-

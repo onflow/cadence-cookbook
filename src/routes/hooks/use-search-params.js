@@ -1,1 +1,1 @@
-export { useSearchParams } from 'next/navigation';
+export { useSearchParams } from "next/navigation";

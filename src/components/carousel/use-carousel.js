@@ -1,6 +1,6 @@
-import { useRef, useCallback, useState } from 'react';
+import { useRef, useCallback, useState } from "react";
 // @mui
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ export default function useCarousel(props) {
 
   const [nav, setNav] = useState(undefined);
 
-  const rtl = theme.direction === 'rtl';
+  const rtl = theme.direction === "rtl";
 
   const carouselSettings = {
     arrows: false,

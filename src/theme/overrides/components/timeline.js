@@ -5,7 +5,7 @@ export function timeline(theme) {
     MuiTimelineDot: {
       styleOverrides: {
         root: {
-          boxShadow: 'none',
+          boxShadow: "none",
         },
       },
     },

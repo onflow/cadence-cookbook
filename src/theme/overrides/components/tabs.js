@@ -1,4 +1,4 @@
-import { tabClasses } from '@mui/material/Tab';
+import { tabClasses } from "@mui/material/Tab";
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,7 @@ export function tabs(theme) {
         },
         scrollButtons: {
           width: 48,
-          borderRadius: '50%',
+          borderRadius: "50%",
         },
       },
     },
@@ -23,9 +23,9 @@ export function tabs(theme) {
           minWidth: 48,
           minHeight: 48,
           fontWeight: theme.typography.fontWeightSemiBold,
-          '&:not(:last-of-type)': {
+          "&:not(:last-of-type)": {
             marginRight: theme.spacing(3),
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.up("sm")]: {
               marginRight: theme.spacing(5),
             },
           },

@@ -8,7 +8,7 @@ export function treeView(theme) {
           ...theme.typography.body2,
         },
         iconContainer: {
-          width: 'auto',
+          width: "auto",
         },
       },
     },

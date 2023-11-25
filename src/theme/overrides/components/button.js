@@ -1,52 +1,58 @@
-import { alpha } from '@mui/material/styles';
-import { buttonClasses } from '@mui/material/Button';
+import { alpha } from "@mui/material/styles";
+import { buttonClasses } from "@mui/material/Button";
 
 // ----------------------------------------------------------------------
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'];
+const COLORS = ["primary", "secondary", "info", "success", "warning", "error"];
 
 // ----------------------------------------------------------------------
 
 export function button(theme) {
-  const lightMode = theme.palette.mode === 'light';
+  const lightMode = theme.palette.mode === "light";
 
   const rootStyles = (ownerState) => {
-    const inheritColor = ownerState.color === 'inherit';
+    const inheritColor = ownerState.color === "inherit";
 
-    const containedVariant = ownerState.variant === 'contained';
+    const containedVariant = ownerState.variant === "contained";
 
-    const outlinedVariant = ownerState.variant === 'outlined';
+    const outlinedVariant = ownerState.variant === "outlined";
 
-    const textVariant = ownerState.variant === 'text';
+    const textVariant = ownerState.variant === "text";
 
-    const softVariant = ownerState.variant === 'soft';
+    const softVariant = ownerState.variant === "soft";
 
-    const smallSize = ownerState.size === 'small';
+    const smallSize = ownerState.size === "small";
 
-    const mediumSize = ownerState.size === 'medium';
+    const mediumSize = ownerState.size === "medium";
 
-    const largeSize = ownerState.size === 'large';
+    const largeSize = ownerState.size === "large";
 
     const defaultStyle = {
       ...(inheritColor && {
         // CONTAINED
         ...(containedVariant && {
-          color: lightMode ? theme.palette.common.white : theme.palette.grey[800],
-          backgroundColor: lightMode ? theme.palette.grey[800] : theme.palette.common.white,
-          '&:hover': {
-            backgroundColor: lightMode ? theme.palette.grey[700] : theme.palette.grey[400],
+          color: lightMode
+            ? theme.palette.common.white
+            : theme.palette.grey[800],
+          backgroundColor: lightMode
+            ? theme.palette.grey[800]
+            : theme.palette.common.white,
+          "&:hover": {
+            backgroundColor: lightMode
+              ? theme.palette.grey[700]
+              : theme.palette.grey[400],
           },
         }),
         // OUTLINED
         ...(outlinedVariant && {
           borderColor: alpha(theme.palette.grey[500], 0.32),
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.action.hover,
           },
         }),
         // TEXT
         ...(textVariant && {
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.action.hover,
           },
         }),
@@ -54,15 +60,15 @@ export function button(theme) {
         ...(softVariant && {
           color: theme.palette.text.primary,
           backgroundColor: alpha(theme.palette.grey[500], 0.08),
-          '&:hover': {
+          "&:hover": {
             backgroundColor: alpha(theme.palette.grey[500], 0.24),
           },
         }),
       }),
       ...(outlinedVariant && {
-        '&:hover': {
-          borderColor: 'currentColor',
-          boxShadow: '0 0 0 0.5px currentColor',
+        "&:hover": {
+          borderColor: "currentColor",
+          boxShadow: "0 0 0 0.5px currentColor",
         },
       }),
     };
@@ -71,15 +77,15 @@ export function button(theme) {
       ...(ownerState.color === color && {
         // CONTAINED
         ...(containedVariant && {
-          '&:hover': {
+          "&:hover": {
             boxShadow: theme.customShadows[color],
           },
         }),
         // SOFT
         ...(softVariant && {
-          color: theme.palette[color][lightMode ? 'dark' : 'light'],
+          color: theme.palette[color][lightMode ? "dark" : "light"],
           backgroundColor: alpha(theme.palette[color].main, 0.16),
-          '&:hover': {
+          "&:hover": {
             backgroundColor: alpha(theme.palette[color].main, 0.32),
           },
         }),

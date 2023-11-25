@@ -1,7 +1,7 @@
-import { alpha } from '@mui/material/styles';
-import { palette as themePalette } from './palette';
+import { alpha } from "@mui/material/styles";
+import { palette as themePalette } from "./palette";
 
-const palette = themePalette('light');
+const palette = themePalette("light");
 
 const LIGHT_MODE = palette.grey[500];
 
@@ -12,7 +12,7 @@ function createShadow(color) {
   const transparent2 = alpha(color, 0.14);
   const transparent3 = alpha(color, 0.12);
   return [
-    'none',
+    "none",
     `0px 2px 1px -1px ${transparent1},0px 1px 1px 0px ${transparent2},0px 1px 3px 0px ${transparent3}`,
     `0px 3px 1px -2px ${transparent1},0px 2px 2px 0px ${transparent2},0px 1px 5px 0px ${transparent3}`,
     `0px 3px 3px -2px ${transparent1},0px 3px 4px 0px ${transparent2},0px 1px 8px 0px ${transparent3}`,
@@ -41,5 +41,5 @@ function createShadow(color) {
 }
 
 export function shadows(mode) {
-  return mode === 'light' ? createShadow(LIGHT_MODE) : createShadow(DARK_MODE);
+  return mode === "light" ? createShadow(LIGHT_MODE) : createShadow(DARK_MODE);
 }

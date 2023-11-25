@@ -1,18 +1,24 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import Link from '@mui/material/Link';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import Link from "@mui/material/Link";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 // routes
-import { RouterLink } from 'src/routes/components';
+import { RouterLink } from "src/routes/components";
 // components
-import Iconify from 'src/components/iconify';
+import Iconify from "src/components/iconify";
 //
-import { ListItem } from './styles';
+import { ListItem } from "./styles";
 
 // ----------------------------------------------------------------------
 
-export default function NavItem({ item, open, active, externalLink, ...other }) {
+export default function NavItem({
+  item,
+  open,
+  active,
+  externalLink,
+  ...other
+}) {
   const { title, path, icon, children } = item;
 
   const renderContent = (
@@ -24,7 +30,9 @@ export default function NavItem({ item, open, active, externalLink, ...other }) 
       {!!children && (
         <Iconify
           width={16}
-          icon={open ? 'eva:arrow-ios-downward-fill' : 'eva:arrow-ios-forward-fill'}
+          icon={
+            open ? "eva:arrow-ios-downward-fill" : "eva:arrow-ios-forward-fill"
+          }
           sx={{ ml: 1 }}
         />
       )}

@@ -1,9 +1,9 @@
 // ----------------------------------------------------------------------
 
 export const varBgColor = (props) => {
-  const colors = props?.colors || ['#19dcea', '#b22cff'];
+  const colors = props?.colors || ["#19dcea", "#b22cff"];
   const duration = props?.duration || 5;
-  const ease = props?.ease || 'linear';
+  const ease = props?.ease || "linear";
 
   return {
     animate: {
@@ -17,14 +17,14 @@ export const varBgColor = (props) => {
 
 export const varBgKenburns = (props) => {
   const duration = props?.duration || 5;
-  const ease = props?.ease || 'easeOut';
+  const ease = props?.ease || "easeOut";
 
   return {
     top: {
       animate: {
         scale: [1, 1.25],
         y: [0, -15],
-        transformOrigin: ['50% 16%', '50% top'],
+        transformOrigin: ["50% 16%", "50% top"],
         transition: { duration, ease },
       },
     },
@@ -32,7 +32,7 @@ export const varBgKenburns = (props) => {
       animate: {
         scale: [1, 1.25],
         y: [0, 15],
-        transformOrigin: ['50% 84%', '50% bottom'],
+        transformOrigin: ["50% 84%", "50% bottom"],
         transition: { duration, ease },
       },
     },
@@ -41,7 +41,7 @@ export const varBgKenburns = (props) => {
         scale: [1, 1.25],
         x: [0, 20],
         y: [0, 15],
-        transformOrigin: ['16% 50%', '0% left'],
+        transformOrigin: ["16% 50%", "0% left"],
         transition: { duration, ease },
       },
     },
@@ -50,7 +50,7 @@ export const varBgKenburns = (props) => {
         scale: [1, 1.25],
         x: [0, -20],
         y: [0, -15],
-        transformOrigin: ['84% 50%', '0% right'],
+        transformOrigin: ["84% 50%", "0% right"],
         transition: { duration, ease },
       },
     },
@@ -60,9 +60,9 @@ export const varBgKenburns = (props) => {
 // ----------------------------------------------------------------------
 
 export const varBgPan = (props) => {
-  const colors = props?.colors || ['#ee7752', '#e73c7e', '#23a6d5', '#23d5ab'];
+  const colors = props?.colors || ["#ee7752", "#e73c7e", "#23a6d5", "#23d5ab"];
   const duration = props?.duration || 5;
-  const ease = props?.ease || 'linear';
+  const ease = props?.ease || "linear";
 
   const gradient = (deg) => `linear-gradient(${deg}deg, ${colors})`;
 
@@ -70,32 +70,32 @@ export const varBgPan = (props) => {
     top: {
       animate: {
         backgroundImage: [gradient(0), gradient(0)],
-        backgroundPosition: ['center 99%', 'center 1%'],
-        backgroundSize: ['100% 600%', '100% 600%'],
+        backgroundPosition: ["center 99%", "center 1%"],
+        backgroundSize: ["100% 600%", "100% 600%"],
         transition: { duration, ease },
       },
     },
     right: {
       animate: {
-        backgroundPosition: ['1% center', '99% center'],
+        backgroundPosition: ["1% center", "99% center"],
         backgroundImage: [gradient(270), gradient(270)],
-        backgroundSize: ['600% 100%', '600% 100%'],
+        backgroundSize: ["600% 100%", "600% 100%"],
         transition: { duration, ease },
       },
     },
     bottom: {
       animate: {
         backgroundImage: [gradient(0), gradient(0)],
-        backgroundPosition: ['center 1%', 'center 99%'],
-        backgroundSize: ['100% 600%', '100% 600%'],
+        backgroundPosition: ["center 1%", "center 99%"],
+        backgroundSize: ["100% 600%", "100% 600%"],
         transition: { duration, ease },
       },
     },
     left: {
       animate: {
-        backgroundPosition: ['99% center', '1% center'],
+        backgroundPosition: ["99% center", "1% center"],
         backgroundImage: [gradient(270), gradient(270)],
-        backgroundSize: ['600% 100%', '600% 100%'],
+        backgroundSize: ["600% 100%", "600% 100%"],
         transition: { duration, ease },
       },
     },

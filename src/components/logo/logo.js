@@ -1,13 +1,11 @@
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
-import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
-import { RouterLink } from 'src/routes/components';
-import Image from '../image/image';
-
+import PropTypes from "prop-types";
+import { forwardRef } from "react";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import { RouterLink } from "src/routes/components";
+import Image from "../image/image";
 
 const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
-
   const logo = (
     <Box
       ref={ref}
@@ -15,12 +13,12 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
       sx={{
         width: 40,
         height: 40,
-        display: 'inline-flex',
+        display: "inline-flex",
         ...sx,
       }}
       {...other}
     >
-      <Image alt="Flow logo" src='/logo/flow_logo.svg'/>
+      <Image alt="Flow logo" src="/logo/flow_logo.svg" />
     </Box>
   );
 
@@ -29,7 +27,7 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
   }
 
   return (
-    <Link component={RouterLink} href="/" sx={{ display: 'contents' }}>
+    <Link component={RouterLink} href="/" sx={{ display: "contents" }}>
       {logo}
     </Link>
   );

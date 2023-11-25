@@ -35,11 +35,11 @@ export async function generateStructuredData(params) {
           ? recipe.coverUrl
           : `/assets/illustrations/flow/bg-dark${randomIntFromInterval(
               1,
-              5
+              5,
             )}.png`,
       author: {
         "@type": "Organization",
-        name: "Flow Blockchain", 
+        name: "Flow Blockchain",
         logo: {
           "@type": "ImageObject",
           url: `https://cookbook.flow.com/assets/logo/flow_logo.svg`,
@@ -63,7 +63,6 @@ export async function generateMetadata({ params }) {
   const recipe = await getSingleRecipe(params.slug);
 
   if (recipe) {
-
     const keywords = [
       "Cadence Cookbook",
       "Flow blockchain",

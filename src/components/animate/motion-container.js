@@ -1,19 +1,24 @@
-import PropTypes from 'prop-types';
-import { m } from 'framer-motion';
+import PropTypes from "prop-types";
+import { m } from "framer-motion";
 // @mui
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 //
-import { varContainer } from './variants';
+import { varContainer } from "./variants";
 
 // ----------------------------------------------------------------------
 
-export default function MotionContainer({ animate, action = false, children, ...other }) {
+export default function MotionContainer({
+  animate,
+  action = false,
+  children,
+  ...other
+}) {
   if (action) {
     return (
       <Box
         component={m.div}
         initial={false}
-        animate={animate ? 'animate' : 'exit'}
+        animate={animate ? "animate" : "exit"}
         variants={varContainer()}
         {...other}
       >

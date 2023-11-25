@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import { menuItemClasses } from '@mui/material/MenuItem';
-import Popover from '@mui/material/Popover';
+import { menuItemClasses } from "@mui/material/MenuItem";
+import Popover from "@mui/material/Popover";
 //
-import { getPosition } from './utils';
-import { StyledArrow } from './styles';
+import { getPosition } from "./utils";
+import { StyledArrow } from "./styles";
 
 // ----------------------------------------------------------------------
 
 export default function CustomPopover({
   open,
   children,
-  arrow = 'top-right',
+  arrow = "top-right",
   hiddenArrow,
   sx,
   ...other
@@ -27,11 +27,11 @@ export default function CustomPopover({
       slotProps={{
         paper: {
           sx: {
-            width: 'auto',
-            overflow: 'inherit',
+            width: "auto",
+            overflow: "inherit",
             ...style,
             [`& .${menuItemClasses.root}`]: {
-              '& svg': {
+              "& svg": {
                 mr: 2,
                 flexShrink: 0,
               },
@@ -56,17 +56,17 @@ CustomPopover.propTypes = {
   hiddenArrow: PropTypes.bool,
   disabledArrow: PropTypes.bool,
   arrow: PropTypes.oneOf([
-    'top-left',
-    'top-center',
-    'top-right',
-    'bottom-left',
-    'bottom-center',
-    'bottom-right',
-    'left-top',
-    'left-center',
-    'left-bottom',
-    'right-top',
-    'right-center',
-    'right-bottom',
+    "top-left",
+    "top-center",
+    "top-right",
+    "bottom-left",
+    "bottom-center",
+    "bottom-right",
+    "left-top",
+    "left-center",
+    "left-bottom",
+    "right-top",
+    "right-center",
+    "right-bottom",
   ]),
 };

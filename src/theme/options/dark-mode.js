@@ -1,6 +1,6 @@
-import { palette } from '../palette';
-import { shadows } from '../shadows';
-import { customShadows } from '../custom-shadows';
+import { palette } from "../palette";
+import { shadows } from "../shadows";
+import { customShadows } from "../custom-shadows";
 
 // ----------------------------------------------------------------------
 

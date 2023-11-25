@@ -62,7 +62,7 @@ export default function PostItem({
               ? coverUrl
               : `/assets/illustrations/flow/bg-dark${randomIntFromInterval(
                   1,
-                  5
+                  5,
                 )}.png`
           }
           sx={{
@@ -84,7 +84,7 @@ export default function PostItem({
               ? coverUrl
               : `/assets/illustrations/flow/bg${randomIntFromInterval(
                   1,
-                  8
+                  8,
                 )}.png`
           }
           ratio="4/3"

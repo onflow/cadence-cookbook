@@ -1,5 +1,4 @@
-
-export function flattenArray(list, key = 'children') {
+export function flattenArray(list, key = "children") {
   let children = [];
 
   const flatten = list?.map((item) => {
@@ -9,5 +8,7 @@ export function flattenArray(list, key = 'children') {
     return item;
   });
 
-  return flatten?.concat(children.length ? flattenArray(children, key) : children);
+  return flatten?.concat(
+    children.length ? flattenArray(children, key) : children,
+  );
 }

@@ -1,4 +1,4 @@
-import { alpha } from '@mui/material/styles';
+import { alpha } from "@mui/material/styles";
 
 // ----------------------------------------------------------------------
 
@@ -10,7 +10,7 @@ export function backdrop(theme) {
           backgroundColor: alpha(theme.palette.grey[900], 0.8),
         },
         invisible: {
-          background: 'transparent',
+          background: "transparent",
         },
       },
     },

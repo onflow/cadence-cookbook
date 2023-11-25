@@ -7,7 +7,7 @@ const flattenRecipes = (arr) =>
     recipes.map((o) => ({
       ...rest,
       ...o,
-    }))
+    })),
   );
 
 const nftFundamentals = flattenRecipes(recipes)

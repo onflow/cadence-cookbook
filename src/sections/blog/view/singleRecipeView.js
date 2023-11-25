@@ -398,7 +398,7 @@ function LinearProgressWithLabel({ value }) {
       </Box>
       <Box sx={{ minWidth: 35 }}>
         <Typography variant="body2" color="text.secondary">{`${Math.round(
-          value
+          value,
         )}%`}</Typography>
       </Box>
     </Box>

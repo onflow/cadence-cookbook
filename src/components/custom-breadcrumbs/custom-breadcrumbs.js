@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 //
-import LinkItem from './link-item';
+import LinkItem from "./link-item";
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ export default function CustomBreadcrumbs({
             <Breadcrumbs separator={<Separator />} {...other}>
               {links.map((link) => (
                 <LinkItem
-                  key={link.name || ''}
+                  key={link.name || ""}
                   link={link}
                   activeLast={activeLast}
                   disabled={link.name === lastLink}
@@ -60,7 +60,7 @@ export default function CustomBreadcrumbs({
               variant="body2"
               target="_blank"
               rel="noopener"
-              sx={{ display: 'table' }}
+              sx={{ display: "table" }}
             >
               {href}
             </Link>
@@ -89,8 +89,8 @@ function Separator() {
       sx={{
         width: 4,
         height: 4,
-        borderRadius: '50%',
-        bgcolor: 'text.disabled',
+        borderRadius: "50%",
+        bgcolor: "text.disabled",
       }}
     />
   );

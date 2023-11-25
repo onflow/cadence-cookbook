@@ -35,7 +35,7 @@ export function fetchExternalRecipe(recipe) {
     transactionExplanationPath !== null
       ? fs.readFileSync(
           `./src/data/recipes/${transactionExplanationPath}`,
-          "utf8"
+          "utf8",
         )
       : null;
   const testCasesExplanation =
@@ -43,8 +43,10 @@ export function fetchExternalRecipe(recipe) {
       ? fs.readFileSync(`./src/data/recipes/${testExplanationPath}`, "utf8")
       : null;
 
-  
-  const setCoverUrl = recipe.coverUrl === undefined ? `/assets/illustrations/flow/bg-dark${randomIntFromInterval(1,5)}.png` : recipe.coverUrl
+  const setCoverUrl =
+    recipe.coverUrl === undefined
+      ? `/assets/illustrations/flow/bg-dark${randomIntFromInterval(1, 5)}.png`
+      : recipe.coverUrl;
 
   recipe.smartContractCode = contractCode;
   recipe.transactionCode = transactionCode;
@@ -54,7 +56,7 @@ export function fetchExternalRecipe(recipe) {
   recipe.transactionExplanation = transactionExplanation;
   recipe.testCasesExplanation = testCasesExplanation;
 
-  recipe.coverUrl = setCoverUrl
+  recipe.coverUrl = setCoverUrl;
 
   return recipe;
 }
@@ -64,7 +66,7 @@ const flattenRecipes = (arr) =>
     recipes.map((o) => ({
       ...rest,
       ...o,
-    }))
+    })),
   );
 
 export async function getAllRecipes() {
@@ -103,7 +105,7 @@ export async function getRelatedRecipes(module, slug) {
 
 export async function getNextRecipe(module, slug) {
   const recipes = flattenRecipes(recipesByModule).filter(
-    (i) => i.module === module
+    (i) => i.module === module,
   );
 
   const thisRecipeIndex = recipes
@@ -120,7 +122,7 @@ export async function getNextRecipe(module, slug) {
 
 export async function getPreviousRecipe(module, slug) {
   const recipes = flattenRecipes(recipesByModule).filter(
-    (i) => i.module === module
+    (i) => i.module === module,
   );
 
   const thisRecipeIndex = recipes
@@ -137,7 +139,7 @@ export async function getPreviousRecipe(module, slug) {
 
 export async function getModuleProgress(module, slug) {
   const recipes = flattenRecipes(recipesByModule).filter(
-    (i) => i.module === module
+    (i) => i.module === module,
   );
 
   const thisRecipeIndex = recipes
@@ -146,9 +148,9 @@ export async function getModuleProgress(module, slug) {
     })
     .indexOf(slug);
 
-  const totalRecipes = recipes.length
+  const totalRecipes = recipes.length;
 
-  const proportionComplete = (thisRecipeIndex + 1)/totalRecipes
+  const proportionComplete = (thisRecipeIndex + 1) / totalRecipes;
 
-  return proportionComplete
+  return proportionComplete;
 }

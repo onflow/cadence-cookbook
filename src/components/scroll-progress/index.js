@@ -1,1 +1,1 @@
-export { default } from './scroll-progress';
+export { default } from "./scroll-progress";

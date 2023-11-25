@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // @mui
-import Collapse from '@mui/material/Collapse';
-import { listClasses } from '@mui/material/List';
-import { listItemTextClasses } from '@mui/material/ListItemText';
-import { listItemButtonClasses } from '@mui/material/ListItemButton';
+import Collapse from "@mui/material/Collapse";
+import { listClasses } from "@mui/material/List";
+import { listItemTextClasses } from "@mui/material/ListItemText";
+import { listItemButtonClasses } from "@mui/material/ListItemButton";
 // hooks
-import { useBoolean } from 'src/hooks/use-boolean';
+import { useBoolean } from "src/hooks/use-boolean";
 // components
-import { NavSectionVertical } from 'src/components/nav-section';
-import { usePathname } from 'src/routes/hooks';
+import { NavSectionVertical } from "src/components/nav-section";
+import { usePathname } from "src/routes/hooks";
 //
-import NavItem from './nav-item';
+import NavItem from "./nav-item";
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ export default function NavList({ item }) {
 
   const { path, children } = item;
 
-  const externalLink = path.includes('http');
+  const externalLink = path.includes("http");
 
   const nav = useBoolean();
 
@@ -38,9 +38,7 @@ export default function NavList({ item }) {
           <NavSectionVertical
             data={children}
             sx={{
-              [`& .${listClasses.root}`]: {
-                
-              },
+              [`& .${listClasses.root}`]: {},
             }}
           />
         </Collapse>

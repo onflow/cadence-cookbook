@@ -77,7 +77,7 @@ function CarouselItem({ item, active }) {
               ? coverUrl
               : `/assets/illustrations/flow/bg${randomIntFromInterval(
                   1,
-                  8
+                  8,
                 )}.png`
           }
           ratio="16/9"
@@ -92,7 +92,7 @@ function CarouselItem({ item, active }) {
               ? coverUrl
               : `/assets/illustrations/flow/bg${randomIntFromInterval(
                   1,
-                  8
+                  8,
                 )}.png`
           }
           ratio="1/1"

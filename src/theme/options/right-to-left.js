@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 // rtl
-import rtlPlugin from 'stylis-plugin-rtl';
+import rtlPlugin from "stylis-plugin-rtl";
 // emotion
-import createCache from '@emotion/cache';
-import { CacheProvider } from '@emotion/react';
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 
 // ----------------------------------------------------------------------
 
@@ -14,13 +14,13 @@ export default function RTL({ children, themeDirection }) {
   }, [themeDirection]);
 
   const cacheRtl = createCache({
-    key: 'rtl',
+    key: "rtl",
     prepend: true,
     // https://github.com/styled-components/stylis-plugin-rtl/issues/35
     stylisPlugins: [rtlPlugin],
   });
 
-  if (themeDirection === 'rtl') {
+  if (themeDirection === "rtl") {
     return <CacheProvider value={cacheRtl}>{children}</CacheProvider>;
   }
 
@@ -29,7 +29,7 @@ export default function RTL({ children, themeDirection }) {
 
 RTL.propTypes = {
   children: PropTypes.node,
-  themeDirection: PropTypes.oneOf(['rtl', 'ltr']),
+  themeDirection: PropTypes.oneOf(["rtl", "ltr"]),
 };
 
 // ----------------------------------------------------------------------

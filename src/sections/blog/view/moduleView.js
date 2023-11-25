@@ -108,7 +108,7 @@ const applyFilter = ({ inputData, sortBy, filters }) => {
     inputData = inputData.filter(
       (product) =>
         product.filters !== undefined &&
-        difficulty.includes(toTitleCase(product.filters.difficulty))
+        difficulty.includes(toTitleCase(product.filters.difficulty)),
     );
   }
 

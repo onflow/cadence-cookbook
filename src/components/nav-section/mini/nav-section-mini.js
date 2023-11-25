@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import { memo } from 'react';
-import Stack from '@mui/material/Stack';
+import PropTypes from "prop-types";
+import { memo } from "react";
+import Stack from "@mui/material/Stack";
 //
-import { navMiniConfig } from '../config';
-import NavList from './nav-list';
+import { navMiniConfig } from "../config";
+import NavList from "./nav-list";
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,11 @@ function NavSectionMini({ data, config, sx, ...other }) {
   return (
     <Stack sx={sx} {...other}>
       {data.map((group, index) => (
-        <Group key={group.subheader || index} items={group.items} config={navMiniConfig(config)} />
+        <Group
+          key={group.subheader || index}
+          items={group.items}
+          config={navMiniConfig(config)}
+        />
       ))}
     </Stack>
   );

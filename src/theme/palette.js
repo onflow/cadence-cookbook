@@ -1,76 +1,76 @@
-import { alpha } from '@mui/material/styles';
+import { alpha } from "@mui/material/styles";
 
 const GREY = {
-  0: '#FFFFFF',
-  100: '#EBEBEB',
-  200: '#F4F6F8',
-  300: '#C2C2C2',
-  400: '#C4CDD5',
-  500: '#939393',
-  600: '#637381',
-  700: '#828282',
-  800: '#212B36',
-  900: '#161C24',
+  0: "#FFFFFF",
+  100: "#EBEBEB",
+  200: "#F4F6F8",
+  300: "#C2C2C2",
+  400: "#C4CDD5",
+  500: "#939393",
+  600: "#637381",
+  700: "#828282",
+  800: "#212B36",
+  900: "#161C24",
 };
 
 const PRIMARY = {
-  lighter: '#BFFCE2',
-  light: '#8FF9CC',
-  main: '#00EF8B',
-  dark: '#02D87E',
-  darker: '#004B50',
-  contrastText: '#FFFFFF',
+  lighter: "#BFFCE2",
+  light: "#8FF9CC",
+  main: "#00EF8B",
+  dark: "#02D87E",
+  darker: "#004B50",
+  contrastText: "#FFFFFF",
 };
 
 const SECONDARY = {
-  lighter: '#77D1D4',
-  light: '#40ADB3',
-  main: '#6ABDE2',
-  dark: '#3980B6',
-  darker: '#2A578D',
-  contrastText: '#FFFFFF',
+  lighter: "#77D1D4",
+  light: "#40ADB3",
+  main: "#6ABDE2",
+  dark: "#3980B6",
+  darker: "#2A578D",
+  contrastText: "#FFFFFF",
 };
 
 const INFO = {
-  lighter: '#CAFDF5',
-  light: '#61F3F3',
-  main: '#00B8D9',
-  dark: '#006C9C',
-  darker: '#003768',
-  contrastText: '#FFFFFF',
+  lighter: "#CAFDF5",
+  light: "#61F3F3",
+  main: "#00B8D9",
+  dark: "#006C9C",
+  darker: "#003768",
+  contrastText: "#FFFFFF",
 };
 
 const SUCCESS = {
-  lighter: '#D3FCD2',
-  light: '#77ED8B',
-  main: '#22C55E',
-  dark: '#118D57',
-  darker: '#065E49',
-  contrastText: '#ffffff',
+  lighter: "#D3FCD2",
+  light: "#77ED8B",
+  main: "#22C55E",
+  dark: "#118D57",
+  darker: "#065E49",
+  contrastText: "#ffffff",
 };
 
 const WARNING = {
-  lighter: '#FFF5CC',
-  light: '#FFD666',
-  main: '#FFAB00',
-  dark: '#B76E00',
-  darker: '#7A4100',
+  lighter: "#FFF5CC",
+  light: "#FFD666",
+  main: "#FFAB00",
+  dark: "#B76E00",
+  darker: "#7A4100",
   contrastText: GREY[800],
 };
 
 const ERROR = {
-  lighter: '#FFE9D5',
-  light: '#FFAC82',
-  main: '#FF5630',
-  dark: '#B71D18',
-  darker: '#7A0916',
-  contrastText: '#FFFFFF',
+  lighter: "#FFE9D5",
+  light: "#FFAC82",
+  main: "#FF5630",
+  dark: "#B71D18",
+  darker: "#7A0916",
+  contrastText: "#FFFFFF",
 };
 
 const COMMON = {
   common: {
-    black: '#000000',
-    white: '#FFFFFF',
+    black: "#000000",
+    white: "#FFFFFF",
   },
   primary: PRIMARY,
   secondary: SECONDARY,
@@ -94,15 +94,15 @@ const COMMON = {
 export function palette(mode) {
   const light = {
     ...COMMON,
-    mode: 'light',
+    mode: "light",
     text: {
       primary: GREY[800],
       secondary: GREY[600],
       disabled: GREY[500],
     },
     background: {
-      paper: '#FFFFFF',
-      default: '#FFFFFF',
+      paper: "#FFFFFF",
+      default: "#FFFFFF",
       neutral: GREY[200],
     },
     action: {
@@ -113,9 +113,9 @@ export function palette(mode) {
 
   const dark = {
     ...COMMON,
-    mode: 'dark',
+    mode: "dark",
     text: {
-      primary: '#FFFFFF',
+      primary: "#FFFFFF",
       secondary: GREY[500],
       disabled: GREY[600],
     },
@@ -130,5 +130,5 @@ export function palette(mode) {
     },
   };
 
-  return mode === 'light' ? light : dark;
+  return mode === "light" ? light : dark;
 }

@@ -30,7 +30,7 @@ export function dialog(theme) {
         },
         dividers: {
           borderTop: 0,
-          borderBottomStyle: 'dashed',
+          borderBottomStyle: "dashed",
           paddingBottom: theme.spacing(3),
         },
       },
@@ -39,7 +39,7 @@ export function dialog(theme) {
       styleOverrides: {
         root: {
           padding: theme.spacing(3),
-          '& > :not(:first-of-type)': {
+          "& > :not(:first-of-type)": {
             marginLeft: theme.spacing(1.5),
           },
         },

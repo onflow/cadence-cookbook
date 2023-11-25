@@ -1,7 +1,9 @@
-import { flattenArray } from 'src/utils/flatten-array';
+import { flattenArray } from "src/utils/flatten-array";
 
 export function getAllItems({ data }) {
-  const reduceItems = data.map((list) => handleLoop(list.items, list.subheader)).flat();
+  const reduceItems = data
+    .map((list) => handleLoop(list.items, list.subheader))
+    .flat();
 
   const items = flattenArray(reduceItems).map((option) => {
     const group = splitPath(reduceItems, option.path);
@@ -23,7 +25,7 @@ export function applyFilter({ inputData, query }) {
     inputData = inputData.filter(
       (item) =>
         item.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-        item.path.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        item.path.toLowerCase().indexOf(query.toLowerCase()) !== -1,
     );
   }
 
@@ -50,7 +52,7 @@ export function splitPath(array, key) {
         currItem.children.map((item) => ({
           path: path.concat(item.title),
           currItem: item,
-        }))
+        })),
       );
     }
   }

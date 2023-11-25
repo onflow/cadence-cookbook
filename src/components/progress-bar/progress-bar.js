@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import NProgress from 'nprogress';
-import StyledProgressBar from './styles';
+import { useEffect } from "react";
+import NProgress from "nprogress";
+import StyledProgressBar from "./styles";
 
 // ----------------------------------------------------------------------
 
@@ -19,14 +19,16 @@ export default function ProgressBar() {
     };
 
     const handleMutation = () => {
-      const anchorElements = document.querySelectorAll('a[href]');
+      const anchorElements = document.querySelectorAll("a[href]");
 
       const filteredAnchors = Array.from(anchorElements).filter((element) => {
-        const href = element.getAttribute('href');
-        return href && href.startsWith('/');
+        const href = element.getAttribute("href");
+        return href && href.startsWith("/");
       });
 
-      filteredAnchors.forEach((anchor) => anchor.addEventListener('click', handleAnchorClick));
+      filteredAnchors.forEach((anchor) =>
+        anchor.addEventListener("click", handleAnchorClick),
+      );
     };
 
     const mutationObserver = new MutationObserver(handleMutation);

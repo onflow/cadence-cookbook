@@ -15,7 +15,6 @@ import { Icon } from "@mui/material";
 import { Chip } from "@mui/material";
 import { toTitleCase } from "./view/homePageView";
 
-
 export default function PostDetailsHero({
   title,
   author,
@@ -86,22 +85,22 @@ export default function PostDetailsHero({
         </Typography>
 
         {filters !== undefined && filters.difficulty !== undefined && (
-        <Chip
-          sx={{
-            color: "common.white",
-            borderColor: "common.white",
-            backgroundColor: "#02D87E",
-            "&:hover": { backgroundColor: "#02D87E" },
-            p: 1,
-            mt: 1,
-            py: 1.5,
-            mr: 1,
-          }}
-          variant="filled"
-          label={toTitleCase(filters.difficulty)}
-          size="small"
-        ></Chip>
-      )}
+          <Chip
+            sx={{
+              color: "common.white",
+              borderColor: "common.white",
+              backgroundColor: "#02D87E",
+              "&:hover": { backgroundColor: "#02D87E" },
+              p: 1,
+              mt: 1,
+              py: 1.5,
+              mr: 1,
+            }}
+            variant="filled"
+            label={toTitleCase(filters.difficulty)}
+            size="small"
+          ></Chip>
+        )}
 
         <Stack>
           <SpeedDial
@@ -142,5 +141,5 @@ PostDetailsHero.propTypes = {
   coverUrl: PropTypes.string,
   createdAt: PropTypes.string,
   title: PropTypes.string,
-  filters: PropTypes.object
+  filters: PropTypes.object,
 };

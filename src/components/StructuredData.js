@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
-import PropTypes from 'prop-types';
-import uuid from 'react-uuid';
+import PropTypes from "prop-types";
+import uuid from "react-uuid";
 
 export default function StructuredData({ data }) {
   return (
@@ -15,6 +15,5 @@ export default function StructuredData({ data }) {
 }
 
 StructuredData.propTypes = {
-    data: PropTypes.object,
-  };
-  
+  data: PropTypes.object,
+};

@@ -14,7 +14,6 @@ import SvgColor from "src/components/svg-color";
 import Scrollbar from "src/components/scrollbar";
 import NavList from "./nav-list";
 
-
 export default function NavMobile({ offsetTop, data }) {
   const pathname = usePathname();
 

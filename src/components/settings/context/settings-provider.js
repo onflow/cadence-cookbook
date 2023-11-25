@@ -1,26 +1,29 @@
-'use client';
+"use client";
 
-import PropTypes from 'prop-types';
-import isEqual from 'lodash/isEqual';
-import { useMemo, useCallback, useState } from 'react';
-import { useLocalStorage } from '../../../hooks/use-local-storage';
-import { SettingsContext } from './settings-context';
+import PropTypes from "prop-types";
+import isEqual from "lodash/isEqual";
+import { useMemo, useCallback, useState } from "react";
+import { useLocalStorage } from "../../../hooks/use-local-storage";
+import { SettingsContext } from "./settings-context";
 
 // ----------------------------------------------------------------------
 
-const STORAGE_KEY = 'settings';
+const STORAGE_KEY = "settings";
 
 export function SettingsProvider({ children, defaultSettings }) {
-  const { state, update, reset } = useLocalStorage(STORAGE_KEY, defaultSettings);
+  const { state, update, reset } = useLocalStorage(
+    STORAGE_KEY,
+    defaultSettings,
+  );
 
   const [openDrawer, setOpenDrawer] = useState(false);
 
   // Direction by lang
   const onChangeDirectionByLang = useCallback(
     (lang) => {
-      update('themeDirection', lang === 'ar' ? 'rtl' : 'ltr');
+      update("themeDirection", lang === "ar" ? "rtl" : "ltr");
     },
-    [update]
+    [update],
   );
 
   // Drawer
@@ -57,10 +60,14 @@ export function SettingsProvider({ children, defaultSettings }) {
       onCloseDrawer,
       onToggleDrawer,
       onChangeDirectionByLang,
-    ]
+    ],
   );
 
-  return <SettingsContext.Provider value={memoizedValue}>{children}</SettingsContext.Provider>;
+  return (
+    <SettingsContext.Provider value={memoizedValue}>
+      {children}
+    </SettingsContext.Provider>
+  );
 }
 
 SettingsProvider.propTypes = {

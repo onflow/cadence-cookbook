@@ -7,7 +7,7 @@ export function svgIcon(theme) {
         fontSizeLarge: {
           width: 32,
           height: 32,
-          fontSize: 'inherit',
+          fontSize: "inherit",
         },
       },
     },

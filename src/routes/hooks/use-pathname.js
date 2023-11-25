@@ -1,1 +1,1 @@
-export { usePathname } from 'next/navigation';
+export { usePathname } from "next/navigation";

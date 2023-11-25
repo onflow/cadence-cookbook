@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-import { useFormContext, Controller } from 'react-hook-form';
+import PropTypes from "prop-types";
+import { useFormContext, Controller } from "react-hook-form";
 // @mui
-import Checkbox from '@mui/material/Checkbox';
-import FormGroup from '@mui/material/FormGroup';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControlLabel, { formControlLabelClasses } from '@mui/material/FormControlLabel';
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormLabel from "@mui/material/FormLabel";
+import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControlLabel, {
+  formControlLabelClasses,
+} from "@mui/material/FormControlLabel";
 
 // ----------------------------------------------------------------------
 
@@ -19,10 +21,15 @@ export function RHFCheckbox({ name, helperText, ...other }) {
       control={control}
       render={({ field, fieldState: { error } }) => (
         <div>
-          <FormControlLabel control={<Checkbox {...field} checked={field.value} />} {...other} />
+          <FormControlLabel
+            control={<Checkbox {...field} checked={field.value} />}
+            {...other}
+          />
 
           {(!!error || helperText) && (
-            <FormHelperText error={!!error}>{error ? error?.message : helperText}</FormHelperText>
+            <FormHelperText error={!!error}>
+              {error ? error?.message : helperText}
+            </FormHelperText>
           )}
         </div>
       )}
@@ -37,7 +44,16 @@ RHFCheckbox.propTypes = {
 
 // ----------------------------------------------------------------------
 
-export function RHFMultiCheckbox({ row, name, label, options, spacing, helperText, sx, ...other }) {
+export function RHFMultiCheckbox({
+  row,
+  name,
+  label,
+  options,
+  spacing,
+  helperText,
+  sx,
+  ...other
+}) {
   const { control } = useFormContext();
 
   const getSelected = (selectedItems, item) =>
@@ -52,7 +68,7 @@ export function RHFMultiCheckbox({ row, name, label, options, spacing, helperTex
       render={({ field, fieldState: { error } }) => (
         <FormControl component="fieldset">
           {label && (
-            <FormLabel component="legend" sx={{ typography: 'body2' }}>
+            <FormLabel component="legend" sx={{ typography: "body2" }}>
               {label}
             </FormLabel>
           )}
@@ -60,15 +76,15 @@ export function RHFMultiCheckbox({ row, name, label, options, spacing, helperTex
           <FormGroup
             sx={{
               ...(row && {
-                flexDirection: 'row',
+                flexDirection: "row",
               }),
               [`& .${formControlLabelClasses.root}`]: {
-                '&:not(:last-of-type)': {
+                "&:not(:last-of-type)": {
                   mb: spacing || 0,
                 },
                 ...(row && {
                   mr: 0,
-                  '&:not(:last-of-type)': {
+                  "&:not(:last-of-type)": {
                     mr: spacing || 2,
                   },
                 }),
@@ -82,7 +98,9 @@ export function RHFMultiCheckbox({ row, name, label, options, spacing, helperTex
                 control={
                   <Checkbox
                     checked={field.value.includes(option.value)}
-                    onChange={() => field.onChange(getSelected(field.value, option.value))}
+                    onChange={() =>
+                      field.onChange(getSelected(field.value, option.value))
+                    }
                   />
                 }
                 label={option.label}

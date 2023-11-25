@@ -1,9 +1,9 @@
-import { sliderClasses } from '@mui/material/Slider';
+import { sliderClasses } from "@mui/material/Slider";
 
 // ----------------------------------------------------------------------
 
 export function slider(theme) {
-  const lightMode = theme.palette.mode === 'light';
+  const lightMode = theme.palette.mode === "light";
 
   return {
     MuiSlider: {

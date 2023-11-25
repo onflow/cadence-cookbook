@@ -32,11 +32,14 @@ export default function PostList({
           display="flex"
         >
           <PostItem
-            moduleOrder={originalOrderOfPosts !== undefined && originalOrderOfPosts
-              .map(function (e) {
-                return e.slug;
-              })
-              .indexOf(post.slug)}
+            moduleOrder={
+              originalOrderOfPosts !== undefined &&
+              originalOrderOfPosts
+                .map(function (e) {
+                  return e.slug;
+                })
+                .indexOf(post.slug)
+            }
             recipesInModule={posts.length}
             moduleView={moduleView}
             post={post}

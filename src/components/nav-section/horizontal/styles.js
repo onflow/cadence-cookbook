@@ -1,12 +1,12 @@
 // @mui
-import { styled } from '@mui/material/styles';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemButton from '@mui/material/ListItemButton';
+import { styled } from "@mui/material/styles";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemButton from "@mui/material/ListItemButton";
 
 // ----------------------------------------------------------------------
 
 export const StyledItem = styled(ListItemButton, {
-  shouldForwardProp: (prop) => prop !== 'active',
+  shouldForwardProp: (prop) => prop !== "active",
 })(({ active, open, depth, config, theme }) => {
   const subItem = depth !== 1;
 

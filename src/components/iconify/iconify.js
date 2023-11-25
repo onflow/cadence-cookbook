@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
+import PropTypes from "prop-types";
+import { forwardRef } from "react";
 // icons
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 // @mui
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
 // ----------------------------------------------------------------------
 

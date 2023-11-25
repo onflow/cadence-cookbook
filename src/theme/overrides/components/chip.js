@@ -1,31 +1,31 @@
-import { alpha } from '@mui/material/styles';
-import { chipClasses } from '@mui/material/Chip';
+import { alpha } from "@mui/material/styles";
+import { chipClasses } from "@mui/material/Chip";
 
 // ----------------------------------------------------------------------
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'];
+const COLORS = ["primary", "secondary", "info", "success", "warning", "error"];
 
 // ----------------------------------------------------------------------
 
 export function chip(theme) {
-  const lightMode = theme.palette.mode === 'light';
+  const lightMode = theme.palette.mode === "light";
 
   const rootStyles = (ownerState) => {
-    const defaultColor = ownerState.color === 'default';
+    const defaultColor = ownerState.color === "default";
 
-    const filledVariant = ownerState.variant === 'filled';
+    const filledVariant = ownerState.variant === "filled";
 
-    const outlinedVariant = ownerState.variant === 'outlined';
+    const outlinedVariant = ownerState.variant === "outlined";
 
-    const softVariant = ownerState.variant === 'soft';
+    const softVariant = ownerState.variant === "soft";
 
     const defaultStyle = {
       [`& .${chipClasses.deleteIcon}`]: {
         opacity: 0.48,
-        color: 'currentColor',
-        '&:hover': {
+        color: "currentColor",
+        "&:hover": {
           opacity: 1,
-          color: 'currentColor',
+          color: "currentColor",
         },
       },
 
@@ -35,13 +35,19 @@ export function chip(theme) {
         },
         // FILLED
         ...(filledVariant && {
-          color: lightMode ? theme.palette.common.white : theme.palette.grey[800],
+          color: lightMode
+            ? theme.palette.common.white
+            : theme.palette.grey[800],
           backgroundColor: theme.palette.text.primary,
-          '&:hover': {
-            backgroundColor: lightMode ? theme.palette.grey[700] : theme.palette.grey[100],
+          "&:hover": {
+            backgroundColor: lightMode
+              ? theme.palette.grey[700]
+              : theme.palette.grey[100],
           },
           [`& .${chipClasses.icon}`]: {
-            color: lightMode ? theme.palette.common.white : theme.palette.grey[800],
+            color: lightMode
+              ? theme.palette.common.white
+              : theme.palette.grey[800],
           },
         }),
         // OUTLINED
@@ -52,7 +58,7 @@ export function chip(theme) {
         ...(softVariant && {
           color: theme.palette.text.primary,
           backgroundColor: alpha(theme.palette.grey[500], 0.16),
-          '&:hover': {
+          "&:hover": {
             backgroundColor: alpha(theme.palette.grey[500], 0.32),
           },
         }),
@@ -67,9 +73,9 @@ export function chip(theme) {
         },
         // SOFT
         ...(softVariant && {
-          color: theme.palette[color][lightMode ? 'dark' : 'light'],
+          color: theme.palette[color][lightMode ? "dark" : "light"],
           backgroundColor: alpha(theme.palette[color].main, 0.16),
-          '&:hover': {
+          "&:hover": {
             backgroundColor: alpha(theme.palette[color].main, 0.32),
           },
         }),
