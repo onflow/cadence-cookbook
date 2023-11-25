@@ -29,6 +29,7 @@ export default function PostList({
           xs={12}
           sm={6}
           md={!disabledIndex && index === 0 ? 6 : 3}
+          display="flex"
         >
           <PostItem
             moduleOrder={originalOrderOfPosts !== undefined && originalOrderOfPosts

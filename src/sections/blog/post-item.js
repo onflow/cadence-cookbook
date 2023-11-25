@@ -24,8 +24,6 @@ export default function PostItem({
   recipesInModule,
   moduleOrder,
 }) {
-  const theme = useTheme();
-
   const mdUp = useResponsive("up", "md");
 
   const {
@@ -36,7 +34,6 @@ export default function PostItem({
     totalViews,
     totalComments,
     totalShares,
-    author,
     createdAt,
   } = post;
 
@@ -79,7 +76,7 @@ export default function PostItem({
   }
 
   return (
-    <Card>
+    <Card sx={{ width: "100%" }}>
       <Box sx={{ position: "relative" }}>
         <Image
           alt={title}
@@ -148,7 +145,7 @@ export function PostContent({
           position: "absolute",
           color: "common.white",
         }),
-        height: 150,
+        minHeight: 150,
       }}
     >
       <Typography
