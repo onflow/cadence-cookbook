@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { alpha, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";

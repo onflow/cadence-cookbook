@@ -3,7 +3,6 @@
 import { useState, memo, useCallback } from 'react';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
-// @mui
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -12,21 +11,16 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Dialog, { dialogClasses } from '@mui/material/Dialog';
-// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
 import { useEventListener } from 'src/hooks/use-event-listener';
-// components
 import Label from 'src/components/label';
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
 import { useRouter } from 'src/routes/hooks';
 import SearchNotFound from 'src/components/search-not-found';
-//
 import ResultItem from './result-item';
 import { applyFilter, groupedData, getAllItems } from './utils';
-
-// ----------------------------------------------------------------------
 
 function Searchbar() {
   const theme = useTheme();

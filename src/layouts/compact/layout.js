@@ -1,11 +1,7 @@
 import PropTypes from 'prop-types';
-// @mui
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-//
 import { HeaderSimple as Header } from '../_common';
-
-// ----------------------------------------------------------------------
 
 export default function CompactLayout({ children }) {
   return (

@@ -8,7 +8,6 @@ import { RouterLink } from "src/routes/components";
 import { MotionContainer, varBounce } from "src/components/animate";
 import Image from "src/components/image/image";
 
-
 export default function NotFoundView() {
   return (
     <CompactLayout>

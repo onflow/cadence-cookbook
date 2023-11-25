@@ -1,33 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { usePathname } from 'src/routes/hooks';
-import Logo from 'src/components/logo';
 import FooterLogo from 'src/components/footer-logo';
-
-
-// const LINKS = [
-//   {
-//     headline: 'Minimal',
-//     children: [
-//       { name: 'About us', href: paths.about },
-//       { name: 'Contact us', href: paths.contact },
-//       { name: 'FAQs', href: paths.faqs },
-//     ],
-//   },
-//   {
-//     headline: 'Legal',
-//     children: [
-//       { name: 'Terms and Condition', href: '#' },
-//       { name: 'Privacy Policy', href: '#' },
-//     ],
-//   },
-//   {
-//     headline: 'Contact',
-//     children: [{ name: 'support@minimals.cc', href: '#' }],
-//   },
-// ];
-
 
 export default function Footer() {
 

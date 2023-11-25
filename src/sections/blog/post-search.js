@@ -1,20 +1,16 @@
 import PropTypes from 'prop-types';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
-// @mui
 import Link from '@mui/material/Link';
-import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import InputAdornment from '@mui/material/InputAdornment';
 import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
-// components
 import Iconify from 'src/components/iconify';
 import { useRouter } from 'src/routes/hooks';
 import SearchNotFound from 'src/components/search-not-found';
 import { paths } from 'src/routes/paths';
 
-// ----------------------------------------------------------------------
 
 export default function PostSearch({ query, results, onSearch, hrefItem, loading }) {
   const router = useRouter();

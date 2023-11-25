@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
-import { getAllRecipes, getSingleModuleByTitle } from 'src/data/recipeUtils';
+import { getAllRecipes, getSingleModuleByTitle } from "src/data/recipeUtils";
 
-const URL = 'https://cookbook.flow.com';
+const URL = "https://cookbook.flow.com";
 
 export default async function sitemap() {
   // Dynamic recipes
@@ -13,11 +13,11 @@ export default async function sitemap() {
   }));
 
   // Dynamic modules
-  const modules = await getAllRecipes()
-  let uniqueModules = []
+  const modules = await getAllRecipes();
+  let uniqueModules = [];
 
   for await (const i of modules) {
-    const parentModule = await getSingleModuleByTitle(i.module)
+    const parentModule = await getSingleModuleByTitle(i.module);
     if (!uniqueModules.includes(parentModule.slug)) {
       uniqueModules.push(parentModule.slug);
     }
@@ -29,18 +29,10 @@ export default async function sitemap() {
   }));
 
   // Static pages
-  const routes = [
-    '/',
-    
-  ].map((route) => ({
+  const routes = ["/"].map((route) => ({
     url: `${URL}${route}`,
     lastModified: new Date().toISOString(),
   }));
 
-  return [
-    ...routes,
-    ...recipeOptions,
-    ...modulesOptions
-
-  ];
+  return [...routes, ...recipeOptions, ...modulesOptions];
 }

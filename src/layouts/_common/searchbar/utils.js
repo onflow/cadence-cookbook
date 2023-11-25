@@ -1,7 +1,4 @@
-// utils
 import { flattenArray } from 'src/utils/flatten-array';
-
-// ----------------------------------------------------------------------
 
 export function getAllItems({ data }) {
   const reduceItems = data.map((list) => handleLoop(list.items, list.subheader)).flat();

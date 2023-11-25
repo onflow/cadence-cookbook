@@ -1,6 +1,4 @@
-import { Public_Sans, Barlow, Epilogue } from 'next/font/google';
-
-// ----------------------------------------------------------------------
+import { Barlow, Epilogue } from 'next/font/google';
 
 export function remToPx(value) {
   return Math.round(parseFloat(value) * 16);

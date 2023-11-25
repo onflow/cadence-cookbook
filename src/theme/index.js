@@ -18,7 +18,7 @@ import { componentsOverrides } from './overrides';
 // options
 import { presets } from './options/presets';
 import { contrast } from './options/contrast';
-import RTL, { direction } from './options/right-to-left';
+import RTL from './options/right-to-left';
 //
 import NextAppDirEmotionCacheProvider from './next-emotion-cache';
 

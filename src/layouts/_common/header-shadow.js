@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
-// @mui
 import Box from '@mui/material/Box';
-
-// ----------------------------------------------------------------------
 
 export default function HeaderShadow({ sx, ...other }) {
   return (

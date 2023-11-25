@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
-// @mui
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
-// components
 import Label from 'src/components/label';
-
-// ----------------------------------------------------------------------
 
 export default function ResultItem({ title, path, groupLabel, onClickItem }) {
   return (

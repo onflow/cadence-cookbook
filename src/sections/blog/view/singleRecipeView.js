@@ -36,8 +36,6 @@ export default function SingleRecipeView({
 
   const isMdUp = useResponsive("up", "md");
 
-  const renderSkeleton = <PostDetailsSkeleton />;
-
   // const renderError = (
   //   <Container sx={{ my: 10 }}>
   //     <EmptyContent
