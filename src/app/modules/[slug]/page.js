@@ -11,22 +11,22 @@ import { redirect } from "next/navigation";
 export async function generateMetadata({ params }) {
   const module = await getSingleModule(params.slug);
 
-  const keywords = [
-    "Cadence Cookbook",
-    "Flow blockchain",
-    "Flow",
-    "Blockchain development",
-    "Cadence",
-    "Cadence programming",
-    "Blockchain development",
-    "Cadence examples",
-    "Cadence use cases",
-    "Flow blockchain examples",
-    "Flow blockchain use cases",
-    module.module,
-  ];
-
   if (module) {
+    const keywords = [
+      "Cadence Cookbook",
+      "Flow blockchain",
+      "Flow",
+      "Blockchain development",
+      "Cadence",
+      "Cadence programming",
+      "Blockchain development",
+      "Cadence examples",
+      "Cadence use cases",
+      "Flow blockchain examples",
+      "Flow blockchain use cases",
+      module.module,
+    ];
+
     return {
       title: `${module.module} | Cadence Cookbook `,
       description: `Explore Cadence smart contracts and transaction scripts for different use cases on the Flow Blockchain in the ${module.title} module.`,
