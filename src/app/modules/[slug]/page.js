@@ -68,7 +68,6 @@ export async function generateStaticParams() {
 }
 
 export default async function ModulePage({ params }) {
-  console.log(params)
   const module = await getSingleModule(params.slug);
 
   if (!module) {
