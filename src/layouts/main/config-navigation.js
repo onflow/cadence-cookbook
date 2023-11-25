@@ -25,11 +25,11 @@ const gettingStartedWithAccessManagement = flattenRecipes(recipes)
   .map((e) => {
     return { title: e.title, path: paths.recipe(e.slug) };
   });
-const nftStorefrontEssentials =  flattenRecipes(recipes)
-.filter((i) => i.module === "NFT Storefront Essentials")
-.map((e) => {
-  return { title: e.title, path: paths.recipe(e.slug) };
-});
+const nftStorefrontEssentials = flattenRecipes(recipes)
+  .filter((i) => i.module === "NFT Storefront Essentials")
+  .map((e) => {
+    return { title: e.title, path: paths.recipe(e.slug) };
+  });
 
 export const navConfig = [
   {
@@ -41,25 +41,25 @@ export const navConfig = [
         subheader: "NFT Fundamentals",
         slug: "nft-fundamentals",
         items: nftFundamentals,
-        position: "1"
+        position: "1",
       },
       {
         subheader: "Working With Fungible Tokens",
         slug: "working-with-fungible-tokens",
         items: workingWithFungibleTokens,
-        position: "2"
+        position: "2",
       },
       {
         subheader: "Getting Started With Access Management",
         slug: "getting-started-with-access-management",
         items: gettingStartedWithAccessManagement,
-        position: "3"
+        position: "3",
       },
       {
         subheader: "NFT Storefront Essentials",
         slug: "nft-storefront-essentials",
         items: nftStorefrontEssentials,
-        position: "4"
+        position: "4",
       },
     ],
   },
