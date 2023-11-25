@@ -62,22 +62,23 @@ export async function generateStructuredData(params) {
 export async function generateMetadata({ params }) {
   const recipe = await getSingleRecipe(params.slug);
 
-  const keywords = [
-    "Cadence Cookbook",
-    "Flow blockchain",
-    "Flow",
-    "Blockchain development",
-    "Cadence",
-    "Cadence programming",
-    "Blockchain development",
-    "Cadence examples",
-    "Cadence use cases",
-    "Flow blockchain examples",
-    "Flow blockchain use cases",
-    recipe.title,
-  ];
-
   if (recipe) {
+
+    const keywords = [
+      "Cadence Cookbook",
+      "Flow blockchain",
+      "Flow",
+      "Blockchain development",
+      "Cadence",
+      "Cadence programming",
+      "Blockchain development",
+      "Cadence examples",
+      "Cadence use cases",
+      "Flow blockchain examples",
+      "Flow blockchain use cases",
+      recipe.title,
+    ];
+
     return {
       title: `${recipe.title} | Cadence Cookbook `,
       description:

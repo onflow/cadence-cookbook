@@ -1,6 +1,10 @@
 import { paths } from "src/routes/paths";
 import { ModuleView } from "src/sections/blog/view";
-import { getAllRecipes, getSingleModule } from "src/data/recipeUtils";
+import {
+  getAllRecipes,
+  getSingleModule,
+  getSingleModuleByTitle,
+} from "src/data/recipeUtils";
 import { redirect } from "next/navigation";
 
 // eslint-disable-next-line consistent-return
@@ -49,12 +53,22 @@ export async function generateMetadata({ params }) {
 
 export async function generateStaticParams() {
   const modules = await getAllRecipes();
-  return modules.map((module) => ({
-    slug: module.slug,
-  }));
+  let uniqueModules = [];
+  let uniqueModulesParams = [];
+  for await (const i of modules) {
+    const parentModule = await getSingleModuleByTitle(i.module);
+    if (!uniqueModules.includes(parentModule.slug)) {
+      uniqueModules.push(parentModule.slug);
+      uniqueModulesParams.push({
+        slug: parentModule.slug,
+      });
+    }
+  }
+  return uniqueModulesParams;
 }
 
 export default async function ModulePage({ params }) {
+  console.log(params)
   const module = await getSingleModule(params.slug);
 
   if (!module) {

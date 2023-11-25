@@ -14,7 +14,7 @@ export default async function sitemap() {
 
   // Dynamic modules
   const modules = await getAllRecipes()
-  const uniqueModules = []
+  let uniqueModules = []
 
   for await (const i of modules) {
     const parentModule = await getSingleModuleByTitle(i.module)
