@@ -31,7 +31,6 @@
     "@mui/x-data-grid": "^6.12.0",
     "@mui/x-date-pickers": "^6.12.0",
     "@react-pdf/renderer": "^3.1.12",
-    "apexcharts": "^3.42.0",
     "autosuggest-highlight": "^3.3.4",
     "axios": "^1.5.0",
     "date-fns": "^2.30.0",
