@@ -28,6 +28,7 @@ export default function Page500() {
 
         <m.div variants={varBounce().in}>
           <Image
+            alt="Cadence Cookbook error fallback"
             sx={{ my: 5, width: "80%", height: "80%" }}
             src="/assets/illustrations/flow/floating_balls.svg"
           />

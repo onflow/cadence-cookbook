@@ -48,7 +48,7 @@ export default function PostDetailsHero({
       <Container sx={{ height: 1, position: "relative" }}>
         <Typography
           variant="h3"
-          component="h1"
+          component="h2"
           sx={{
             zIndex: 9,
             color: "common.white",
@@ -61,6 +61,7 @@ export default function PostDetailsHero({
 
         <Typography
           variant="subtitle2"
+          component="p"
           sx={{
             zIndex: 9,
             color: "common.white",

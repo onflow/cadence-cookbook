@@ -27,7 +27,7 @@ export default function SingleRecipeView({
   nextRecipeSlug,
   previousRecipeSlug,
   moduleSlug,
-  progress
+  progress,
 }) {
   const latestPosts = relatedRecipes;
   const post = recipe;
@@ -108,7 +108,7 @@ export default function SingleRecipeView({
       <Container maxWidth={false}>
         <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
           {post.excerpt !== undefined && post.excerpt !== null && (
-            <Typography variant="subtitle1" sx={{ mb: 5 }}>
+            <Typography variant="subtitle1" component="h3" sx={{ mb: 5 }}>
               {post.excerpt}
             </Typography>
           )}
@@ -280,7 +280,7 @@ export default function SingleRecipeView({
           </Stack>
 
           {!isMdUp && (
-            <Stack sx={{mt: -5}}>
+            <Stack sx={{ mt: -5 }}>
               {previousRecipeSlug !== null && (
                 <Button
                   onClick={() => push(paths.recipe(previousRecipeSlug))}
@@ -391,7 +391,6 @@ SingleRecipeView.propTypes = {
 };
 
 function LinearProgressWithLabel({ value }) {
-
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Box sx={{ width: "100%", mr: 1 }}>

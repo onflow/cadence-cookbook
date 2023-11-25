@@ -20,7 +20,7 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
       }}
       {...other}
     >
-      <Image src='/logo/flow_logo.svg'/>
+      <Image alt="Flow logo" src='/logo/flow_logo.svg'/>
     </Box>
   );
 

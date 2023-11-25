@@ -27,6 +27,7 @@ export default function NotFoundView() {
 
         <m.div variants={varBounce().in}>
           <Image
+            alt="Cadence Cookbook not found fallback"
             sx={{ my: 5, width: "80%", height: "80%" }}
             src="/assets/illustrations/flow/floating_balls.svg"
           />

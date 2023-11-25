@@ -20,7 +20,7 @@ const FooterLogo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
       }}
       {...other}
     >
-      <Image src='/logo/flow_logo_footer.svg'/>
+      <Image alt="Flow logo" src='/logo/flow_logo_footer.svg'/>
     </Box>
   );
 

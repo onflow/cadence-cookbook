@@ -67,6 +67,7 @@ export default function HomePageView({ recipes, featuredRecipes }) {
         direction={{ xs: "row", sm: "row" }}
       >
         <Typography
+          component="h1"
           variant="h4"
           sx={{
             my: { xs: 3, md: 5 },

@@ -27,7 +27,7 @@ export default function CarouselAnimation({ data }) {
   });
 
   return (
-    <Card sx={{ height: {xs: 400, md: 400} }}>
+    <Card sx={{ height: { xs: 400, md: 400 } }}>
       <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
         {data.map((item, index) => (
           <CarouselItem
@@ -64,36 +64,46 @@ function CarouselItem({ item, active }) {
   const variants =
     theme.direction === "rtl" ? varFade().inLeft : varFade().inRight;
 
-    const isMdUp = useResponsive('up', 'md');
+  const isMdUp = useResponsive("up", "md");
 
   return (
-    <Paper sx={{ position: "relative", height: {xs: 400, md: 400} }}>
-      { isMdUp && <Image
-        dir="ltr"
-        alt={title}
-        src={
-          coverUrl !== null && coverUrl !== undefined
-            ? coverUrl
-            : `/assets/illustrations/flow/bg${randomIntFromInterval(1,8)}.png`
-        }
-        ratio="16/9"
-      />}
-      { !isMdUp && <Image
-        dir="ltr"
-        alt={title}
-        src={
-          coverUrl !== null && coverUrl !== undefined
-            ? coverUrl
-            : `/assets/illustrations/flow/bg${randomIntFromInterval(1,8)}.png`
-        }
-        ratio="1/1"
-      />}
+    <Paper sx={{ position: "relative", height: { xs: 400, md: 400 } }}>
+      {isMdUp && (
+        <Image
+          dir="ltr"
+          alt={title}
+          src={
+            coverUrl !== null && coverUrl !== undefined
+              ? coverUrl
+              : `/assets/illustrations/flow/bg${randomIntFromInterval(
+                  1,
+                  8
+                )}.png`
+          }
+          ratio="16/9"
+        />
+      )}
+      {!isMdUp && (
+        <Image
+          dir="ltr"
+          alt={title}
+          src={
+            coverUrl !== null && coverUrl !== undefined
+              ? coverUrl
+              : `/assets/illustrations/flow/bg${randomIntFromInterval(
+                  1,
+                  8
+                )}.png`
+          }
+          ratio="1/1"
+        />
+      )}
 
       <Box
         sx={{
           top: 0,
           width: 1,
-          height: {xs: 400, md: 400}, 
+          height: { xs: 400, md: 400 },
           position: "absolute",
           ...bgGradient({
             direction: "to top",
@@ -112,7 +122,7 @@ function CarouselItem({ item, active }) {
           left: 0,
           bottom: 0,
           maxWidth: 720,
-          height: {xs: 400, md: 400}, 
+          height: { xs: 400, md: 400 },
           textAlign: "left",
           position: "absolute",
           color: "common.white",
@@ -122,18 +132,13 @@ function CarouselItem({ item, active }) {
           Featured Recipe
         </Typography>
         <m.div variants={variants}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h3" component="h2" gutterBottom>
             {item.title}
           </Typography>
         </m.div>
 
         <m.div variants={variants}>
-          <TextMaxLine line={3}>
-          {item.excerpt}
-          </TextMaxLine>
-          {/* <Typography variant="body2" noWrap gutterBottom>
-            {item.excerpt}
-          </Typography> */}
+          <TextMaxLine line={3}>{item.excerpt}</TextMaxLine>
         </m.div>
 
         <m.div variants={variants}>

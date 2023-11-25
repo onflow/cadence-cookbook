@@ -119,7 +119,6 @@ export function PostContent({
   filters,
   createdAt,
   recipesInModule,
-  totalComments,
   index,
   moduleOrder,
   moduleView,

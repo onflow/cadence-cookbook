@@ -2,20 +2,16 @@
 
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-// @mui
 import Fade from "@mui/material/Fade";
 import Stack from "@mui/material/Stack";
 import Portal from "@mui/material/Portal";
-// hooks
 import { useBoolean } from "src/hooks/use-boolean";
-// routes
 import { usePathname } from "src/routes/hooks";
 import { useActiveLink } from "src/routes/hooks/use-active-link";
-//
 import { NavItem, NavItemDashboard } from "./nav-item";
 import { StyledSubheader, StyledMenu } from "./styles";
 import Image from "src/components/image";
-import { Link, Typography } from "@mui/material";
+import { Link } from "@mui/material";
 import { paths } from "src/routes/paths";
 
 // ----------------------------------------------------------------------
@@ -68,6 +64,7 @@ export default function NavList({ item, offsetTop }) {
                 <>
                   <Stack sx={{ padding: 3, width: "25%", mt: "-3%" }}>
                     <Image
+                      alt="Cadence Cookbook module"
                       sx={{ mb: 3, borderRadius: 2 }}
                       ratio="1/1"
                       src={`/assets/illustrations/flow/nav/${list.position}.png`}
