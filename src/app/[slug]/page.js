@@ -39,7 +39,7 @@ export async function generateStructuredData(params) {
             )}.png`,
       author: {
         "@type": "Organization",
-        name: "Flow Blockchain",
+        name: "Flow Blockchain", 
         logo: {
           "@type": "ImageObject",
           url: `https://cookbook.flow.com/assets/logo/flow_logo.svg`,

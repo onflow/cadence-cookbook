@@ -66,7 +66,7 @@ The below list outlines the data fields currently supported for recipes in the C
     - `difficulty`: the difficulty filter supports one of ['beginner', 'intermediate', 'advanced']
 
 
-This is an example of a sample index.js file for a recipe repository. For reference and as a starting point for your recipe, we recommend referring to a sample recipe respository maintained by Flow, such as: https://github.com/lealobanov/add-a-play-to-topshot-set. 
+This is an example of a sample index.js file for a recipe repository. For reference and as a starting point for your recipe, we recommend referring to a sample recipe respository maintained by Flow, such as: https://github.com/onflow/add-a-play-to-topshot-set.
 
 ```
 // Pass the repo name
