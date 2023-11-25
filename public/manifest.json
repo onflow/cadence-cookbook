@@ -1,6 +1,6 @@
 {
-  "name": "Minimal UI",
-  "short_name": "Minimal UI",
+  "name": "Cadence Cookbook",
+  "short_name": "Cadence Cookbook",
   "display": "standalone",
   "start_url": "/",
   "theme_color": "#000000",
