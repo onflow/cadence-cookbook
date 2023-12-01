@@ -156,7 +156,7 @@ export default function SingleRecipeView({
               />
             )}
 
-          <Typography variant="h5" sx={{ mt: 3, mb: 5 }}>
+          <Typography variant="h5" sx={{ mb: 5 }}>
             Transaction Example
           </Typography>
         </Stack>
