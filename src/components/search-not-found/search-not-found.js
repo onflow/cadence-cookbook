@@ -26,7 +26,7 @@ export default function SearchNotFound({ query, sx, ...other }) {
     </Paper>
   ) : (
     <Typography variant="body2" sx={sx}>
-      Please enter keywords
+      No recipes found, please try another query.
     </Typography>
   );
 }
