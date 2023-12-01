@@ -35,7 +35,7 @@ export function fetchExternalRecipe(recipe) {
     transactionExplanationPath !== null
       ? fs.readFileSync(
           `./src/data/recipes/${transactionExplanationPath}`,
-          "utf8",
+          "utf8"
         )
       : null;
   const testCasesExplanation =
@@ -66,36 +66,36 @@ const flattenRecipes = (arr) =>
     recipes.map((o) => ({
       ...rest,
       ...o,
-    })),
+    }))
   );
 
-export async function getAllRecipes() {
+export function getAllRecipes() {
   const recipes = flattenRecipes(recipesByModule);
 
   return recipes;
 }
 
-export async function getSingleModule(slug) {
+export function getSingleModule(slug) {
   return recipes.filter((i) => i.slug === slug)[0];
 }
 
-export async function getSingleModuleByTitle(title) {
+export function getSingleModuleByTitle(title) {
   return recipes.filter((i) => i.module === title)[0];
 }
 
-export async function getSingleRecipe(slug) {
+export function getSingleRecipe(slug) {
   const recipes = flattenRecipes(recipesByModule);
 
   return recipes.filter((i) => i.slug === slug)[0];
 }
 
-export async function getRecipesByParentModule(module) {
+export function getRecipesByParentModule(module) {
   const recipes = flattenRecipes(recipesByModule);
 
   return recipes.filter((i) => i.module === module);
 }
 
-export async function getRelatedRecipes(module, slug) {
+export function getRelatedRecipes(module, slug) {
   // Implement a filter based on recipe tags or module
 
   const recipes = flattenRecipes(recipesByModule);
@@ -103,9 +103,9 @@ export async function getRelatedRecipes(module, slug) {
   return recipes.filter((i) => i.module === module && i.slug !== slug);
 }
 
-export async function getNextRecipe(module, slug) {
+export function getNextRecipe(module, slug) {
   const recipes = flattenRecipes(recipesByModule).filter(
-    (i) => i.module === module,
+    (i) => i.module === module
   );
 
   const thisRecipeIndex = recipes
@@ -120,9 +120,9 @@ export async function getNextRecipe(module, slug) {
   return nextRecipe;
 }
 
-export async function getPreviousRecipe(module, slug) {
+export function getPreviousRecipe(module, slug) {
   const recipes = flattenRecipes(recipesByModule).filter(
-    (i) => i.module === module,
+    (i) => i.module === module
   );
 
   const thisRecipeIndex = recipes
@@ -137,9 +137,9 @@ export async function getPreviousRecipe(module, slug) {
   return previousRecipe;
 }
 
-export async function getModuleProgress(module, slug) {
+export function getModuleProgress(module, slug) {
   const recipes = flattenRecipes(recipesByModule).filter(
-    (i) => i.module === module,
+    (i) => i.module === module
   );
 
   const thisRecipeIndex = recipes
