@@ -106,7 +106,7 @@ export default function SingleRecipeView({
       />
 
       <Container maxWidth={false}>
-        <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
+        <Stack sx={{  pl: { md: "15%", lg: "15%", xl: "15%", xs: 2 }, pr: { md: "15%",lg: "15%", xl: "15%", xs: 2 } }}>
           {post.excerpt !== undefined && post.excerpt !== null && (
             <Typography variant="subtitle1" component="h3" sx={{ mb: 5 }}>
               {post.excerpt}
@@ -121,8 +121,8 @@ export default function SingleRecipeView({
         {post.smartContractCode !== undefined &&
           post.smartContractCode !== null && (
             <Box
-              pl={{ md: 30, xs: 2 }}
-              pr={{ md: 30, xs: 2 }}
+     
+              sx={{px: {md: "15%", lg: "15%", xl: "15%", xs: 2}  }}
               alignItems="center"
             >
               <CopyBlock
@@ -135,7 +135,7 @@ export default function SingleRecipeView({
             </Box>
           )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
+        <Stack sx={{  pl: { md: "15%",lg: "15%", xl: "15%", xs: 2 }, pr: { md: "15%",lg: "15%", xl: "15%", xs: 2 } }}>
           {/* <Alert sx={{ mt: 5, mb: 5 }} severity="success">
             Sample info blurb
           </Alert> */}
@@ -148,7 +148,7 @@ export default function SingleRecipeView({
               />
             )}
 
-          <Typography variant="h5" sx={{ mt: 5, mb: 5 }}>
+          <Typography variant="h5" sx={{ mt: 3, mb: 5 }}>
             Transaction Example
           </Typography>
         </Stack>
@@ -156,8 +156,7 @@ export default function SingleRecipeView({
         {post.transactionCode !== undefined &&
           post.transactionCode !== null && (
             <Box
-              pl={{ md: 30, xs: 2 }}
-              pr={{ md: 30, xs: 2 }}
+            sx={{px: {md: "15%", lg: "15%", xl: "15%", xs: 2}  }}
               alignItems="center"
             >
               <CopyBlock
@@ -170,7 +169,7 @@ export default function SingleRecipeView({
             </Box>
           )}
 
-        <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
+        <Stack sx={{  pl: { md: "15%", lg: "15%", xl: "15%", xs: 2 }, pr: { md: "15%", lg: "15%", xl: "15%", xs: 2 } }}>
           {/* <Alert sx={{ mt: 5 }} severity="info">
             Sample info blurb
           </Alert> */}
@@ -194,8 +193,7 @@ export default function SingleRecipeView({
 
         {post.testCasesCode !== undefined && post.testCasesCode !== null && (
           <Box
-            pl={{ md: 30, xs: 2 }}
-            pr={{ md: 30, xs: 2 }}
+          sx={{px: {md: "15%", lg: "15%", xl: "15%", xs: 2}  }}
             alignItems="center"
           >
             <CopyBlock

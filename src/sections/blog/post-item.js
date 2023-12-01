@@ -12,9 +12,10 @@ import { fDate } from "../../utils/format-time";
 import Image from "../../components/image";
 import TextMaxLine from "../../components/text-max-line";
 import { randomIntFromInterval } from "../../utils/random_interval";
-import { Chip } from "@mui/material";
+import { CardActionArea, Chip } from "@mui/material";
 import Iconify from "../../components/iconify";
 import { toTitleCase } from "./view/homePageView";
+import { redirect } from "next/navigation";
 
 export default function PostItem({
   post,
@@ -38,9 +39,11 @@ export default function PostItem({
 
   const latestPost = index === 0 || index === 1 || index === 2;
 
+  const linkTo = paths.recipe(slug);
+
   if (mdUp && latestPost) {
     return (
-      <Card>
+      <Card sx={{cursor: "pointer"}}>
         <PostContent
           slug={slug}
           title={title}
@@ -75,7 +78,8 @@ export default function PostItem({
   }
 
   return (
-    <Card sx={{ width: "100%" }}>
+    <Card sx={{ width: "100%", cursor: "pointer" }}  >
+  
       <Box sx={{ position: "relative" }}>
         <Image
           alt={title}
@@ -104,6 +108,7 @@ export default function PostItem({
         index={index}
         moduleOrder={moduleOrder}
       />
+  
     </Card>
   );
 }
