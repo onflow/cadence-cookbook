@@ -14,7 +14,7 @@ const StyledMarkdown = styled("div")(({ theme }) => {
     h4: { margin: 0, ...theme.typography.h4 },
     h5: { margin: 0, ...theme.typography.h5 },
     h6: { margin: 0, ...theme.typography.h6 },
-    p: { margin: 0, ...theme.typography.body1 },
+    p: {  ...theme.typography.body1 },
 
     br: {
       display: "grid",

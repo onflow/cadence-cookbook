@@ -15,7 +15,6 @@ import Markdown from "../../../components/markdown";
 import CustomBreadcrumbs from "../../../components/custom-breadcrumbs";
 import PostList from "../post-list";
 import PostDetailsHero from "../post-details-hero";
-import { PostDetailsSkeleton } from "../post-skeleton";
 import { paths } from "../../../routes/paths";
 import { useRouter } from "next/navigation";
 import { useResponsive } from "../../../hooks/use-responsive";
@@ -106,7 +105,12 @@ export default function SingleRecipeView({
       />
 
       <Container maxWidth={false}>
-        <Stack sx={{  pl: { md: "15%", lg: "15%", xl: "15%", xs: 2 }, pr: { md: "15%",lg: "15%", xl: "15%", xs: 2 } }}>
+        <Stack
+          sx={{
+            pl: { md: "15%", lg: "15%", xl: "15%", xs: 2 },
+            pr: { md: "15%", lg: "15%", xl: "15%", xs: 2 },
+          }}
+        >
           {post.excerpt !== undefined && post.excerpt !== null && (
             <Typography variant="subtitle1" component="h3" sx={{ mb: 5 }}>
               {post.excerpt}
@@ -121,8 +125,7 @@ export default function SingleRecipeView({
         {post.smartContractCode !== undefined &&
           post.smartContractCode !== null && (
             <Box
-     
-              sx={{px: {md: "15%", lg: "15%", xl: "15%", xs: 2}  }}
+              sx={{ px: { md: "15%", lg: "15%", xl: "15%", xs: 2 } }}
               alignItems="center"
             >
               <CopyBlock
@@ -135,7 +138,12 @@ export default function SingleRecipeView({
             </Box>
           )}
 
-        <Stack sx={{  pl: { md: "15%",lg: "15%", xl: "15%", xs: 2 }, pr: { md: "15%",lg: "15%", xl: "15%", xs: 2 } }}>
+        <Stack
+          sx={{
+            pl: { md: "15%", lg: "15%", xl: "15%", xs: 2 },
+            pr: { md: "15%", lg: "15%", xl: "15%", xs: 2 },
+          }}
+        >
           {/* <Alert sx={{ mt: 5, mb: 5 }} severity="success">
             Sample info blurb
           </Alert> */}
@@ -156,7 +164,7 @@ export default function SingleRecipeView({
         {post.transactionCode !== undefined &&
           post.transactionCode !== null && (
             <Box
-            sx={{px: {md: "15%", lg: "15%", xl: "15%", xs: 2}  }}
+              sx={{ px: { md: "15%", lg: "15%", xl: "15%", xs: 2 } }}
               alignItems="center"
             >
               <CopyBlock
@@ -169,7 +177,12 @@ export default function SingleRecipeView({
             </Box>
           )}
 
-        <Stack sx={{  pl: { md: "15%", lg: "15%", xl: "15%", xs: 2 }, pr: { md: "15%", lg: "15%", xl: "15%", xs: 2 } }}>
+        <Stack
+          sx={{
+            pl: { md: "15%", lg: "15%", xl: "15%", xs: 2 },
+            pr: { md: "15%", lg: "15%", xl: "15%", xs: 2 },
+          }}
+        >
           {/* <Alert sx={{ mt: 5 }} severity="info">
             Sample info blurb
           </Alert> */}
@@ -193,7 +206,7 @@ export default function SingleRecipeView({
 
         {post.testCasesCode !== undefined && post.testCasesCode !== null && (
           <Box
-          sx={{px: {md: "15%", lg: "15%", xl: "15%", xs: 2}  }}
+            sx={{ px: { md: "15%", lg: "15%", xl: "15%", xs: 2 } }}
             alignItems="center"
           >
             <CopyBlock
@@ -304,55 +317,7 @@ export default function SingleRecipeView({
             </Stack>
           )}
 
-          {/* <Stack direction="row" flexWrap="wrap" sx={{ mb: 4 }} spacing={1}>
-            {post.tags !== undefined &&
-              post.tags !== null &&
-              post.tags.map((tag) => (
-                <Chip key={tag} label={tag} variant="soft" />
-              ))}
-          </Stack> */}
-
           <Divider />
-
-          {/* <Stack direction="row" alignItems="center">
-            <FormControlLabel
-              control={
-                <Checkbox
-                  defaultChecked
-                  size="small"
-                  color="error"
-                  icon={<Iconify icon="solar:heart-bold" />}
-                  checkedIcon={<Iconify icon="solar:heart-bold" />}
-                />
-              }
-              label={fShortenNumber(post.totalFavorites)}
-              sx={{ mr: 1 }}
-            />
-
-            <AvatarGroup>
-              {post.favoritePerson.map((person) => (
-                <Avatar
-                  key={person.name}
-                  alt={person.name}
-                  src={person.avatarUrl}
-                />
-              ))}
-            </AvatarGroup>
-          </Stack> */}
-
-          {/* <Stack direction="row" sx={{ mb: 3, mt: 5 }}>
-            <Typography variant="h4">Comments</Typography>
-
-            <Typography variant="subtitle2" sx={{ color: "text.disabled" }}>
-              ({post.comments.length})
-            </Typography>
-          </Stack>
-
-          <PostCommentForm />
-
-          <Divider sx={{ mt: 5, mb: 2 }} />
-
-          <PostCommentList comments={post.comments} /> */}
         </Stack>
       </Container>
     </>
@@ -396,7 +361,7 @@ function LinearProgressWithLabel({ value }) {
       </Box>
       <Box sx={{ minWidth: 35 }}>
         <Typography variant="body2" color="text.secondary">{`${Math.round(
-          value,
+          value
         )}%`}</Typography>
       </Box>
     </Box>
