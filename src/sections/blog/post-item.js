@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -12,10 +11,9 @@ import { fDate } from "../../utils/format-time";
 import Image from "../../components/image";
 import TextMaxLine from "../../components/text-max-line";
 import { randomIntFromInterval } from "../../utils/random_interval";
-import { CardActionArea, Chip } from "@mui/material";
+import { Chip, Link } from "@mui/material";
 import Iconify from "../../components/iconify";
 import { toTitleCase } from "./view/homePageView";
-import { redirect } from "next/navigation";
 
 export default function PostItem({
   post,
@@ -41,9 +39,13 @@ export default function PostItem({
 
   const linkTo = paths.recipe(slug);
 
+  function navigatePage() {
+    window.location.replace(linkTo);
+  }
+
   if (mdUp && latestPost) {
     return (
-      <Card sx={{cursor: "pointer"}}>
+      <Card sx={{cursor: "pointer"}} onClick={()=>navigatePage()}>
         <PostContent
           slug={slug}
           title={title}
@@ -78,7 +80,7 @@ export default function PostItem({
   }
 
   return (
-    <Card sx={{ width: "100%", cursor: "pointer" }}  >
+    <Card onClick={()=>navigatePage()}sx={{ width: "100%", cursor: "pointer" }}  >
   
       <Box sx={{ position: "relative" }}>
         <Image

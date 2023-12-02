@@ -139,7 +139,7 @@ export default function PostDetailsHero({
 PostDetailsHero.propTypes = {
   author: PropTypes.string,
   coverUrl: PropTypes.string,
-  createdAt: PropTypes.string,
+  createdAt: PropTypes.instanceOf(Date),
   title: PropTypes.string,
   filters: PropTypes.object,
 };
