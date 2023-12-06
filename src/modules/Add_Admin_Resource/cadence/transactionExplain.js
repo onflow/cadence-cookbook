@@ -1,1 +1,0 @@
-export const transactionExplain = `Before executing this transaction you first need to borrow the Admin resource from the 'acct'. Once that is borrowed, you then take 'acct2' and save the resource that is returned when you call the createNewAdmin() funtion to your storage path.`

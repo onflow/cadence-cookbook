@@ -1,0 +1,47 @@
+name: Run Cadence tests
+on: push
+
+jobs:
+  get-recipe-repos:
+    runs-on: macos-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Dynamically retrieve matrix
+        id: set-matrix      
+        run: echo "::set-output name=matrix::$(ls -d src/data/recipes/* | jq -R -s -c 'split("\n")[:-1]' )"
+  run-cadence-tests:
+    needs: get-recipe-repos
+    runs-on: macos-latest
+    strategy:
+        matrix:
+            recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}
+    steps:
+       - name: Set env
+         env:
+            RECIPE_REPO: "${{ matrix.recipe }}"
+         run: |
+            RECIPE_REPO=${{ env.RECIPE_REPO }}
+            RECIPE_REPO=${RECIPE_REPO//:} # replace all colons
+            echo RECIPE_REPO=${RECIPE_REPO} >> $GITHUB_ENV # update GitHub ENV vars
+       - name: Check out repository code
+         uses: actions/checkout@v4
+         with:
+          submodules: 'true'
+       - name: Install Flow CLI
+         run: |
+           if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
+             brew update
+             brew install flow-cli
+             flow init --reset
+           fi
+       - name: Trigger recipe test
+         run: |
+          if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
+            flow test ${{ env.RECIPE_REPO }}/cadence/tests.cdc
+          fi 
+
+
+   

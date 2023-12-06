@@ -1,1 +1,0 @@
-export const contractExplain = `This function is included in the smart contract so that anyone can create a vault resource and then save it to their account.`

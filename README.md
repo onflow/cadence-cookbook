@@ -1,10 +1,8 @@
-# Cadence Cookbook
+## NODE.JS
 
-Explore various Cadence smarts contracts & transaction scripts for different use cases.
+- Node 16.x || 18.x
 
-Build with confidence for your Web3 application
+## USING NPM
 
-# Contribute Recipes
-
-To contribute your own Cadence recipes and open them up to the community, checkout the [contribution page](contribute.md).
-
+- npm i OR npm i --legacy-peer-deps
+- npm run dev
