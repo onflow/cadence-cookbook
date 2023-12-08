@@ -17,10 +17,15 @@ import { primaryFont } from "src/theme/typography";
 import ProgressBar from "src/components/progress-bar";
 import { MotionLazy } from "src/components/animate/motion-lazy";
 import { SettingsProvider, SettingsDrawer } from "src/components/settings";
+import GTag from "src/components/GTag";
+import { GTAG_ID } from "src/config-global";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={primaryFont.className}>
+      <head>
+        <GTag gtagId={GTAG_ID} />
+      </head>
       <body>
         <SettingsProvider
           defaultSettings={{
