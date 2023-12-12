@@ -31,7 +31,7 @@ export default function Header() {
       recipes.map((o) => ({
         ...rest,
         ...o,
-      })),
+      }))
     );
   const searchOptions = flattenRecipes(recipes);
 
@@ -74,6 +74,7 @@ export default function Header() {
               "&:hover": {
                 textDecoration: "none",
               },
+              ml: 2,
             }}
             href={"/"}
           >
@@ -104,6 +105,7 @@ export default function Header() {
               sx={{
                 backgroundColor: "#02D87E",
                 "&:hover": { backgroundColor: "#3980B6" },
+                ml: 2,
               }}
               variant="contained"
               target="_blank"
