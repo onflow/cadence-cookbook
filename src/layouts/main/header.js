@@ -74,7 +74,6 @@ export default function Header() {
               "&:hover": {
                 textDecoration: "none",
               },
-              ml: 2,
             }}
             href={"/"}
           >
