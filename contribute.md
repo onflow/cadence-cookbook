@@ -19,7 +19,7 @@ Each recipe is added to the Cadence Cookbook as a Github submodule, which acts a
 
 ### Contribution Guide
 
-Check out this [video tutorial](https://drive.google.com/file/d/1lP9OFS5A8XlcbFuhfeRziQFdslzZ2eOw/view?usp=sharing) explaining the components of a sample Cookbook recipe repository, as well as what a contribution PR to the cadence-cookbook repository should look like.
+Check out this [video tutorial](https://www.youtube.com/watch?v=yi7YDA8RJNA) explaining the components of a sample Cookbook recipe repository, as well as what a contribution PR to the cadence-cookbook repository should look like.
 
 ## What is included in a Cookbook recipe repository?
 
