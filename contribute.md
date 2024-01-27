@@ -19,7 +19,7 @@ Each recipe is added to the Cadence Cookbook as a Github submodule, which acts a
 
 ### Contribution Guide
 
-Check out this video tutorial explaining the components of a sample Cookbook recipe repository, as well as what a contribution PR to the cadence-cookbook repository should look like: 
+Check out this [video tutorial](https://www.youtube.com/watch?v=yi7YDA8RJNA) explaining the components of a sample Cookbook recipe repository, as well as what a contribution PR to the cadence-cookbook repository should look like.
 
 ## What is included in a Cookbook recipe repository?
 
@@ -37,8 +37,8 @@ recipe-name/
 │   ├── tests.cdc          # Tests code
 ├── explanations/         # Explanation files for recipe examples
 │   ├── contract.txt          # Contract code explanation
-│    ├── transaction.txt          # Transaction code explanation
-│    ├── tests.txt         # Tests code explanation
+│   ├── transaction.txt          # Transaction code explanation
+│   ├── tests.txt         # Tests code explanation
 ├── index.js        # Root file for storing recipe metadata
 ├── README.md             # This README file
 └── LICENSE               # License information
