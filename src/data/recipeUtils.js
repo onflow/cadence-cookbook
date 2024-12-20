@@ -5,26 +5,65 @@ import { randomIntFromInterval } from "../utils/random_interval";
 const recipesByModule = recipes;
 
 export function fetchExternalRecipe(recipe) {
-  const contractPath = recipe.smartContractCode;
-  const transactionPath = recipe.transactionCode;
-  const testPath = recipe.testCasesCode;
-
   const contractExplanationPath = recipe.smartContractExplanation;
   const transactionExplanationPath = recipe.transactionExplanation;
   const testExplanationPath = recipe.testCasesExplanation;
 
-  const contractCode =
-    contractPath !== undefined && contractPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${contractPath}`, "utf8")
-      : null;
-  const transactionCode =
-    transactionPath !== undefined && transactionPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${transactionPath}`, "utf8")
-      : null;
-  const testCasesCode =
-    testPath !== undefined && testPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${testPath}`, "utf8")
-      : null;
+  const contractFolder = `./src/data/recipes/${recipe.path}/cadence/contracts`;
+  const transactionFolder = `./src/data/recipes/${recipe.path}/cadence/transactions`;
+  const testFolder = `./src/data/recipes/${recipe.path}/cadence/tests`;
+
+  // Dynamically find Recipe.cdc in the contracts folder
+  const contractCode = (() => {
+    try {
+      const files = fs.readdirSync(contractFolder);
+      const recipeContract = files.find((file) => file === "Recipe.cdc");
+      if (recipeContract) {
+        return fs.readFileSync(path.join(contractFolder, recipeContract), "utf8");
+      } else {
+        console.warn(`Recipe.cdc not found in ${contractFolder}`);
+        return null;
+      }
+    } catch (err) {
+      console.error(`Error reading contract folder: ${err.message}`);
+      return null;
+    }
+  })();
+
+  // Dynamically find any transaction file in the transactions folder
+const transactionCode = (() => {
+  try {
+    const files = fs.readdirSync(transactionFolder);
+    const transactionFile = files.length > 0 ? files[0] : null; // Pick the first file
+    if (transactionFile) {
+      return fs.readFileSync(path.join(transactionFolder, transactionFile), "utf8");
+    } else {
+      console.warn(`No transaction files found in ${transactionFolder}`);
+      return null;
+    }
+  } catch (err) {
+    console.error(`Error reading transactions folder: ${err.message}`);
+    return null;
+  }
+})();
+
+
+// Dynamically find Recipe.cdc in the contracts folder
+const testCasesCode = (() => {
+  try {
+    const files = fs.readdirSync(testFolder);
+    const recipeContract = files.find((file) => file === "Recipe_test.cdc");
+    if (recipeContract) {
+      return fs.readFileSync(path.join(testFolder, recipeContract), "utf8");
+    } else {
+      console.warn(`Recipe_test.cdc not found in ${testFolder}`);
+      return null;
+    }
+  } catch (err) {
+    console.error(`Error reading contract folder: ${err.message}`);
+    return null;
+  }
+})();
 
   const contractExplanation =
     contractExplanationPath !== undefined && contractExplanationPath !== null
