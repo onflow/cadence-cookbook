@@ -32,16 +32,57 @@ jobs:
           submodules: 'true'
        - name: Install Flow CLI
          run: |
-           if test -f ${{ env.RECIPE_REPO }}/cadence/tests/Recipe_test.cdc; then
-             brew update
-             brew install flow-cli
-             flow init --reset
-           fi
-       - name: Trigger recipe test
+           brew update
+           brew install flow-cli
+       - name: Initialize Flow
          run: |
-          if test -f ${{ env.RECIPE_REPO }}/cadence/tests/Recipe_test.cdc; then
-            flow test ${{ env.RECIPE_REPO }}/cadence/tests/Recipe_test.cdc;
-          fi 
+           cd ${{ env.RECIPE_REPO }}
+           if [ ! -f flow.json ]; then
+             echo "Initializing Flow project..."
+             flow init
+           else
+             echo "Flow project already initialized."
+           fi
+           flow dependencies install
+       - name: Start Flow Emulator
+         run: |
+           cd ${{ env.RECIPE_REPO }}
+           echo "Starting Flow emulator in the background..."
+           nohup flow emulator start > emulator.log 2>&1 &
+           sleep 5 # Wait for the emulator to start
+           flow project deploy --network=emulator # Deploy the recipe contracts indicated in flow.json                           
+
+
+      - name: Run All Transactions
+        run: |
+          cd ${{ env.RECIPE_REPO }}
+          echo "Running all transactions in the transactions folder..."
+          for file in ./cadence/transactions/*.cdc; do
+            echo "Running transaction: $file"
+            TRANSACTION_OUTPUT=$(flow transactions send "$file" --signer emulator-account)
+            echo "$TRANSACTION_OUTPUT"
+            if echo "$TRANSACTION_OUTPUT" | grep -q "Transaction Error"; then
+              echo "Transaction Error detected in $file, failing the action..."
+              exit 1
+            fi
+          done
+
+      - name: Run Cadence Lint
+        run: |
+          cd ${{ env.RECIPE_REPO }}
+          echo "Running Cadence linter on .cdc files in the current repository"
+          flow cadence lint ./cadence/**/*.cdc
+
+      - name: Run Cadence Tests
+      run: |
+        cd ${{ env.RECIPE_REPO }}
+        if test -f "cadence/tests.cdc"; then
+          echo "Running Cadence tests in the current repository"
+          flow test cadence/tests.cdc
+        else
+          echo "No Cadence tests found. Skipping tests."
+        fi
+
 
 
    
