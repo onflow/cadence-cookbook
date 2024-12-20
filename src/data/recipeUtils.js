@@ -28,6 +28,7 @@ export function fetchExternalRecipe(recipe) {
         return null;
       }
     } catch (err) {
+      // Check if the recipe still follows old structure
       console.error(`Error reading contract folder: ${err.message}`);
       return null;
     }
@@ -47,7 +48,7 @@ export function fetchExternalRecipe(recipe) {
         return null;
       }
     } catch (err) {
-      console.log(transactionFolder);
+      // Check if the recipe still follows old structure
       console.error(`Error reading transactions folder: ${err.message}`);
       return null;
     }
@@ -64,6 +65,7 @@ export function fetchExternalRecipe(recipe) {
         return null;
       }
     } catch (err) {
+      // Check if the recipe still follows old structure
       console.error(`Error reading tests folder: ${err.message}`);
       return null;
     }
