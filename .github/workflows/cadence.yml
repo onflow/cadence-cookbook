@@ -33,11 +33,8 @@ jobs:
        - name: Install Flow CLI
          run: |
            cd ${{ env.RECIPE_REPO }}
-           if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
-             brew update
-             brew install flow-cli
-             flow init --reset
-           fi
+           brew update
+            brew install flow-cli
        - name: Initialize Flow
          run: |
            cd ${{ env.RECIPE_REPO }}
@@ -48,6 +45,14 @@ jobs:
              echo "Flow project already initialized."
            fi
            flow dependencies install
+
+       - name: Start Flow Emulator
+         run: |
+           echo "Starting Flow emulator in the background..."
+           nohup flow emulator start > emulator.log 2>&1 &
+           sleep 5 # Wait for the emulator to start
+           flow project deploy --network=emulator # Deploy the recipe contracts indicated in flow.json                           
+
        - name: Trigger recipe tests
          run: |
           cd ${{ env.RECIPE_REPO }}
