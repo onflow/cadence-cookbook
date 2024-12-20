@@ -6,10 +6,6 @@ import { randomIntFromInterval } from "../utils/random_interval";
 const recipesByModule = recipes;
 
 export function fetchExternalRecipe(recipe) {
-  const contractExplanationPath = recipe.smartContractExplanation;
-  const transactionExplanationPath = recipe.transactionExplanation;
-  const testExplanationPath = recipe.testCasesExplanation;
-
   const contractFolder = `./src/data/recipes/${recipe.slug}/cadence/contracts`;
   const transactionFolder = `./src/data/recipes/${recipe.slug}/cadence/transactions`;
   const testFolder = `./src/data/recipes/${recipe.slug}/cadence/tests`;
@@ -91,22 +87,46 @@ export function fetchExternalRecipe(recipe) {
     }
   })();
 
-  const contractExplanation =
-    contractExplanationPath !== undefined && contractExplanationPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${contractExplanationPath}`, "utf8")
-      : null;
-  const transactionExplanation =
-    transactionExplanationPath !== undefined &&
-    transactionExplanationPath !== null
-      ? fs.readFileSync(
-          `./src/data/recipes/${transactionExplanationPath}`,
-          "utf8"
-        )
-      : null;
-  const testCasesExplanation =
-    testExplanationPath !== undefined && testExplanationPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${testExplanationPath}`, "utf8")
-      : null;
+
+  const contractExplanation = (() => {
+    const explanationPath = `./src/data/recipes/${recipe.slug}/explanations/contract.txt`;
+    try {
+      if (fs.existsSync(explanationPath)) {
+        return fs.readFileSync(explanationPath, "utf8");
+      } else {
+        return null;
+      }
+    } catch (err) {
+      return null;
+    }
+  })();
+
+  const transactionExplanation = (() => {
+    const explanationPath = `./src/data/recipes/${recipe.slug}/explanations/transaction.txt`;
+    try {
+      if (fs.existsSync(explanationPath)) {
+        return fs.readFileSync(explanationPath, "utf8");
+      } else {
+        return null;
+      }
+    } catch (err) {
+      return null;
+    }
+  })();
+  
+  const testCasesExplanation = (() => {
+    const explanationPath = `./src/data/recipes/${recipe.slug}/explanations/tests.txt`;
+    try {
+      if (fs.existsSync(explanationPath)) {
+        return fs.readFileSync(explanationPath, "utf8");
+      } else {
+        return null;
+      }
+    } catch (err) {
+      return null;
+    }
+  })();
+
 
   const setCoverUrl =
     recipe.coverUrl === undefined
