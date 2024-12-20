@@ -160,7 +160,14 @@ export default function SingleRecipeView({
           {post.smartContractExplanation !== undefined &&
             post.smartContractExplanation !== null && (
               <Markdown
-                sx={{ mt: 5, mb: 5 }}
+                sx={{
+                  mt:
+                    post.smartContractCode !== undefined &&
+                    post.smartContractCode !== null
+                      ? 5
+                      : 0,
+                  mb: 5,
+                }}
                 children={post.smartContractExplanation}
               />
             )}
@@ -208,7 +215,14 @@ export default function SingleRecipeView({
           {post.transactionExplanation !== undefined &&
             post.transactionExplanation !== null && (
               <Markdown
-                sx={{ mt: 5, mb: 5 }}
+                sx={{
+                  mt:
+                    post.transactionCode !== undefined &&
+                    post.transactionCode !== null
+                      ? 5
+                      : 0,
+                  mb: 5,
+                }}
                 children={post.transactionExplanation}
               />
             )}
