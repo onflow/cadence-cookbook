@@ -37,16 +37,16 @@ jobs:
              brew install flow-cli
              flow init --reset
            fi
-      - name: Initialize Flow
-        run: |
-          cd ${{ env.RECIPE_REPO }}
-          if [ ! -f flow.json ]; then
-            echo "Initializing Flow project..."
-            flow init
-          else
-            echo "Flow project already initialized."
-          fi
-          flow dependencies install
+       - name: Initialize Flow
+         run: |
+           cd ${{ env.RECIPE_REPO }}
+           if [ ! -f flow.json ]; then
+             echo "Initializing Flow project..."
+             flow init
+           else
+             echo "Flow project already initialized."
+           fi
+           flow dependencies install
        - name: Trigger recipe tests
          run: |
           cd ${{ env.RECIPE_REPO }}
