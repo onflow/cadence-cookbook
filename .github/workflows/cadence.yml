@@ -40,7 +40,6 @@ jobs:
          run: |
           cd ${{ env.RECIPE_REPO }}
           if test -f "flow.json"; then
-            flow dependencies install
             echo "Starting Flow emulator in the background..."
             nohup flow emulator start > emulator.log 2>&1 &
             sleep 5 # Wait for the emulator to start
@@ -58,6 +57,24 @@ jobs:
           else
            echo "No flow.json found."
           fi 
+
+       - name: Run All Transactions
+         run: |
+          cd ${{ env.RECIPE_REPO }}
+          if test -f "flow.json"; then
+           for file in ./cadence/transactions/*.cdc; do
+            echo "Running transaction: $file"
+            TRANSACTION_OUTPUT=$(flow transactions send "$file" --signer emulator-account)
+            echo "$TRANSACTION_OUTPUT"
+            if echo "$TRANSACTION_OUTPUT" | grep -q "Transaction Error"; then
+              echo "Transaction Error detected in $file, failing the action..."
+              exit 1
+            fi
+           done
+          else
+           echo "No flow.json found."
+          fi 
+
 
        - name: Trigger recipe tests
          run: |
