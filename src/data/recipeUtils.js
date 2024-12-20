@@ -29,8 +29,16 @@ export function fetchExternalRecipe(recipe) {
       }
     } catch (err) {
       // Check if the recipe still follows old structure
-      console.error(`Error reading contract folder: ${err.message}`);
-      return null;
+      const oldContractPath = `./src/data/recipes/${recipe.slug}/cadence/contract.cdc`;
+      try {
+        if (fs.existsSync(oldContractPath)) {
+          return fs.readFileSync(oldContractPath, "utf8");
+        } else {
+          return null;
+        }
+      } catch (oldErr) {
+        return null;
+      }
     }
   })();
 
@@ -49,8 +57,16 @@ export function fetchExternalRecipe(recipe) {
       }
     } catch (err) {
       // Check if the recipe still follows old structure
-      console.error(`Error reading transactions folder: ${err.message}`);
-      return null;
+      const oldTransactionPath = `./src/data/recipes/${recipe.slug}/cadence/transaction.cdc`;
+      try {
+        if (fs.existsSync(oldTransactionPath)) {
+          return fs.readFileSync(oldTransactionPath, "utf8");
+        } else {
+          return null;
+        }
+      } catch (oldErr) {
+        return null;
+      }
     }
   })();
 
@@ -58,16 +74,19 @@ export function fetchExternalRecipe(recipe) {
   const testCasesCode = (() => {
     try {
       const files = fs.readdirSync(testFolder);
-      const recipeContractTests = files.find((file) => file === "Recipe_test.cdc");
+      const recipeContractTests = files.find(
+        (file) => file === "Recipe_test.cdc"
+      );
       if (recipeContractTests) {
-        return fs.readFileSync(path.join(testFolder, recipeContractTests), "utf8");
+        return fs.readFileSync(
+          path.join(testFolder, recipeContractTests),
+          "utf8"
+        );
       } else {
         return null;
       }
     } catch (err) {
-      // Check if the recipe still follows old structure
-      console.error(`Error reading tests folder: ${err.message}`);
-      return null;
+      return null
     }
   })();
 
