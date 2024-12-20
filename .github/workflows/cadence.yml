@@ -38,6 +38,7 @@ jobs:
        - name: Initialize Flow
          run: |
            cd ${{ env.RECIPE_REPO }}
+           ls -a
            if [ ! -f flow.json ]; then
              echo "Initializing Flow project..."
              flow init
@@ -51,7 +52,13 @@ jobs:
            echo "Starting Flow emulator in the background..."
            nohup flow emulator start > emulator.log 2>&1 &
            sleep 5 # Wait for the emulator to start
-           flow project deploy --network=emulator # Deploy the recipe contracts indicated in flow.json                           
+           flow project deploy --network=emulator # Deploy the recipe contracts indicated in flow.json  
+
+       - name: Run Cadence Lint
+         run: |
+           cd ${{ env.RECIPE_REPO }}
+           echo "Running Cadence linter on .cdc files in the current repository"
+           flow cadence lint ./cadence/**/*.cdc                         
 
        - name: Trigger recipe tests
          run: |
