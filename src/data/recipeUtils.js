@@ -32,6 +32,7 @@ export function fetchExternalRecipe(recipe) {
       const oldContractPath = `./src/data/recipes/${recipe.slug}/cadence/contract.cdc`;
       try {
         if (fs.existsSync(oldContractPath)) {
+          console.log("Using /cadence/contract.cdc configuration for: " + oldContractPath)
           return fs.readFileSync(oldContractPath, "utf8");
         } else {
           return null;
