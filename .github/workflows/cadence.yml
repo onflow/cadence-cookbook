@@ -32,6 +32,7 @@ jobs:
           submodules: 'true'
        - name: Install Flow CLI
          run: |
+           cd ${{ env.RECIPE_REPO }}
            if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
              brew update
              brew install flow-cli
