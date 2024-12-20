@@ -32,15 +32,15 @@ jobs:
           submodules: 'true'
        - name: Install Flow CLI
          run: |
-           if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
+           if test -f ${{ env.RECIPE_REPO }}/cadence/tests/Recipe_test.cdc; then
              brew update
              brew install flow-cli
              flow init --reset
            fi
        - name: Trigger recipe test
          run: |
-          if test -f ${{ env.RECIPE_REPO }}/cadence/tests.cdc; then
-            flow test ${{ env.RECIPE_REPO }}/cadence/tests.cdc
+          if test -f ${{ env.RECIPE_REPO }}/cadence/tests/Recipe_test.cdc; then
+            flow test ${{ env.RECIPE_REPO }}/cadence/tests/Recipe_test.cdc;
           fi 
 
 
