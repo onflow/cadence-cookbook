@@ -1,5 +1,6 @@
 import * as fs from "node:fs";
 import { recipes } from "./recipes";
+const path = require("path");
 import { randomIntFromInterval } from "../utils/random_interval";
 
 const recipesByModule = recipes;
@@ -9,9 +10,9 @@ export function fetchExternalRecipe(recipe) {
   const transactionExplanationPath = recipe.transactionExplanation;
   const testExplanationPath = recipe.testCasesExplanation;
 
-  const contractFolder = `./src/data/recipes/${recipe.path}/cadence/contracts`;
-  const transactionFolder = `./src/data/recipes/${recipe.path}/cadence/transactions`;
-  const testFolder = `./src/data/recipes/${recipe.path}/cadence/tests`;
+  const contractFolder = `./src/data/recipes/${recipe.slug}/cadence/contracts`;
+  const transactionFolder = `./src/data/recipes/${recipe.slug}/cadence/transactions`;
+  const testFolder = `./src/data/recipes/${recipe.slug}/cadence/tests`;
 
   // Dynamically find Recipe.cdc in the contracts folder
   const contractCode = (() => {
@@ -19,9 +20,11 @@ export function fetchExternalRecipe(recipe) {
       const files = fs.readdirSync(contractFolder);
       const recipeContract = files.find((file) => file === "Recipe.cdc");
       if (recipeContract) {
-        return fs.readFileSync(path.join(contractFolder, recipeContract), "utf8");
+        return fs.readFileSync(
+          path.join(contractFolder, recipeContract),
+          "utf8"
+        );
       } else {
-        console.warn(`Recipe.cdc not found in ${contractFolder}`);
         return null;
       }
     } catch (err) {
@@ -31,39 +34,40 @@ export function fetchExternalRecipe(recipe) {
   })();
 
   // Dynamically find any transaction file in the transactions folder
-const transactionCode = (() => {
-  try {
-    const files = fs.readdirSync(transactionFolder);
-    const transactionFile = files.length > 0 ? files[0] : null; // Pick the first file
-    if (transactionFile) {
-      return fs.readFileSync(path.join(transactionFolder, transactionFile), "utf8");
-    } else {
-      console.warn(`No transaction files found in ${transactionFolder}`);
+  const transactionCode = (() => {
+    try {
+      const files = fs.readdirSync(transactionFolder);
+      const transactionFile = files.length > 0 ? files[0] : null; // Pick the first file
+      if (transactionFile) {
+        return fs.readFileSync(
+          path.join(transactionFolder, transactionFile),
+          "utf8"
+        );
+      } else {
+        return null;
+      }
+    } catch (err) {
+      console.log(transactionFolder);
+      console.error(`Error reading transactions folder: ${err.message}`);
       return null;
     }
-  } catch (err) {
-    console.error(`Error reading transactions folder: ${err.message}`);
-    return null;
-  }
-})();
+  })();
 
-
-// Dynamically find Recipe.cdc in the contracts folder
-const testCasesCode = (() => {
-  try {
-    const files = fs.readdirSync(testFolder);
-    const recipeContract = files.find((file) => file === "Recipe_test.cdc");
-    if (recipeContract) {
-      return fs.readFileSync(path.join(testFolder, recipeContract), "utf8");
-    } else {
-      console.warn(`Recipe_test.cdc not found in ${testFolder}`);
+  // Dynamically find Recipe.cdc in the contracts folder
+  const testCasesCode = (() => {
+    try {
+      const files = fs.readdirSync(testFolder);
+      const recipeContractTests = files.find((file) => file === "Recipe_test.cdc");
+      if (recipeContractTests) {
+        return fs.readFileSync(path.join(testFolder, recipeContractTests), "utf8");
+      } else {
+        return null;
+      }
+    } catch (err) {
+      console.error(`Error reading tests folder: ${err.message}`);
       return null;
     }
-  } catch (err) {
-    console.error(`Error reading contract folder: ${err.message}`);
-    return null;
-  }
-})();
+  })();
 
   const contractExplanation =
     contractExplanationPath !== undefined && contractExplanationPath !== null
