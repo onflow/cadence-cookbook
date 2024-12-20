@@ -10,48 +10,49 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Dynamically retrieve matrix
-        id: set-matrix
-        run: echo "::set-output name=matrix::$(ls -d src/data/recipes/* | jq -R -s -c 'split(\"\\n\")[:-1]')"
-
+        id: set-matrix      
+        run: echo "::set-output name=matrix::$(ls -d src/data/recipes/* | jq -R -s -c 'split("\n")[:-1]' )"
+  
   run-cadence-tests:
     needs: get-recipe-repos
     runs-on: macos-latest
     strategy:
-      matrix:
-        recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}
+        matrix:
+            recipe: ${{ fromJson(needs.get-recipe-repos.outputs.matrix) }}
     steps:
-      - name: Set env
-        env:
-          RECIPE_REPO: "${{ matrix.recipe }}"
-        run: |
-          RECIPE_REPO=${{ env.RECIPE_REPO }}
-          RECIPE_REPO=${RECIPE_REPO//:} # replace all colons
-          echo RECIPE_REPO=${RECIPE_REPO} >> $GITHUB_ENV # update GitHub ENV vars
-      - name: Check out repository code
-        uses: actions/checkout@v4
-        with:
+       - name: Set env
+         env:
+            RECIPE_REPO: "${{ matrix.recipe }}"
+         run: |
+            RECIPE_REPO=${{ env.RECIPE_REPO }}
+            RECIPE_REPO=${RECIPE_REPO//:} # replace all colons
+            echo RECIPE_REPO=${RECIPE_REPO} >> $GITHUB_ENV # update GitHub ENV vars
+       - name: Check out repository code
+         uses: actions/checkout@v4
+         with:
           submodules: 'true'
-      - name: Install Flow CLI
-        run: |
-          brew update
-          brew install flow-cli
-      - name: Initialize Flow
-        run: |
-          cd ${{ env.RECIPE_REPO }}
-          if [ ! -f flow.json ]; then
-            echo "Initializing Flow project..."
-            flow init
-          else
-            echo "Flow project already initialized."
-          fi
-          flow dependencies install
-      - name: Start Flow Emulator
-        run: |
-          cd ${{ env.RECIPE_REPO }}
-          echo "Starting Flow emulator in the background..."
-          nohup flow emulator start > emulator.log 2>&1 &
-          sleep 5 # Wait for the emulator to start
-          flow project deploy --network=emulator # Deploy the recipe contracts indicated in flow.json
+       - name: Install Flow CLI
+         run: |
+           brew update
+           brew install flow-cli
+       - name: Initialize Flow
+         run: |
+           cd ${{ env.RECIPE_REPO }}
+           if [ ! -f flow.json ]; then
+             echo "Initializing Flow project..."
+             flow init
+           else
+             echo "Flow project already initialized."
+           fi
+           flow dependencies install
+       - name: Start Flow Emulator
+         run: |
+           cd ${{ env.RECIPE_REPO }}
+           echo "Starting Flow emulator in the background..."
+           nohup flow emulator start > emulator.log 2>&1 &
+           sleep 5 # Wait for the emulator to start
+           flow project deploy --network=emulator # Deploy the recipe contracts indicated in flow.json                           
+
 
       - name: Run All Transactions
         run: |
@@ -74,10 +75,15 @@ jobs:
           flow cadence lint ./cadence/**/*.cdc
 
       - name: Run Cadence Tests
-        run: |
-          cd ${{ env.RECIPE_REPO }}
-          if test -f "cadence/tests.cdc"; then
-            echo "Running Cadence tests in the current repository"
-            flow test cadence/tests.cdc
-          else
-            echo "No Cadence tests found. Skipping tests."
+      run: |
+        cd ${{ env.RECIPE_REPO }}
+        if test -f "cadence/tests.cdc"; then
+          echo "Running Cadence tests in the current repository"
+          flow test cadence/tests.cdc
+        else
+          echo "No Cadence tests found. Skipping tests."
+        fi
+
+
+
+   
