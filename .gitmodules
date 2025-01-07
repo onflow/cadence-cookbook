@@ -43,15 +43,6 @@
 [submodule "src/data/recipes/add-admin-resource-to-account"]
 	path = src/data/recipes/add-admin-resource-to-account
 	url = https://github.com/lealobanov/add-admin-resource-to-account
-[submodule "src/data/recipes/create-a-topshot-play"]
-	path = src/data/recipes/create-a-topshot-play
-	url = https://github.com/lealobanov/create-a-topshot-play
-[submodule "src/data/recipes/create-a-topshot-set"]
-	path = src/data/recipes/create-a-topshot-set
-	url = https://github.com/lealobanov/create-a-topshot-set
-[submodule "src/data/recipes/minting-a-moment-in-topshot-set"]
-	path = src/data/recipes/minting-a-moment-in-topshot-set
-	url = https://github.com/lealobanov/minting-a-moment-in-topshot-set
 [submodule "src/data/recipes/create-a-marketplace"]
 	path = src/data/recipes/create-a-marketplace
 	url = https://github.com/lealobanov/create-a-marketplace
