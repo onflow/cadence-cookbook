@@ -28,15 +28,6 @@
 [submodule "src/data/recipes/vault-minter"]
 	path = src/data/recipes/vault-minter
 	url = https://github.com/lealobanov/vault-minter
-[submodule "src/data/recipes/implementing-series-for-nfts"]
-	path = src/data/recipes/implementing-series-for-nfts
-	url = https://github.com/lealobanov/implementing-series-for-nfts
-[submodule "src/data/recipes/creating-a-set-in-series"]
-	path = src/data/recipes/creating-a-set-in-series
-	url = https://github.com/lealobanov/creating-a-set-in-series
-[submodule "src/data/recipes/minting-nfts-in-a-set"]
-	path = src/data/recipes/minting-nfts-in-a-set
-	url = https://github.com/lealobanov/minting-nfts-in-a-set
 [submodule "src/data/recipes/admin-resource"]
 	path = src/data/recipes/admin-resource
 	url = https://github.com/lealobanov/admin-resource
