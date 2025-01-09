@@ -33,14 +33,7 @@ export const recipes = [
       creatingCollectionForAccount,
       nftWithMetdata,
       metadataViews,
-      multipleMetadataViews,
-      implementingSeriesForNFTs,
-      creatingASetInSeries,
-      mintingNftsInASet,
-      createATopShotPlay,
-      createATopShotSet,
-      addAPlayToTopShotSet,
-      mintingAMomentInTopShotSet,
+      multipleMetadataViews
     ],
   },
   {
