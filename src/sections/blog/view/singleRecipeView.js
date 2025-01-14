@@ -117,7 +117,16 @@ export default function SingleRecipeView({
             </Typography>
           )}
 
-          <Typography variant="h5" sx={{ mb: 5 }}>
+          <Typography
+            variant="h5"
+            sx={{
+              mb:
+                post.smartContractCode !== undefined &&
+                post.smartContractCode !== null
+                  ? 5
+                  : 0,
+            }}
+          >
             Smart Contract Example
           </Typography>
         </Stack>
@@ -151,12 +160,28 @@ export default function SingleRecipeView({
           {post.smartContractExplanation !== undefined &&
             post.smartContractExplanation !== null && (
               <Markdown
-                sx={{ mt: 5, mb: 5 }}
+                sx={{
+                  mt:
+                    post.smartContractCode !== undefined &&
+                    post.smartContractCode !== null
+                      ? 5
+                      : 0,
+                  mb: 5,
+                }}
                 children={post.smartContractExplanation}
               />
             )}
 
-          <Typography variant="h5" sx={{ mb: 5 }}>
+          <Typography
+            variant="h5"
+            sx={{
+              mb:
+                post.transactionCode !== undefined &&
+                post.transactionCode !== null
+                  ? 5
+                  : 0,
+            }}
+          >
             Transaction Example
           </Typography>
         </Stack>
@@ -190,21 +215,28 @@ export default function SingleRecipeView({
           {post.transactionExplanation !== undefined &&
             post.transactionExplanation !== null && (
               <Markdown
-                sx={{ mt: 5, mb: 5 }}
+                sx={{
+                  mt:
+                    post.transactionCode !== undefined &&
+                    post.transactionCode !== null
+                      ? 5
+                      : 0,
+                  mb: 5,
+                }}
                 children={post.transactionExplanation}
               />
             )}
 
-          {((post.testCasesCode !== undefined && post.testCasesCode !== null) ||
+          {/* {((post.testCasesCode !== undefined && post.testCasesCode !== null) ||
             (post.testCasesExplanation !== undefined &&
               post.testCasesExplanation !== null)) && (
             <Typography variant="h5" sx={{ mb: 5 }}>
               Cadence Test Cases
             </Typography>
-          )}
+          )} */}
         </Stack>
 
-        {post.testCasesCode !== undefined && post.testCasesCode !== null && (
+        {/* {post.testCasesCode !== undefined && post.testCasesCode !== null && (
           <Box
             sx={{ px: { md: "15%", lg: "15%", xl: "15%", xs: 2 } }}
             alignItems="center"
@@ -217,16 +249,16 @@ export default function SingleRecipeView({
               wrapLines
             />
           </Box>
-        )}
+        )} */}
 
         <Stack sx={{ maxWidth: 920, mx: "auto", pl: { xs: 2 }, pr: { xs: 2 } }}>
-          {post.testCasesExplanation !== undefined &&
+          {/* {post.testCasesExplanation !== undefined &&
             post.testCasesExplanation !== null && (
               <Markdown
                 sx={{ mt: 5, mb: 5 }}
                 children={post.testCasesExplanation}
               />
-            )}
+            )} */}
 
           {/* <Typography variant="h5" sx={{ mb: 3 }}>
             FAQs

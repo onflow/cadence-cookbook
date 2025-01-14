@@ -1,47 +1,132 @@
 import * as fs from "node:fs";
 import { recipes } from "./recipes";
+const path = require("path");
 import { randomIntFromInterval } from "../utils/random_interval";
 
 const recipesByModule = recipes;
 
 export function fetchExternalRecipe(recipe) {
-  const contractPath = recipe.smartContractCode;
-  const transactionPath = recipe.transactionCode;
-  const testPath = recipe.testCasesCode;
+  const contractFolder = `./src/data/recipes/${recipe.slug}/cadence/contracts`;
+  const transactionFolder = `./src/data/recipes/${recipe.slug}/cadence/transactions`;
+  const testFolder = `./src/data/recipes/${recipe.slug}/cadence/tests`;
 
-  const contractExplanationPath = recipe.smartContractExplanation;
-  const transactionExplanationPath = recipe.transactionExplanation;
-  const testExplanationPath = recipe.testCasesExplanation;
-
-  const contractCode =
-    contractPath !== undefined && contractPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${contractPath}`, "utf8")
-      : null;
-  const transactionCode =
-    transactionPath !== undefined && transactionPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${transactionPath}`, "utf8")
-      : null;
-  const testCasesCode =
-    testPath !== undefined && testPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${testPath}`, "utf8")
-      : null;
-
-  const contractExplanation =
-    contractExplanationPath !== undefined && contractExplanationPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${contractExplanationPath}`, "utf8")
-      : null;
-  const transactionExplanation =
-    transactionExplanationPath !== undefined &&
-    transactionExplanationPath !== null
-      ? fs.readFileSync(
-          `./src/data/recipes/${transactionExplanationPath}`,
+  // Dynamically find Recipe.cdc in the contracts folder
+  const contractCode = (() => {
+    try {
+      const files = fs.readdirSync(contractFolder);
+      const recipeContract = files.find((file) => file === "Recipe.cdc");
+      if (recipeContract) {
+        return fs.readFileSync(
+          path.join(contractFolder, recipeContract),
           "utf8"
-        )
-      : null;
-  const testCasesExplanation =
-    testExplanationPath !== undefined && testExplanationPath !== null
-      ? fs.readFileSync(`./src/data/recipes/${testExplanationPath}`, "utf8")
-      : null;
+        );
+      } else {
+        return null;
+      }
+    } catch (err) {
+      // Check if the recipe still follows old structure
+      const oldContractPath = `./src/data/recipes/${recipe.slug}/cadence/contract.cdc`;
+      try {
+        if (fs.existsSync(oldContractPath)) {
+          console.log("Using /cadence/contract.cdc configuration for: " + oldContractPath)
+          return fs.readFileSync(oldContractPath, "utf8");
+        } else {
+          return null;
+        }
+      } catch (oldErr) {
+        return null;
+      }
+    }
+  })();
+
+  // Dynamically find any transaction file in the transactions folder
+  const transactionCode = (() => {
+    try {
+      const files = fs.readdirSync(transactionFolder);
+      const transactionFile = files.length > 0 ? files[0] : null; // Pick the first file
+      if (transactionFile) {
+        return fs.readFileSync(
+          path.join(transactionFolder, transactionFile),
+          "utf8"
+        );
+      } else {
+        return null;
+      }
+    } catch (err) {
+      // Check if the recipe still follows old structure
+      const oldTransactionPath = `./src/data/recipes/${recipe.slug}/cadence/transaction.cdc`;
+      try {
+        if (fs.existsSync(oldTransactionPath)) {
+          return fs.readFileSync(oldTransactionPath, "utf8");
+        } else {
+          return null;
+        }
+      } catch (oldErr) {
+        return null;
+      }
+    }
+  })();
+
+  // Dynamically find Recipe.cdc in the contracts folder
+  const testCasesCode = (() => {
+    try {
+      const files = fs.readdirSync(testFolder);
+      const recipeContractTests = files.find(
+        (file) => file === "Recipe_test.cdc"
+      );
+      if (recipeContractTests) {
+        return fs.readFileSync(
+          path.join(testFolder, recipeContractTests),
+          "utf8"
+        );
+      } else {
+        return null;
+      }
+    } catch (err) {
+      return null
+    }
+  })();
+
+
+  const contractExplanation = (() => {
+    const explanationPath = `./src/data/recipes/${recipe.slug}/explanations/contract.txt`;
+    try {
+      if (fs.existsSync(explanationPath)) {
+        return fs.readFileSync(explanationPath, "utf8");
+      } else {
+        return null;
+      }
+    } catch (err) {
+      return null;
+    }
+  })();
+
+  const transactionExplanation = (() => {
+    const explanationPath = `./src/data/recipes/${recipe.slug}/explanations/transaction.txt`;
+    try {
+      if (fs.existsSync(explanationPath)) {
+        return fs.readFileSync(explanationPath, "utf8");
+      } else {
+        return null;
+      }
+    } catch (err) {
+      return null;
+    }
+  })();
+  
+  const testCasesExplanation = (() => {
+    const explanationPath = `./src/data/recipes/${recipe.slug}/explanations/tests.txt`;
+    try {
+      if (fs.existsSync(explanationPath)) {
+        return fs.readFileSync(explanationPath, "utf8");
+      } else {
+        return null;
+      }
+    } catch (err) {
+      return null;
+    }
+  })();
+
 
   const setCoverUrl =
     recipe.coverUrl === undefined
